@@ -1,5 +1,11 @@
 ﻿# 一問一答アプリ
 
+**公開URL： https://narulab-jp.github.io/qa-app/**
+
+スマホでの設定手順は [スマホ設定手順.md](スマホ設定手順.md)（PDF版：`スマホ設定手順.pdf`）にあります。
+息子さん本人が自分で設定できるよう、専門用語を使わずに書いています。
+
+
 ## 1. このアプリは何か
 
 問題を画面に出し、**声に出して答えると音声認識で文字に起こして正誤を判定する**
@@ -65,10 +71,11 @@ python -m http.server 8000
 そのままブラウザで `http://127.0.0.1:8000/` を開きます。
 終わるときは PowerShell で Ctrl+C を押します。
 
-**方法B：Webに公開して開く**
+**方法B：公開済みのURLを開く（おすすめ）**
 
-Netlify などに `QA_APP` フォルダをそのまま置けば、URLで開けます。
-スマートフォンから使う場合はこの方法になります。
+    https://narulab-jp.github.io/qa-app/
+
+GitHub Pages で公開しています。スマートフォンから使う場合はこちらです。
 
 ### 2-2. スマートフォンで使う（PWA）
 
@@ -357,4 +364,61 @@ correctStreak が既定値（2）に達した → entries から外す（卒業�
 - 登録に失敗してもアプリは普通に動きます（登録処理は握りつぶしています）。
 - iOS Safari は Service Worker の挙動に制限がありますが、キャッシュが効かなくても
   ネットワーク経由で動作します。
+
+---
+
+## 10. 公開と更新の手順
+
+### 10-1. 公開先
+
+| 項目 | 内容 |
+|---|---|
+| 公開URL | https://narulab-jp.github.io/qa-app/ |
+| リポジトリ | https://github.com/narulab-jp/qa-app （public） |
+| 配信 | GitHub Pages（main ブランチのルート） |
+
+public にしているのは、GitHub Pages が無料プランでは public リポジトリでしか
+使えないためです。中身は自作の学習教材のみです。
+
+### 10-2. 更新のしかた
+
+```powershell
+# 1. ファイルを直す（問題を直すときは統合CSV → python tools\csv2json.py）
+# 2. コミットして送る
+cd C:\Users\takad\Downloads\QA_APP
+git add .
+git commit -m "何を変えたか"
+git push
+```
+
+**push から数分でサイトに反映されます。** 状態は次で確認できます。
+
+```powershell
+gh api repos/narulab-jp/qa-app/pages --jq .status   # built になれば反映済み
+```
+
+**アプリのファイル（index.html / app.css / app.js など）を変えたときは、
+`sw.js` の `VERSION` を上げてください。** 上げないと、以前のキャッシュが
+残っている端末に更新が届きません。
+
+```javascript
+var VERSION = "v2";   // → "v3" のように上げる
+```
+
+### 10-3. 公開しないもの
+
+**学習ログと間違いノートはリポジトリに含めません。** 学習の記録は個人の情報であり、
+公開する必要がないためです。`.gitignore` で除外しています。
+
+```
+*_note.json      間違いノート
+*_log.json       学習ログ
+*_resume.json    中断した周回の状態
+学習ログ/
+```
+
+これらは各自の端末にダウンロードして保管してください（8節を参照）。
+
+また、ソースコード中に個人情報が入らないよう、絶対パスは
+`os.path.expanduser("~")` や `%USERPROFILE%` で書いています。
 
