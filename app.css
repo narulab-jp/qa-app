@@ -242,7 +242,12 @@ details.sect > *:last-child{margin-bottom:24px;}
 }
 .tag{border:0;background:none;padding:0;}
 #mLevel, #mType{display:none;}   /* 出題中は先入観を与えないため出さない */
-.qline{height:1px;background:var(--line);margin:0 0 28px;}
+/* 進み具合の細い線。下地が薄い罫線、その上を紺が伸びる */
+.qline{height:1px;background:var(--line);margin:0 0 28px;position:relative;}
+.qfill{
+  display:block; position:absolute; left:0; top:0; height:1px; width:0;
+  background:var(--accent); transition:width .25s linear;
+}
 
 .qtext{
   font-size:var(--fs-q); font-weight:400; line-height:1.7;
@@ -277,6 +282,12 @@ details.sect > *:last-child{margin-bottom:24px;}
 .score{
   font-size:var(--fs-num); font-weight:300; color:var(--accent);
   letter-spacing:.01em; margin:16px 0 24px; line-height:1.4;
+}
+/* 上段＝割合を大きく細く、下段＝内訳を小さく薄く */
+.score-num{font-size:inherit; font-weight:inherit; color:inherit; line-height:1.15;}
+.score-sub{
+  font-size:var(--fs-label); font-weight:400; color:var(--dim);
+  letter-spacing:0; line-height:1.6; margin-top:6px;
 }
 .stat{border-top:1px solid var(--line);padding:16px 0 4px;margin:0;}
 .stat h3{font-size:var(--fs-label);font-weight:600;color:var(--dim);margin:0 0 8px;}

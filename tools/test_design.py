@@ -263,6 +263,30 @@ def main():
             "問題文=%.0fpx／次に大きい要素=%.0fpx（%s）" % (qfs, mx[0], mx[1]))
         shots.append(c.shot("02_quiz"))
 
+        # ---------- 進捗線が伸びるか ----------
+        def fillpct():
+            return c.ev("(function(){var t=document.querySelector('.qline'),"
+                        "f=document.getElementById('qFill');"
+                        "var w=t.getBoundingClientRect().width;"
+                        "return w?Math.round(f.getBoundingClientRect().width/w*1000)/10:-1;})()")
+        w0 = fillpct()
+        c.ev("window.__t.answer(true);document.getElementById('btnNext').click();")
+        time.sleep(0.4)
+        w1 = fillpct()
+        c.ev("window.__t.answer(true);document.getElementById('btnNext').click();")
+        time.sleep(0.4)
+        w2 = fillpct()
+        fcol = c.ev("window.__t.css('#qFill','background-color')")
+        rec(w0 == 0 and abs(w1 - 20) < 1.5 and abs(w2 - 40) < 1.5
+            and fcol == PALETTE["accent"],
+            "進捗線が、何問目まで進んだかに応じて伸びる",
+            "5問中 1問目=%.0f%%／2問目=%.0f%%／3問目=%.0f%%（色=%s）"
+            % (w0, w1, w2, fcol))
+        # 進捗の確認で2問進めたので、判定画面の確認は最初からやり直す
+        # （自己採点の問題は○×を押すと自動で次に進み、判定画面が残らないため）
+        c.ev("window.__t.start(['01'],5,'ALL','csv','normal')")
+        time.sleep(0.3)
+
         # ---------- 音声ボタンの脈打ち ----------
         anim0 = c.ev("window.__t.css('#btnMic','animation-name')")
         c.ev("document.getElementById('btnMic').classList.add('listening')")
@@ -277,24 +301,37 @@ def main():
         # ---------- 判定画面 ----------
         c.ev("window.__t.answer(false)")
         time.sleep(0.3)
+        jvis = c.ev("!document.getElementById('s-judge').hidden"
+                    "&&!document.getElementById('verdict').hidden")
         vfs = c.ev("parseFloat(window.__t.css('#verdict','font-size'))")
         vtxt = c.ev("(function(){var s=getComputedStyle(document.getElementById('verdict'),"
                     "'::before');return [s.content,s.color,parseFloat(s.fontSize)];})()")
         shots.append(c.shot("03_judge_ng"))
-        rec(vfs == 0 and "不正解" in str(vtxt[0]) and vtxt[1] == PALETTE["ng"]
-            and vtxt[2] <= 20,
+        rec(jvis is True and vfs == 0 and "不正解" in str(vtxt[0])
+            and vtxt[1] == PALETTE["ng"] and vtxt[2] <= 20,
             "判定は○×の巨大表示をやめ、控えめな文字で示す",
-            "記号の文字サイズ=%.0fpx／表示=%s（%s・%.0fpx）"
+            "判定画面=表示中／記号の文字サイズ=%.0fpx／表示=%s（%s・%.0fpx）"
             % (vfs, vtxt[0], vtxt[1], vtxt[2]))
+        jl = c.ev("(function(){var e=document.getElementById('jLevel');"
+                  "return [getComputedStyle(e).display,e.textContent];})()")
+        jt = c.ev("(function(){var e=document.getElementById('jType');"
+                  "return [getComputedStyle(e).display,e.textContent];})()")
+        rec(jvis is True and jl[0] != "none" and jl[1].startswith("重要度 ")
+            and jt[0] != "none" and jt[1] != "",
+            "答え合わせの画面では重要度と出題タイプを表示する",
+            "判定画面=表示中／#jLevel=%s「%s」／#jType=%s「%s」"
+            % (jl[0], jl[1], jt[0], jt[1]))
         c.ev("document.getElementById('btnNext').click()")
         c.ev("window.__t.answer(true)")
         time.sleep(0.3)
         vok = c.ev("(function(){var s=getComputedStyle(document.getElementById('verdict'),"
                    "'::before');return [s.content,s.color];})()")
         shots.append(c.shot("04_judge_ok"))
-        rec("正解" in str(vok[0]) and vok[1] == PALETTE["ok"],
+        okvis = c.ev("!document.getElementById('s-judge').hidden"
+                     "&&!document.getElementById('verdict').hidden")
+        rec(okvis is True and "正解" in str(vok[0]) and vok[1] == PALETTE["ok"],
             "正解のときは落ち着いた緑で「正解」と出る",
-            "%s（%s）" % (vok[0], vok[1]))
+            "判定画面=表示中／%s（%s）" % (vok[0], vok[1]))
 
         # ---------- 結果画面 ----------
         c.ev("document.getElementById('btnNext').click()")
@@ -305,13 +342,24 @@ def main():
                 c.ev("window.__t.answer(false)")
             elif not c.ev("document.getElementById('btnNext').hidden"):
                 c.ev("document.getElementById('btnNext').click()")
-        sfs = c.ev("parseFloat(window.__t.css('#score','font-size'))")
-        swt = c.ev("window.__t.css('#score','font-weight')")
-        scol = c.ev("window.__t.css('#score','color')")
+        sfs = c.ev("parseFloat(window.__t.css('#scoreNum','font-size'))")
+        swt = c.ev("window.__t.css('#scoreNum','font-weight')")
+        scol = c.ev("window.__t.css('#scoreNum','color')")
         shots.append(c.shot("05_result"))
         rec(sfs >= 28 and int(swt) <= 300 and scol == PALETTE["accent"],
             "結果の数字は大きく細い紺の字で示す",
             "%.0fpx／太さ%s／%s" % (sfs, swt, scol))
+        num = c.ev("document.getElementById('scoreNum').textContent")
+        sub = c.ev("document.getElementById('scoreSub').textContent")
+        ufs = c.ev("parseFloat(window.__t.css('#scoreSub','font-size'))")
+        ucol = c.ev("window.__t.css('#scoreSub','color')")
+        ntop = c.ev("document.getElementById('scoreNum').getBoundingClientRect().bottom"
+                    "<=document.getElementById('scoreSub').getBoundingClientRect().top+1")
+        rec(num.endswith("%") and ("問中" in sub) and ("問正解" in sub)
+            and ufs <= 13 and ucol == PALETTE["dim"] and ntop is True,
+            "結果画面が2段組みで、下段は小さく薄い文字",
+            "上段=「%s」%.0fpx／下段=「%s」%.0fpx（%s）"
+            % (num, sfs, sub, ufs, ucol))
 
         # ---------- 影とグラデーション ----------
         sh = c.ev("window.__t.shadows()")

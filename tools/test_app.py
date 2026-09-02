@@ -294,7 +294,7 @@ def main():
         nw = c.ev("document.querySelectorAll('#wrongList .wrong').length")
         c.ev("document.getElementById('btnRetryWrong').click()")
         n2 = c.ev("window.__app.getQuiz().roundList.length")
-        rec(("正答" in score) and nw > 0 and n2 == nw,
+        rec(("%" in score) and ("問中" in score) and nw > 0 and n2 == nw,
             "結果画面と「間違えた問題だけもう一度」が動く",
             "%s／間違い一覧%d件／再挑戦%d問" % (score, nw, n2))
 

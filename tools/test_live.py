@@ -184,7 +184,8 @@ def main():
         nn = c.ev("window.__app.getNote().entries.length")
         rec(nn == 4, "間違いノートが機能する（誤答が蓄積される）", "ノート%d件" % nn)
         rec(not c.ev("document.getElementById('s-result').hidden"),
-            "結果画面が出る", c.ev("document.getElementById('score').textContent"))
+            "結果画面が出る",
+            " ".join(c.ev("document.getElementById('score').textContent").split()))
 
         # ---------- Service Worker / PWA ----------
         for _ in range(30):

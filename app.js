@@ -738,6 +738,16 @@ function renderStatus(){
     bar.textContent = "経過 " + mmss(sessionElapsed());
   }
 }
+/* 進み具合（0〜1）。片づいた問題数 ÷ この周の問題数。表示だけに使う。
+   周回学習では、もう一度出る問題は「残り」として数える。 */
+function progressRatio(){
+  var total = quiz.roundList ? quiz.roundList.length : 0;
+  if(!total) return 0;
+  var left = (quiz.queue ? quiz.queue.length : 0) +
+             (quiz.wrongPass ? quiz.wrongPass.length : 0);
+  var r = (total - left) / total;
+  return r < 0 ? 0 : (r > 1 ? 1 : r);
+}
 function nextQuestion(){
   if(!quiz.queue.length){
     if(quiz.mode === "round" && quiz.wrongPass.length){
@@ -757,6 +767,7 @@ function nextQuestion(){
   $("mProgress").textContent = quiz.mode === "round"
     ? ("解答 " + (quiz.done + 1) + "問目")
     : ((quiz.done + 1) + " / " + quiz.roundList.length + "問目");
+  $("qFill").style.width = Math.round(progressRatio() * 1000) / 10 + "%";
   $("mUnit").textContent = currentItem.unit.id + " " + currentItem.unit.name +
                            " 節" + current.section;
   $("mLevel").textContent = "重要度 " + current.level;
@@ -875,6 +886,8 @@ function submitAnswer(text){
   $("jAns").textContent = current.a;
   $("jExp").textContent = current.exp;
   $("jAnsLbl").textContent = self ? "模範解答" : "正解";
+  $("jLevel").textContent = "重要度 " + current.level;   /* 答え合わせでは出す */
+  $("jType").textContent = current.type;
   $("judgeSelfNote").hidden = !self;
   $("jNoteMsg").textContent = "";
   if(self && currentUser){
@@ -921,8 +934,9 @@ function showResult(completed){
   var firstOk = session.firstTryCorrect, firstAll = session.totalAsked;
   $("resultTitle").textContent = quiz.mode === "round"
     ? (quiz.round + "周目 完了") : "結果";
-  $("score").textContent = "初回正答 " + firstOk + " / " + firstAll + " 問（" +
-                           pct(firstOk, firstAll) + "％）";
+  $("scoreNum").textContent =
+    (firstAll ? Math.round(firstOk / firstAll * 100) : 0) + "%";
+  $("scoreSub").textContent = firstAll + "問中 " + firstOk + "問正解";
   var h = "";
   h += '<div class="stat"><h3>このセッション</h3><table>' +
        "<tr><th>所要時間</th><td>" + mmss(session.elapsedSec) + "</td></tr>" +
