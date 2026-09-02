@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """機能追加版（間違いノート・周回・学習ログ・印刷・PWA）の動作確認。
 ヘッドレス Edge を DevTools プロトコルで実際に操作し、画面の状態を読んで判定する。"""
 import base64
@@ -113,7 +113,14 @@ def wait_ready(c):
 
 HELPER = """
 window.__t = {
+  ensureUser: function(){
+    if(!window.__app.getCurrentUser()){
+      document.getElementById('newUserName').value='テスト';
+      document.getElementById('btnAddUser').click();
+    }
+  },
   start: function(unitIds, count, level, order, mode){
+    this.ensureUser();
     window.__app.setNoteAsked(true);
     document.getElementById('btnToHome1') && 0;
     document.getElementById('btnGoUnit').click();
@@ -180,6 +187,7 @@ def main():
         c.call("Browser.setDownloadBehavior",
                {"behavior": "allow", "downloadPath": DL, "eventsEnabled": True})
         c.ev(HELPER)
+        c.ev("window.__t.ensureUser()")      # 利用者を決めてからでないと始められない
 
         # ---------- 1. ノートが空のとき ----------
         rec(c.ev("document.getElementById('btnNoteQuiz').disabled") is True
@@ -245,7 +253,7 @@ def main():
         while waited < 15 and not path:
             time.sleep(0.5); waited += 0.5
             for f in os.listdir(DL):
-                if f.endswith("_note.json"):
+                if "_note_" in f and f.endswith(".json"):
                     path = os.path.join(DL, f)
         rec(bool(path), "ノートをJSONで書き出せる",
             "保存されたファイル=%s（%s件）" % (os.path.basename(path) if path else "なし", before))
@@ -310,7 +318,7 @@ def main():
         while waited < 15 and not rpath:
             time.sleep(0.5); waited += 0.5
             for f in os.listdir(DL):
-                if f.endswith("_resume.json"):
+                if "_resume_" in f and f.endswith(".json"):
                     rpath = os.path.join(DL, f)
         rtxt = open(rpath, encoding="utf-8").read() if rpath else "{}"
         rr = c.ev("JSON.stringify(window.__app.importResumeText(%s))" % json.dumps(rtxt))

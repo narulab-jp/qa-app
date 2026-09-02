@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """公開URL（https）での動作確認。
 ヘッドレス Edge を DevTools プロトコルで実際に操作して判定する。"""
 import json
@@ -98,7 +98,14 @@ def wait_ready(c, tries=120):
 
 HELPER = """
 window.__t = {
+  ensureUser: function(){
+    if(!window.__app.getCurrentUser()){
+      document.getElementById('newUserName').value='テスト';
+      document.getElementById('btnAddUser').click();
+    }
+  },
   start: function(unitIds, count, level, order, mode){
+    this.ensureUser();
     window.__app.setNoteAsked(true);
     document.getElementById('btnGoUnit').click();
     document.getElementById('btnUnitNone').click();
@@ -157,8 +164,8 @@ def main():
         nunits = c.ev("window.__app.getSubject().units.length")
         rec(total == 828 and nunits == 28, "828問・28単元すべて読み込まれている",
             "%d単元／%d問" % (nunits, total))
-        nbtn = c.ev("document.querySelectorAll('#unitList .unit').length")
         c.ev(HELPER)
+        c.ev("window.__t.ensureUser()")      # 利用者を決めてからでないと始められない
         rec(True, "単元一覧が表示される", "（この時点では未表示。次の出題で確認）")
 
         # ---------- 用語型3問・理由型 ----------

@@ -160,6 +160,41 @@ legend{font-size:0.9em;font-weight:bold;padding:0 6px;}
 .pq .chk{font-size:1.2em;letter-spacing:0.5em;margin-top:2px;}
 .printfoot{font-size:0.8em;color:#333;margin-top:10px;}
 
+/* 現在の利用者を常に表示する帯 */
+#userBar{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; gap:8px;
+  background:var(--accent); color:#fff;
+  border-radius:0 0 10px 10px; padding:5px 10px; margin:0 0 10px;
+  font-size:0.95em;
+}
+#userBar .ub-name{flex:1 1 auto;font-weight:bold;}
+#userBar .ub-btn{
+  flex:0 0 auto; min-height:44px; padding:6px 16px;
+  border:1.5px solid #fff; border-radius:8px;
+  background:transparent; color:#fff; font-size:0.9em; cursor:pointer;
+}
+#userBar .ub-btn:hover{background:rgba(255,255,255,.18);}
+
+/* 利用者の一覧 */
+.userrow{display:flex;gap:6px;margin:8px 0;}
+.userrow .nmbtn{
+  flex:1 1 auto; min-height:var(--tap); padding:10px 13px;
+  border:2px solid #bbb; border-radius:10px; background:#fff;
+  font-size:1em; text-align:left; cursor:pointer;
+}
+.userrow .nmbtn[aria-pressed="true"]{border-color:var(--accent);background:#e8effa;font-weight:bold;}
+.userrow .icobtn{
+  flex:0 0 auto; width:56px; min-height:var(--tap);
+  border:2px solid #bbb; border-radius:10px; background:#fff;
+  font-size:0.85em; cursor:pointer;
+}
+.userrow .icobtn:hover{background:#eef2f8;}
+#newUserName, .renameInput{
+  width:100%; min-height:var(--tap); font-size:1.05em; padding:10px 12px;
+  border:2px solid var(--line); border-radius:10px; margin:0 0 8px;
+}
+
 [hidden]{display:none !important;}
 
 /* 画面が狭いとき（スマートフォンの縦向きなど） */
@@ -189,7 +224,7 @@ legend{font-size:0.9em;font-weight:bold;padding:0 6px;}
   /* ボタン・ナビゲーション・画面外の要素は印刷しない */
   button, label.btn, .noprint, .row, fieldset, .statusbar, .meta,
   #s-home, #s-unit, #s-setup, #s-quiz, #s-judge, #s-result, #s-note,
-  #s-settings, #confirmWrap { display:none !important; }
+  #s-settings, #s-user, #userBar, #confirmWrap { display:none !important; }
   #s-print{ display:block !important; }
   .printhead{border-bottom:1.5pt solid #000;}
   .pq{

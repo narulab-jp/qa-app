@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """本番版アプリの動作確認。
 ヘッドレス Edge を DevTools プロトコルで実際に操作し、画面の状態を読んで判定する。"""
 import csv
@@ -160,6 +160,10 @@ def main():
         time.sleep(1.5)
     proc, c = open_page(URL)
     try:
+        # 指示C以降は利用者を決めてから学習を始める
+        c.ev("document.getElementById('newUserName').value='テスト';"
+             "document.getElementById('btnAddUser').click();")
+        c.ev("document.getElementById('btnGoUnit').click()")
         rec(wait_ready(c), "トップ画面が表示される",
             "タイトル=" + str(c.ev("document.getElementById('appTitle').textContent")))
 

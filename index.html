@@ -18,6 +18,32 @@
 <body>
 <div id="app">
 
+  <!-- ============ 現在の利用者（常に表示） ============ -->
+  <div id="userBar" hidden>
+    <span class="ub-name" id="userBarName"></span>
+    <button class="ub-btn" id="btnSwitchUser">切り替え</button>
+  </div>
+
+  <!-- ============ 利用者の選択・登録 ============ -->
+  <section id="s-user" hidden>
+    <h1>一問一答</h1>
+    <p class="lead" id="userLead">誰が使いますか。</p>
+    <div id="userList"></div>
+    <div class="panel">
+      <div class="lbl2">新しく追加する</div>
+      <input id="newUserName" type="text" autocomplete="off"
+             placeholder="名前を入れてください（例：たろう）">
+      <button class="btn primary" id="btnAddUser">＋ 新しく追加</button>
+      <p class="small" id="userMsg"></p>
+    </div>
+    <div class="panel">
+      <div class="lbl2">保存したファイルから始める</div>
+      <label class="btn center sub" for="userNotePick">保存したノートを読み込む</label>
+      <input id="userNotePick" type="file" accept=".json,application/json" class="hidden-file">
+      <p class="small">前に保存したノートを選ぶと、利用者の一覧もいっしょに戻ります。</p>
+    </div>
+  </section>
+
   <!-- ============ ホーム ============ -->
   <section id="s-home">
     <h1 id="appTitle">一問一答</h1>
@@ -226,3 +252,4 @@
 <script src="app.js"></script>
 </body>
 </html>
+

@@ -15,19 +15,19 @@
 [OK] 「よく間違える順」が wrongCount の降順になっている
       [seq, wrongCount] = [[3,3],[4,2]]
 [OK] ノートをJSONで書き出せる
-      保存されたファイル=chiri_note.json（2件）
+      保存されたファイル=chiri_note_テスト.json（2件）
 [OK] 書き出したJSONの中身が正しい
       entries=2件／settings={'graduateStreak': 2, 'defaultCount': 20, 'autoMic': False, 'fontSize': 'normal'}
 [OK] 書き出したJSONを読み込んで状態が復元される
-      読み込み結果={"loaded":2,"ignored":0}／entries=2件
+      読み込み結果={"loaded":2,"ignored":0,"addedUsers":0,"legacy":false,"owner":"テスト"}／entries=2件
 [OK] 存在しない seq を含むJSONを読み込んでも壊れず、件数が表示される
-      結果={"loaded":2,"ignored":1}／画面表示=「ノートを保存しました（chiri_note.json）」
+      結果={"loaded":2,"ignored":1,"addedUsers":0,"legacy":false,"owner":"テスト"}／画面表示=「ノートを読み込みました：2問／現在の問題データに無い 1件は無視しました」
 [OK] 未保存で画面を離れようとしたとき警告が出る（保存後は出ない）
       解答直後: 未保存=True・警告=True ／ 保存後: 未保存=False・警告=False
 [OK] 周回モードで、全問正解するまで終わらない
       27問すべて誤答 → 結果画面に進まず残り27問／表示=「1周目　／　残り 27問　／　経過 0分00秒」
 [OK] 周回モードで「中断して保存」が動き、再開できる
-      保存=chiri_resume.json／再開結果={"round":1,"remain":27}／再開後の表示=「1周目　／　残り 27問　／　経過 0分00秒」
+      保存=chiri_resume_テスト.json／再開結果={"round":1,"remain":27}／再開後の表示=「1周目　／　残り 27問　／　経過 0分00秒」
 [OK] 周回モードで全問正解すると1周が完了する
       1周目 完了／解答回数54想定に対し初回対象=27問
 [OK] 初回正答率が、再出題を含まずに計算されている
