@@ -1,4 +1,4 @@
-# 一問一答アプリ
+﻿# 一問一答アプリ
 
 ## 1. このアプリは何か
 
@@ -88,7 +88,7 @@ Web に公開した URL を開き、ブラウザのメニューから「ホー�
 
 ```
 1. 統合CSV を直す
-   C:\Users\takad\OneDrive\デスクトップ\CHIRI_QA_20260901\CSV\地理一問一答_全講統合.csv
+   %USERPROFILE%\OneDrive\デスクトップ\CHIRI_QA_20260901\CSV\地理一問一答_全講統合.csv
 
 2. QA_APP フォルダで次を実行する
    python tools\csv2json.py
@@ -357,3 +357,4 @@ correctStreak が既定値（2）に達した → entries から外す（卒業�
 - 登録に失敗してもアプリは普通に動きます（登録処理は握りつぶしています）。
 - iOS Safari は Service Worker の挙動に制限がありますが、キャッシュが効かなくても
   ネットワーク経由で動作します。
+

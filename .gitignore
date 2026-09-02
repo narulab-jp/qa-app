@@ -1,4 +1,10 @@
-*.pyc
+﻿*.pyc
 __pycache__/
 Thumbs.db
 desktop.ini
+
+# 学習データは公開しない（間違いノート・学習ログ・中断ファイル）
+*_note.json
+*_log.json
+*_resume.json
+学習ログ/

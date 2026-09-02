@@ -16,7 +16,8 @@ from websockets.sync.client import connect
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-CSVSRC = r"C:\Users\takad\OneDrive\デスクトップ\CHIRI_QA_20260901\CSV\地理一問一答_全講統合.csv"
+CSVSRC = os.path.join(os.path.expanduser("~"), "OneDrive", "デスクトップ",
+                      "CHIRI_QA_20260901", "CSV", "地理一問一答_全講統合.csv")
 PORT = 8781
 DBG = 9231
 URL = "http://127.0.0.1:%d/index.html" % PORT
@@ -421,5 +422,6 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(0 if main() == 0 else 1)
+
 
 
