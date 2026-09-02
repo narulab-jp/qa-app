@@ -68,6 +68,7 @@
     <!-- 単元から出題 -->
     <details class="sect">
       <summary>単元から出題する</summary>
+      <p class="lead" id="subjectNow"></p>
       <div id="subjectList"></div>
       <button class="btn" id="btnGoUnit">単元を選ぶ</button>
     </details>
@@ -147,8 +148,10 @@
       <span class="tag" id="mType"></span>
     </div>
     <div class="qline"><i class="qfill" id="qFill"></i></div>
+    <div class="figs" id="figBox" hidden></div>
     <div class="qtext" id="qText"></div>
     <p class="note" id="selfNote" hidden>※ この問題は自己採点です。</p>
+    <div class="choices" id="choiceBox" hidden></div>
     <div id="speechBanner" hidden></div>
     <div class="heard empty" id="heard">ここに聞き取った内容が表示されます</div>
     <button class="btn mic" id="btnMic">🎤 声で答える</button>
@@ -183,6 +186,10 @@
     <div class="ans">
       <div class="ans-lbl">解説</div>
       <div class="ans-exp" id="jExp"></div>
+    </div>
+    <div class="ans" id="jGroundsBox" hidden>
+      <div class="ans-lbl">根拠（どこを見れば分かるか）</div>
+      <ul class="ans-grounds" id="jGrounds"></ul>
     </div>
     <p class="note" id="jNoteMsg"></p>
     <div id="selfButtons" hidden class="row">
@@ -254,6 +261,20 @@
     </div>
     <div id="printArea"></div>
   </section>
+
+  <!-- ============ 図の拡大表示 ============ -->
+  <div id="zoomWrap" hidden>
+    <div class="zoom-bar">
+      <button class="btn zoom-btn" id="btnZoomOut">−</button>
+      <span class="zoom-pct" id="zoomPct">100%</span>
+      <button class="btn zoom-btn" id="btnZoomIn">＋</button>
+      <button class="btn zoom-btn" id="btnZoomClose">閉じる</button>
+    </div>
+    <div class="zoom-area" id="zoomArea">
+      <img id="zoomImg" alt="拡大した図">
+    </div>
+    <p class="zoom-hint">指2本でひろげると拡大できます。</p>
+  </div>
 
   <!-- ============ 確認ダイアログ ============ -->
   <div id="confirmWrap" hidden>

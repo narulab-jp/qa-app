@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320" role="img" aria-label="架空の4か国の統計表">
+<rect width="720" height="320" fill="#fff"/>
+<text x="20" y="26" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料2　架空の4か国の一人当たりGNIと国土のようす</text>
+<rect x="20" y="46" width="680" height="46" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="55" y="74" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">国</text>
+<text x="162.5" y="66.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">一人当たりGNI</text>
+<text x="162.5" y="81.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">（ドル）</text>
+<text x="310" y="66.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">就業者に占める</text>
+<text x="310" y="81.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">第一次産業の割合(%)</text>
+<text x="542.5" y="74" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">国土や資源のようす</text>
+<rect x="20" y="92" width="680" height="46" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="120" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">A国</text>
+<text x="162.5" y="120" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">78,000</text>
+<text x="310" y="120" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2</text>
+<text x="397" y="120" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">起伏が大きく、年降水量が多い</text>
+<rect x="20" y="138" width="680" height="46" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="166" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">B国</text>
+<text x="162.5" y="166" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">42,000</text>
+<text x="310" y="166" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3</text>
+<text x="397" y="166" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">石炭・石油・天然ガスにとぼしい</text>
+<rect x="20" y="184" width="680" height="46" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="212" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">C国</text>
+<text x="162.5" y="212" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">25,000</text>
+<text x="310" y="212" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2</text>
+<text x="397" y="212" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">国土の大半が砂漠。原油の輸出が経済の中心</text>
+<rect x="20" y="230" width="680" height="46" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="258" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">D国</text>
+<text x="162.5" y="258" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2,400</text>
+<text x="310" y="258" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">38</text>
+<text x="397" y="258" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">石炭を産出する。人口の多くが農村部に住む</text>
+<path d="M90 46 v230" stroke="#000" stroke-width="1"/>
+<path d="M235 46 v230" stroke="#000" stroke-width="1"/>
+<path d="M385 46 v230" stroke="#000" stroke-width="1"/>
+<text x="20" y="302" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した架空の国と数値であり、実在の国ではない。</text>
+</svg>

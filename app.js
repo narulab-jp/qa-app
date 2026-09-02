@@ -38,6 +38,8 @@ function $(id){ return document.getElementById(id); }
 function show(id){
   ["s-user","s-home","s-unit","s-setup","s-quiz","s-judge","s-result","s-note",
    "s-settings","s-print"].forEach(function(s){ $(s).hidden = (s !== id); });
+  var z = $("zoomWrap");
+  if(z && !z.hidden) z.hidden = true;      /* 画面を移ったら拡大表示は閉じる */
   renderUserBar(id);
   window.scrollTo(0,0);
 }
@@ -95,6 +97,10 @@ function judge(user, q){
 }
 /* 判定方式はデータ側のフラグで決める（アプリ側で出題タイプを条件にしない） */
 function isSelfCheck(q){ return q.selfCheck === true; }
+/* 出題の形式は科目データが決める。アプリに科目名は書かない。
+   "voice"（既定・声で答える）と "choice"（4択を選ぶ）の2つ。 */
+function isChoice(){ return !!(SUBJECT && SUBJECT.format === "choice"); }
+var MARK = ["①", "②", "③", "④"];
 
 /* ================= 読み込み ================= */
 function getJSON(path){
@@ -548,6 +554,9 @@ function ensureNote(go){
 
 /* ================= ホーム ================= */
 function renderSubjects(){
+  $("subjectNow").textContent = SUBJECT
+    ? ("いまの科目：" + SUBJECT.subjectName)
+    : "科目を選んでください。";
   var box = $("subjectList");
   box.innerHTML = "";
   SUBJECTS.forEach(function(s){
@@ -568,6 +577,7 @@ function openSubject(s){
   return getJSON(s.file).then(function(d){
     SUBJECT = d;
     SEQMAP = {};
+    shownFigs = "";                  /* 科目を変えたら図は読み直す */
     d.units.forEach(function(u){
       u.questions.forEach(function(q){ SEQMAP[q.seq] = {q:q, unit:u}; });
     });
@@ -769,25 +779,106 @@ function nextQuestion(){
     : ((quiz.done + 1) + " / " + quiz.roundList.length + "問目");
   $("qFill").style.width = Math.round(progressRatio() * 1000) / 10 + "%";
   $("mUnit").textContent = currentItem.unit.id + " " + currentItem.unit.name +
-                           " 節" + current.section;
+    (current.section ? (" 節" + current.section) : "");
   $("mLevel").textContent = "重要度 " + current.level;
   $("mType").textContent = current.type;
   $("qText").textContent = current.q;
   $("selfNote").hidden = !isSelfCheck(current);
-  var h = $("heard");
-  h.textContent = "ここに聞き取った内容が表示されます";
-  h.className = "heard empty";
-  $("kbdBox").hidden = !(speechBlocked || kbdSticky || !SR);
-  $("kbdInput").value = "";
-  $("btnMic").hidden = !SR;
-  $("btnMic").disabled = speechBlocked;
-  $("btnMic").className = "btn mic";
-  $("btnMic").textContent = "🎤 音声で答える";
+  renderFigures(current);
+  if(isChoice()){
+    renderChoices(current);
+    $("choiceBox").hidden = false;
+    $("heard").hidden = true;
+    $("speechBanner").hidden = true;
+    $("kbdBox").hidden = true;
+    $("btnMic").hidden = true;               /* 選択式に音声は使わない */
+    $("btnKbd").hidden = true;
+  }else{
+    $("choiceBox").hidden = true;
+    $("heard").hidden = false;
+    $("btnKbd").hidden = false;
+    var h = $("heard");
+    h.textContent = "ここに聞き取った内容が表示されます";
+    h.className = "heard empty";
+    $("kbdBox").hidden = !(speechBlocked || kbdSticky || !SR);
+    $("kbdInput").value = "";
+    $("btnMic").hidden = !SR;
+    $("btnMic").disabled = speechBlocked;
+    $("btnMic").className = "btn mic";
+    $("btnMic").textContent = "🎤 音声で答える";
+    renderSpeechBanner();
+  }
   $("btnPause").hidden = (quiz.mode !== "round");
-  renderSpeechBanner();
   show("s-quiz");
+  if(isChoice()) return;
   if(!$("kbdBox").hidden) $("kbdInput").focus();
   if(settings().autoMic && SR && !speechBlocked && !navigatorOffline()) startMic();
+}
+
+/* ============ 図（資料）の表示 ============ */
+var shownFigs = "";                 /* いま出している図。同じなら読み直さない */
+function renderFigures(q){
+  var box = $("figBox");
+  var list = q.figures || [];
+  if(!list.length){
+    box.hidden = true;
+    box.innerHTML = "";
+    shownFigs = "";
+    return;
+  }
+  var key = list.join("|");
+  box.hidden = false;
+  if(key === shownFigs) return;     /* 同じ setId の続きでは読み直さない */
+  shownFigs = key;
+  box.innerHTML = "";
+  list.forEach(function(src, i){
+    var img = document.createElement("img");
+    img.src = src;
+    img.alt = "資料" + (i + 1);
+    img.addEventListener("click", function(){ openZoom(src); });
+    box.appendChild(img);
+    var cap = document.createElement("p");
+    cap.className = "figcap";
+    cap.textContent = "図をタップすると大きく表示できます。";
+    if(i === list.length - 1) box.appendChild(cap);
+  });
+}
+
+/* ============ 4択の表示 ============ */
+function renderChoices(q){
+  var box = $("choiceBox");
+  box.innerHTML = "";
+  (q.choices || []).forEach(function(text, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "ch";
+    b.id = "ch-" + i;
+    b.innerHTML = '<span class="mk">' + MARK[i] + "</span><span>" + esc(text) + "</span>";
+    b.addEventListener("click", function(){ submitChoice(i); });
+    box.appendChild(b);
+  });
+}
+
+/* ============ 図の拡大 ============ */
+var zoomScale = 1, zoomBaseW = 0;
+function openZoom(src){
+  var img = $("zoomImg");
+  if(img.getAttribute("src") !== src) img.src = src;
+  $("zoomWrap").hidden = false;
+  zoomScale = 1;
+  zoomBaseW = $("zoomArea").clientWidth || 320;
+  applyZoom();
+}
+function closeZoom(){ $("zoomWrap").hidden = true; }
+function applyZoom(){
+  var img = $("zoomImg");
+  img.style.width = Math.round(zoomBaseW * zoomScale) + "px";
+  img.style.maxWidth = "none";
+  $("zoomPct").textContent = Math.round(zoomScale * 100) + "%";
+}
+function setZoom(v){
+  zoomScale = Math.min(4, Math.max(1, v));
+  applyZoom();
 }
 function navigatorOffline(){ return (typeof navigator.onLine === "boolean") && !navigator.onLine; }
 
@@ -888,6 +979,7 @@ function submitAnswer(text){
   $("jAnsLbl").textContent = self ? "模範解答" : "正解";
   $("jLevel").textContent = "重要度 " + current.level;   /* 答え合わせでは出す */
   $("jType").textContent = current.type;
+  renderGrounds(current);
   $("judgeSelfNote").hidden = !self;
   $("jNoteMsg").textContent = "";
   if(self && currentUser){
@@ -902,6 +994,36 @@ function submitAnswer(text){
     settle(ok);
   }
   show("s-judge");
+}
+/* 選んだ選択肢と answer を照らし合わせる。声の判定（judge）は通らない。 */
+function submitChoice(i){
+  if(answered) return;
+  currentUser = MARK[i] + " " + current.choices[i];
+  $("jUser").textContent = currentUser;
+  $("jAns").textContent = current.a;
+  $("jExp").textContent = current.exp;
+  $("jAnsLbl").textContent = "正解";
+  $("jLevel").textContent = "重要度 " + current.level;
+  $("jType").textContent = current.type;
+  renderGrounds(current);
+  $("judgeSelfNote").hidden = true;
+  $("jNoteMsg").textContent = "";
+  setVerdict(i === current.answer);
+  $("selfButtons").hidden = true;            /* 選択式に自己採点はない */
+  $("btnNext").hidden = false;
+  settle(i === current.answer);
+  show("s-judge");
+}
+function renderGrounds(q){
+  var g = (q && q.grounds) || [];
+  $("jGroundsBox").hidden = !g.length;
+  var ul = $("jGrounds");
+  ul.innerHTML = "";
+  g.forEach(function(t){
+    var li = document.createElement("li");
+    li.textContent = t;
+    ul.appendChild(li);
+  });
 }
 function setVerdict(ok){
   var v = $("verdict");
@@ -1168,6 +1290,38 @@ function bind(){
     if(ev.key === "Enter"){ ev.preventDefault(); submitAnswer($("kbdInput").value.trim()); }
   });
   $("btnSkip").addEventListener("click", function(){ submitAnswer(""); });
+
+  /* 図の拡大。＋−のほか、指2本のピンチでも拡大できる。 */
+  $("btnZoomIn").addEventListener("click", function(){ setZoom(zoomScale * 1.4); });
+  $("btnZoomOut").addEventListener("click", function(){ setZoom(zoomScale / 1.4); });
+  $("btnZoomClose").addEventListener("click", closeZoom);
+  document.addEventListener("keydown", function(ev){
+    if(ev.key === "Escape" && !$("zoomWrap").hidden) closeZoom();
+  });
+  var pts = {}, pinchFrom = 0, scaleFrom = 1;
+  var area = $("zoomArea");
+  area.addEventListener("pointerdown", function(ev){
+    pts[ev.pointerId] = {x:ev.clientX, y:ev.clientY};
+    var k = Object.keys(pts);
+    if(k.length === 2){
+      pinchFrom = dist(pts[k[0]], pts[k[1]]);
+      scaleFrom = zoomScale;
+    }
+  });
+  area.addEventListener("pointermove", function(ev){
+    if(!pts[ev.pointerId]) return;
+    pts[ev.pointerId] = {x:ev.clientX, y:ev.clientY};
+    var k = Object.keys(pts);
+    if(k.length === 2 && pinchFrom > 0){
+      ev.preventDefault();
+      setZoom(scaleFrom * dist(pts[k[0]], pts[k[1]]) / pinchFrom);
+    }
+  });
+  function drop(ev){ delete pts[ev.pointerId]; pinchFrom = 0; }
+  area.addEventListener("pointerup", drop);
+  area.addEventListener("pointercancel", drop);
+  area.addEventListener("pointerleave", drop);
+  function dist(a, b){ return Math.hypot(a.x - b.x, a.y - b.y); }
   $("btnPause").addEventListener("click", pauseAndSave);
   $("btnQuit").addEventListener("click", function(){
     stopTimer(); renderHome(); show("s-home");
@@ -1267,7 +1421,8 @@ getJSON("subjects.json").then(function(d){
   SUBJECTS = (d && d.subjects) || [];
   renderSubjects();
   var on = SUBJECTS.filter(function(s){ return s.enabled; });
-  if(on.length === 1) return openSubject(on[0]);   // 科目が1つなら自動で選ぶ
+  /* 最初の科目を開いておく。ほかの科目には科目一覧から切り替えられる。 */
+  if(on.length) return openSubject(on[0]);
   gateUser();
 }).catch(function(e){
   showLoadError(String(e.message || e));
@@ -1307,6 +1462,14 @@ window.__app = {
   importResumeText:importResumeText,
   exportNote:function(){ return JSON.parse(JSON.stringify(note)); },
   noteItems:noteItems,
+  isChoice:isChoice,
+  openSubjectById:function(id){
+    for(var i=0;i<SUBJECTS.length;i++)
+      if(SUBJECTS[i].id === id) return openSubject(SUBJECTS[i]);
+    return Promise.resolve();
+  },
+  getZoom:function(){ return {open:!$("zoomWrap").hidden, scale:zoomScale}; },
+  openZoom:openZoom, setZoom:setZoom,
   hasSR:function(){ return !!SR; },
   micLog:function(){ return window.__micLog; },
   forceBlocked:function(){ fallbackToKeyboard("テスト：マイクの利用が許可されませんでした。", true); }

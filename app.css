@@ -277,6 +277,57 @@ details.sect > *:last-child{margin-bottom:24px;}
 .ans-you{font-size:var(--fs-body);color:var(--dim);}
 .ans-correct{font-size:calc(var(--fs-body) + 2px);font-weight:600;color:var(--fg);}
 .ans-exp{font-size:var(--fs-body);color:var(--fg);}
+.ans-grounds{margin:2px 0 0;padding-left:1.2em;font-size:var(--fs-body);}
+.ans-grounds li{margin:2px 0;}
+
+/* ---------------- 図表・読図（選択式）---------------- */
+.figs{margin:0 0 20px;}
+.figs img{
+  display:block; width:100%; height:auto; margin:0 0 8px;
+  border:1px solid var(--line); background:#fff; cursor:zoom-in;
+}
+.figs .figcap{font-size:var(--fs-label);color:var(--dim);margin:0 0 14px;}
+.choices{margin:4px 0 20px;}
+.choices .ch{
+  display:flex; align-items:center; gap:10px;
+  width:100%; min-height:var(--tap); margin:0 0 10px; padding:11px 14px;
+  border:1px solid var(--accent); border-radius:2px;
+  background:#fff; color:var(--fg);
+  font-family:inherit; font-size:var(--fs-btn); line-height:1.6;
+  text-align:left; cursor:pointer;
+}
+.choices .ch .mk{
+  flex:0 0 auto; font-weight:600; color:var(--accent);
+}
+.choices .ch:active{background:var(--accent-weak);}
+.choices .ch[disabled]{opacity:.5;cursor:default;}
+
+/* 図の拡大表示 */
+#zoomWrap{
+  position:fixed; inset:0; z-index:40;
+  background:#fff; display:flex; flex-direction:column;
+}
+.zoom-bar{
+  flex:0 0 auto; display:flex; align-items:center; gap:10px;
+  padding:8px calc(12px + env(safe-area-inset-left,0px));
+  border-bottom:1px solid var(--line);
+}
+.zoom-btn{
+  width:auto; min-width:56px; min-height:44px; margin:0; padding:0 14px;
+  border:1px solid var(--accent); background:#fff; color:var(--accent);
+  font-size:var(--fs-btn);
+}
+.zoom-pct{flex:1 1 auto;text-align:center;font-size:var(--fs-label);color:var(--dim);}
+.zoom-area{
+  flex:1 1 auto; overflow:auto; background:#fff;
+  touch-action:pinch-zoom; -webkit-overflow-scrolling:touch;
+}
+.zoom-area img{display:block;transform-origin:0 0;}
+.zoom-hint{
+  flex:0 0 auto; margin:0; padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));
+  border-top:1px solid var(--line);
+  font-size:var(--fs-label); color:var(--dim); text-align:center;
+}
 
 /* ---------------- 結果 ---------------- */
 .score{
@@ -387,7 +438,7 @@ details.sect > *:last-child{margin-bottom:24px;}
   /* ボタン・ナビゲーション・画面外の要素は印刷しない */
   button, label.btn, .noprint, .row, fieldset, .statusbar, .meta, details,
   #s-home, #s-unit, #s-setup, #s-quiz, #s-judge, #s-result, #s-note,
-  #s-settings, #s-user, #userBar, #confirmWrap { display:none !important; }
+  #s-settings, #s-user, #userBar, #confirmWrap, #zoomWrap { display:none !important; }
   #s-print{ display:block !important; }
   .printhead{border-bottom:1.5pt solid #000;}
   .pq{

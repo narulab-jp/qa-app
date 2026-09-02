@@ -5,6 +5,13 @@
    "name": "共通テスト地理",
    "file": "data/chiri.json",
    "enabled": true
+  },
+  {
+   "id": "chiri-zuhyo",
+   "name": "共通テスト地理 図表・読図",
+   "file": "data/chiri-zuhyo.json",
+   "unitLabel": "冊",
+   "enabled": true
   }
  ]
 }

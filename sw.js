@@ -4,7 +4,7 @@
    file:// では登録されない（app.js 側で判定している）。 */
 "use strict";
 
-var VERSION = "v5";
+var VERSION = "v6";
 var CACHE = "qa-app-" + VERSION;
 
 /* アプリの骨組み */
@@ -21,15 +21,37 @@ var CORE = [
   "./icons/icon-maskable.png"
 ];
 
-/* subjects.json を読んで、有効な科目のデータもまとめて取り込む。
-   科目が増えても sw.js を書き換えずに済む。 */
+/* subjects.json を読んで、有効な科目のデータと、そのデータが指す図版を
+   まとめて取り込む。科目や図が増えても sw.js を書き換えずに済む。 */
 function subjectFiles(){
   return fetch("./subjects.json", {cache: "no-cache"})
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(j){
       if(!j || !j.subjects) return [];
-      return j.subjects.filter(function(s){ return s.enabled; })
-                       .map(function(s){ return "./" + s.file; });
+      var files = j.subjects.filter(function(s){ return s.enabled; })
+                            .map(function(s){ return s.file; });
+      return Promise.all(files.map(function(f){
+        return fetch("./" + f, {cache: "no-cache"})
+          .then(function(r){ return r.ok ? r.json() : null; })
+          .then(function(d){
+            var out = ["./" + f];
+            if(!d || !d.units) return out;
+            var seen = {};
+            d.units.forEach(function(u){
+              (u.questions || []).forEach(function(q){
+                (q.figures || []).forEach(function(g){
+                  if(!seen[g]){ seen[g] = 1; out.push("./" + g); }
+                });
+              });
+            });
+            return out;
+          })
+          .catch(function(){ return ["./" + f]; });
+      })).then(function(lists){
+        var all = [];
+        lists.forEach(function(l){ all = all.concat(l); });
+        return all;
+      });
     })
     .catch(function(){ return []; });
 }

@@ -41,12 +41,22 @@ QA_APP/
 ├─ icon.svg          アイコンの原図（自作）
 ├─ icons/            icon-192.png / icon-512.png / icon-maskable.png（自作）
 ├─ data/
-│   └─ chiri.json    地理828問
+│   ├─ chiri.json        地理828問（声で答える形式）
+│   └─ chiri-zuhyo.json  地理 図表・読図（4択のマーク式）
+├─ figures/          図表・読図で使うSVG（すべて自作）
 ├─ tools/
-│   ├─ csv2json.py   統合CSVから chiri.json を生成する
-│   ├─ make_icons.py アイコンPNGを生成する
-│   ├─ test_app.py   本番版の動作確認
-│   └─ test_app2.py  機能追加版の動作確認
+│   ├─ csv2json.py       統合CSVから chiri.json を生成する
+│   ├─ make_icons.py     アイコンPNGを生成する
+│   ├─ zuhyo_bank.py     図表・読図問題の原本
+│   ├─ make_figures.py   図版（SVG）を計算して描く
+│   ├─ build_zuhyo.py    chiri-zuhyo.json を生成し、データを検算する
+│   ├─ build_zuhyo_pdf.py 紙で解く版のPDFを作る
+│   ├─ check_zuhyo_pdf.py 出来たPDFを開いて中身を確かめる
+│   ├─ test_app.py       本番版の動作確認
+│   ├─ test_app2.py      機能追加版の動作確認
+│   ├─ test_users.py     複数利用者の動作確認
+│   ├─ test_design.py    デザイン規則の動作確認
+│   └─ test_zuhyo.py     図表・読図編の動作確認
 ├─ README.md         このファイル
 └─ .gitignore
 ```
@@ -467,3 +477,72 @@ var VERSION = "v2";   // → "v3" のように上げる
 ### 11-6. 実装していないこと
 
 学習ログの比較画面は作っていません（将来やりやすいよう、ログに `user` を入れるところまで）。
+
+---
+
+## 12. 図表・読図編（4択のマーク式）
+
+共通テストと同じマーク式の練習用。声ではなく選択肢を押して答えます。
+
+### 12-1. 形式はデータが決める
+
+科目データの `format` で画面が変わります。アプリに科目名は書いていません。
+
+| `format` | 画面 |
+|---|---|
+| 省略 または `"voice"` | 声（またはキーボード）で答える。従来の一問一答 |
+| `"choice"` | 図を表示し、①〜④のボタンで答える。マイクは出さない |
+
+### 12-2. 問題の書き方（`data/chiri-zuhyo.json`）
+
+```json
+{
+  "no": 1, "seq": 1, "setId": "A-01", "skill": "縮尺と距離", "level": "S",
+  "type": "縮尺と距離",
+  "figures": ["figures/A01_map.svg"],
+  "q": "…実際の距離はおよそ何mか。",
+  "choices": ["250m", "500m", "1000m", "2000m"],
+  "answer": 2,
+  "a": "③ 1000m",
+  "exp": "…",
+  "grounds": ["…", "…"]
+}
+```
+
+- `answer` は `choices` の **0 から始まる添字**
+- `a` は正解の表示用。間違いノートと印刷が従来のしくみのまま使える
+- `figures` は複数指定できる（冊Cは資料2点）
+- **`setId` が同じ問題は同じ資料を共有する。** アプリは図を読み直さない
+
+### 12-3. 図版
+
+`figures/*.svg` はすべて `tools/make_figures.py` が計算して描いています。
+教科書・資料集・過去問の図は使っていません。地形図は等高線を高さの式から
+起こした訓練用の模式図、雨温図と統計は架空の地点・国です。
+色は使わず、線種・ハッチング・記号で区別しているので白黒印刷でも読めます。
+
+### 12-4. 作り直す手順
+
+```powershell
+cd C:\Users\takad\Downloads\QA_APP
+python tools\make_figures.py      # 図版（SVG）
+python tools\build_zuhyo.py       # data/chiri-zuhyo.json ＋ データの検算
+python tools\build_zuhyo_pdf.py   # 紙で解く版のPDF
+python tools\test_zuhyo.py        # データ・アプリ・PDFをまとめて確認
+```
+
+PDFの出力先は `CHIRI_QA_20260901\PDF\`。
+
+### 12-5. 間違いノートは科目ごとに分かれる
+
+ファイル名は科目の `subjectId` から作るので、自動的に分かれます。
+
+```
+chiri_note_長男.json          一問一答
+chiri-zuhyo_note_長男.json    図表・読図
+```
+
+### 12-6. 科目の切り替え
+
+ホームの「単元から出題する」を開くと科目の一覧が出ます。
+起動時は subjects.json の最初の科目が選ばれます。
