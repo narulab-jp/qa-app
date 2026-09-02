@@ -94,9 +94,9 @@ def main():
                     ".then(function(k){return k.map(function(r){"
                     "return r.url.split('/qa-app/')[1]||'/';}).join(', ');})")
         figs = [x for x in (keys or "").split(", ") if x.startswith("figures/")]
-        rec(len(figs) == 4 and "data/chiri-zuhyo.json" in (keys or ""),
+        rec(len(figs) == 60 and "data/chiri-zuhyo.json" in (keys or ""),
             "図（SVG）と図表編のデータがキャッシュに入っている",
-            "図 %d枚（%s）／データ=あり" % (len(figs), "・".join(figs)))
+            "図 %d枚／図表編のデータ=あり／骨組みも含めて全%d件" % (len(figs), len((keys or "").split(", "))))
 
         # オフラインにして開き直す（Service Worker を起こしてから遮断する）
         ok = False
@@ -131,7 +131,7 @@ def main():
         sid = c.ev("window.__app.getSubject().subjectId")
         nq = c.ev("window.__app.getSubject().units.reduce(function(a,u){"
                   "return a+u.questions.length;},0)")
-        rec(sid == "chiri-zuhyo" and nq == 11,
+        rec(sid == "chiri-zuhyo" and nq == 159,
             "オフラインでも図表編の問題が読み込める",
             "科目=%s／%d問" % (sid, nq))
 
