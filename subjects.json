@@ -12,6 +12,13 @@
    "file": "data/chiri-zuhyo.json",
    "unitLabel": "冊",
    "enabled": true
+  },
+  {
+   "id": "chiri-honban",
+   "name": "共通テスト地理 本番形式",
+   "file": "data/chiri-honban.json",
+   "unitLabel": "冊",
+   "enabled": true
   }
  ]
 }

@@ -100,7 +100,7 @@ function isSelfCheck(q){ return q.selfCheck === true; }
 /* 出題の形式は科目データが決める。アプリに科目名は書かない。
    "voice"（既定・声で答える）と "choice"（4択を選ぶ）の2つ。 */
 function isChoice(){ return !!(SUBJECT && SUBJECT.format === "choice"); }
-var MARK = ["①", "②", "③", "④"];
+var MARK = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨"];
 
 /* ================= 読み込み ================= */
 function getJSON(path){

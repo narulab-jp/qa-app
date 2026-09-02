@@ -16,16 +16,21 @@ from websockets.sync.client import connect
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-CSVSRC = os.path.join(os.path.expanduser("~"), "OneDrive", "デスクトップ",
-                      "CHIRI_QA_20260901", "CSV", "地理一問一答_全講統合.csv")
+# csv2json.py と同じ順で探す（Downloads が正、デスクトップは控え）
+_CSVNAME = "地理一問一答_全講統合.csv"
+CSVSRC = os.path.join(os.path.expanduser("~"), "Downloads",
+                      "CHIRI_QA_20260901", "CSV", _CSVNAME)
+if not os.path.isfile(CSVSRC):
+    CSVSRC = os.path.join(os.path.expanduser("~"), "OneDrive", "デスクトップ",
+                          "CHIRI_QA_20260901", "CSV", _CSVNAME)
 PORT = 8781
 DBG = 9231
 URL = "http://127.0.0.1:%d/index.html" % PORT
 
 EXPECT_UNITS = {"01":27,"02":25,"03":30,"04":25,"05":30,"06":32,"07":25,"08":29,
                 "09":44,"10":25,"11":29,"12":25,"13":25,"14":26,"15":25,"16":25,
-                "17":26,"18":25,"19":33,"20":30,"21":29,"22":32,"23":39,"24":25,
-                "25":41,"26":26,"27":25,"28":50}
+                "17":26,"18":25,"19":33,"20":29,"21":29,"22":32,"23":39,"24":25,
+                "25":41,"26":26,"27":25,"28":48}
 res = []
 
 
@@ -127,20 +132,27 @@ def main():
 
     doc = json.load(open(outp, encoding="utf-8"))
     total = sum(len(u["questions"]) for u in doc["units"])
-    rec(total == 828, "生成されたJSONの問数が828問", "実数 %d問" % total)
+    rec(total == 825, "生成されたJSONの問数が825問（重複3問を外した数）",
+        "実数 %d問／欠番は通し533・781・789" % total)
 
     with open(CSVSRC, encoding="utf-8-sig", newline="") as f:
         rows = list(csv.reader(f))[1:]
     flat = [q for u in doc["units"] for q in u["questions"]]
+    # 通し番号で突き合わせる（重複3問を外したので、行の位置では合わない）
+    bycsv = dict((cr[4], cr) for cr in rows)
     mism = []
-    for q, cr in zip(flat, rows):
+    for q in flat:
+        cr = bycsv.get(str(q["seq"]))
+        if not cr:
+            mism.append("seq%s がCSVにない" % q["seq"])
+            continue
         if (q["q"], q["a"], q["exp"]) != (cr[7], cr[8], cr[9]):
             mism.append("seq%s 本文" % q["seq"])
-        if (str(q["seq"]), q["section"], q["level"], q["type"]) != (cr[4], cr[2], cr[5], cr[6]):
+        if (q["section"], q["level"], q["type"]) != (cr[2], cr[5], cr[6]):
             mism.append("seq%s 属性" % q["seq"])
     rec(len(flat) == len(rows) and not mism,
-        "JSONの全828問が統合CSVと完全一致（問題文・解答・解説）",
-        "828問すべて一致" if not mism else str(mism[:5]))
+        "JSONの全825問が統合CSVと完全一致（問題文・解答・解説）",
+        "825問すべて一致" if not mism else str(mism[:5]))
 
     bad = [u["id"] for u in doc["units"] if len(u["questions"]) != EXPECT_UNITS.get(u["id"])]
     rec(len(doc["units"]) == 28 and not bad,

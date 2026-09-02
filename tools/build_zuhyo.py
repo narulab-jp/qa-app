@@ -122,10 +122,19 @@ def check(data):
     missing = [f for f in sorted(used)
                if not os.path.isfile(os.path.join(ROOT, f.replace("/", os.sep)))]
     onfile = set("figures/" + f for f in os.listdir(FIGDIR))
-    extra = sorted(onfile - used)
+    # 図版は本番形式編とも共有しているので、そちらで使う分も「使用中」に数える
+    used_all = set(used)
+    other = os.path.join(ROOT, "data", "chiri-honban.json")
+    if os.path.isfile(other):
+        od = json.loads(io.open(other, encoding="utf-8").read())
+        for ou in od["units"]:
+            for oq in ou["questions"]:
+                used_all.update(oq.get("figures") or [])
+    extra = sorted(onfile - used_all)
     rec(not missing and not extra,
         "データが指す図版がすべて存在し、余分な図版もない（1対1）",
-        "図版 %d枚がすべて使われている" % len(used)
+        "図版 %d枚がすべて使われている（うち本番形式編と共用 %d枚）"
+        % (len(onfile), len(used_all) - len(used))
         if not missing and not extra else "不足=%s／余分=%s" % (missing, extra))
 
     # 同じ setId は同じ資料

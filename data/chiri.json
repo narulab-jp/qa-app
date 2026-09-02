@@ -3,7 +3,7 @@
  "subjectName": "共通テスト地理",
  "unitLabel": "講",
  "source": "一問一答 全28講828問",
- "updated": "2026-09-02",
+ "updated": "2026-09-03",
  "units": [
   {
    "id": "01",
@@ -6721,17 +6721,6 @@
     },
     {
      "no": 2,
-     "seq": 533,
-     "section": "1",
-     "level": "S",
-     "type": "理由",
-     "q": "東アジアから南アジアにかけて、季節ごとに風向が反対になる風が卓越する理由を述べよ。",
-     "a": "世界最大のユーラシア大陸と太平洋・インド洋が接し、夏と冬で大陸と海洋の気圧配置が入れかわるから",
-     "exp": "この風が農業と生活のリズムを左右してきた。",
-     "selfCheck": true
-    },
-    {
-     "no": 3,
      "seq": 534,
      "section": "1",
      "level": "A",
@@ -6743,7 +6732,7 @@
      "accept": []
     },
     {
-     "no": 4,
+     "no": 3,
      "seq": 535,
      "section": "1",
      "level": "A",
@@ -6755,7 +6744,7 @@
      "accept": []
     },
     {
-     "no": 5,
+     "no": 4,
      "seq": 536,
      "section": "1",
      "level": "S",
@@ -6770,7 +6759,7 @@
      ]
     },
     {
-     "no": 6,
+     "no": 5,
      "seq": 537,
      "section": "1",
      "level": "A",
@@ -6782,7 +6771,7 @@
      "accept": []
     },
     {
-     "no": 7,
+     "no": 6,
      "seq": 538,
      "section": "1",
      "level": "B",
@@ -6794,7 +6783,7 @@
      "accept": []
     },
     {
-     "no": 8,
+     "no": 7,
      "seq": 539,
      "section": "1",
      "level": "B",
@@ -6806,7 +6795,7 @@
      "accept": []
     },
     {
-     "no": 9,
+     "no": 8,
      "seq": 540,
      "section": "2",
      "level": "A",
@@ -6817,7 +6806,7 @@
      "selfCheck": true
     },
     {
-     "no": 10,
+     "no": 9,
      "seq": 541,
      "section": "2",
      "level": "A",
@@ -6829,7 +6818,7 @@
      "accept": []
     },
     {
-     "no": 11,
+     "no": 10,
      "seq": 542,
      "section": "2",
      "level": "A",
@@ -6841,7 +6830,7 @@
      "accept": []
     },
     {
-     "no": 12,
+     "no": 11,
      "seq": 543,
      "section": "2",
      "level": "A",
@@ -6853,7 +6842,7 @@
      "accept": []
     },
     {
-     "no": 13,
+     "no": 12,
      "seq": 544,
      "section": "2",
      "level": "A",
@@ -6869,7 +6858,7 @@
      ]
     },
     {
-     "no": 14,
+     "no": 13,
      "seq": 545,
      "section": "2",
      "level": "A",
@@ -6880,7 +6869,7 @@
      "selfCheck": true
     },
     {
-     "no": 15,
+     "no": 14,
      "seq": 546,
      "section": "2",
      "level": "B",
@@ -6892,7 +6881,7 @@
      "accept": []
     },
     {
-     "no": 16,
+     "no": 15,
      "seq": 547,
      "section": "2",
      "level": "B",
@@ -6903,7 +6892,7 @@
      "selfCheck": true
     },
     {
-     "no": 17,
+     "no": 16,
      "seq": 548,
      "section": "3",
      "level": "S",
@@ -6915,7 +6904,7 @@
      "accept": []
     },
     {
-     "no": 18,
+     "no": 17,
      "seq": 549,
      "section": "3",
      "level": "S",
@@ -6927,7 +6916,7 @@
      "accept": []
     },
     {
-     "no": 19,
+     "no": 18,
      "seq": 550,
      "section": "3",
      "level": "S",
@@ -6938,7 +6927,7 @@
      "selfCheck": true
     },
     {
-     "no": 20,
+     "no": 19,
      "seq": 551,
      "section": "3",
      "level": "S",
@@ -6949,7 +6938,7 @@
      "selfCheck": true
     },
     {
-     "no": 21,
+     "no": 20,
      "seq": 552,
      "section": "3",
      "level": "A",
@@ -6961,7 +6950,7 @@
      "accept": []
     },
     {
-     "no": 22,
+     "no": 21,
      "seq": 553,
      "section": "3",
      "level": "A",
@@ -6973,7 +6962,7 @@
      "accept": []
     },
     {
-     "no": 23,
+     "no": 22,
      "seq": 554,
      "section": "3",
      "level": "A",
@@ -6984,7 +6973,7 @@
      "selfCheck": true
     },
     {
-     "no": 24,
+     "no": 23,
      "seq": 555,
      "section": "3",
      "level": "A",
@@ -6999,7 +6988,7 @@
      ]
     },
     {
-     "no": 25,
+     "no": 24,
      "seq": 556,
      "section": "3",
      "level": "S",
@@ -7011,7 +7000,7 @@
      "accept": []
     },
     {
-     "no": 26,
+     "no": 25,
      "seq": 557,
      "section": "3",
      "level": "A",
@@ -7023,7 +7012,7 @@
      "accept": []
     },
     {
-     "no": 27,
+     "no": 26,
      "seq": 558,
      "section": "3",
      "level": "S",
@@ -7034,7 +7023,7 @@
      "selfCheck": true
     },
     {
-     "no": 28,
+     "no": 27,
      "seq": 559,
      "section": "3",
      "level": "B",
@@ -7046,7 +7035,7 @@
      "accept": []
     },
     {
-     "no": 29,
+     "no": 28,
      "seq": 560,
      "section": "3",
      "level": "B",
@@ -7057,7 +7046,7 @@
      "selfCheck": true
     },
     {
-     "no": 30,
+     "no": 29,
      "seq": 561,
      "section": "3",
      "level": "B",
@@ -9792,17 +9781,6 @@
     },
     {
      "no": 3,
-     "seq": 781,
-     "section": "1",
-     "level": "A",
-     "type": "理由",
-     "q": "日本の河川が世界の大河川に比べて短く急流となる理由を、国土の地形から述べよ。",
-     "a": "国土が狭いうえ山地が海岸近くまで迫っており、水源から河口までの距離が短く高低差が大きいから",
-     "exp": "流域面積も小さく、降雨が短時間で流出する。",
-     "selfCheck": true
-    },
-    {
-     "no": 4,
      "seq": 782,
      "section": "1",
      "level": "S",
@@ -9813,7 +9791,7 @@
      "selfCheck": true
     },
     {
-     "no": 5,
+     "no": 4,
      "seq": 783,
      "section": "1",
      "level": "A",
@@ -9830,7 +9808,7 @@
      ]
     },
     {
-     "no": 6,
+     "no": 5,
      "seq": 784,
      "section": "1",
      "level": "A",
@@ -9842,7 +9820,7 @@
      "accept": []
     },
     {
-     "no": 7,
+     "no": 6,
      "seq": 785,
      "section": "1",
      "level": "S",
@@ -9854,7 +9832,7 @@
      "accept": []
     },
     {
-     "no": 8,
+     "no": 7,
      "seq": 786,
      "section": "1",
      "level": "A",
@@ -9866,7 +9844,7 @@
      "accept": []
     },
     {
-     "no": 9,
+     "no": 8,
      "seq": 787,
      "section": "1",
      "level": "A",
@@ -9881,7 +9859,7 @@
      ]
     },
     {
-     "no": 10,
+     "no": 9,
      "seq": 788,
      "section": "1",
      "level": "A",
@@ -9892,22 +9870,7 @@
      "selfCheck": true
     },
     {
-     "no": 11,
-     "seq": 789,
-     "section": "1",
-     "level": "A",
-     "type": "用語",
-     "q": "噴火後の斜面に積もった火山灰が降雨と混じり、泥流となって流れ下る現象を何というか。",
-     "a": "火山泥流（土石流）",
-     "exp": "噴火が収まったあとも降雨のたびに危険が続く。",
-     "selfCheck": false,
-     "accept": [
-      "火山泥流",
-      "土石流"
-     ]
-    },
-    {
-     "no": 12,
+     "no": 10,
      "seq": 790,
      "section": "1",
      "level": "S",
@@ -9918,7 +9881,7 @@
      "selfCheck": true
     },
     {
-     "no": 13,
+     "no": 11,
      "seq": 791,
      "section": "1",
      "level": "A",
@@ -9934,7 +9897,7 @@
      ]
     },
     {
-     "no": 14,
+     "no": 12,
      "seq": 792,
      "section": "1",
      "level": "B",
@@ -9946,7 +9909,7 @@
      "accept": []
     },
     {
-     "no": 15,
+     "no": 13,
      "seq": 793,
      "section": "1",
      "level": "B",
@@ -9958,7 +9921,7 @@
      "accept": []
     },
     {
-     "no": 16,
+     "no": 14,
      "seq": 794,
      "section": "1",
      "level": "B",
@@ -9970,7 +9933,7 @@
      "accept": []
     },
     {
-     "no": 17,
+     "no": 15,
      "seq": 795,
      "section": "1",
      "level": "B",
@@ -9981,7 +9944,7 @@
      "selfCheck": true
     },
     {
-     "no": 18,
+     "no": 16,
      "seq": 796,
      "section": "2",
      "level": "S",
@@ -9996,7 +9959,7 @@
      ]
     },
     {
-     "no": 19,
+     "no": 17,
      "seq": 797,
      "section": "2",
      "level": "S",
@@ -10007,7 +9970,7 @@
      "selfCheck": true
     },
     {
-     "no": 20,
+     "no": 18,
      "seq": 798,
      "section": "2",
      "level": "S",
@@ -10018,7 +9981,7 @@
      "selfCheck": true
     },
     {
-     "no": 21,
+     "no": 19,
      "seq": 799,
      "section": "2",
      "level": "A",
@@ -10030,7 +9993,7 @@
      "accept": []
     },
     {
-     "no": 22,
+     "no": 20,
      "seq": 800,
      "section": "2",
      "level": "A",
@@ -10041,7 +10004,7 @@
      "selfCheck": true
     },
     {
-     "no": 23,
+     "no": 21,
      "seq": 801,
      "section": "2",
      "level": "A",
@@ -10053,7 +10016,7 @@
      "accept": []
     },
     {
-     "no": 24,
+     "no": 22,
      "seq": 802,
      "section": "2",
      "level": "A",
@@ -10064,7 +10027,7 @@
      "selfCheck": true
     },
     {
-     "no": 25,
+     "no": 23,
      "seq": 803,
      "section": "2",
      "level": "A",
@@ -10079,7 +10042,7 @@
      ]
     },
     {
-     "no": 26,
+     "no": 24,
      "seq": 804,
      "section": "2",
      "level": "A",
@@ -10091,7 +10054,7 @@
      "accept": []
     },
     {
-     "no": 27,
+     "no": 25,
      "seq": 805,
      "section": "2",
      "level": "S",
@@ -10103,7 +10066,7 @@
      "accept": []
     },
     {
-     "no": 28,
+     "no": 26,
      "seq": 806,
      "section": "2",
      "level": "A",
@@ -10118,7 +10081,7 @@
      ]
     },
     {
-     "no": 29,
+     "no": 27,
      "seq": 807,
      "section": "2",
      "level": "A",
@@ -10129,7 +10092,7 @@
      "selfCheck": true
     },
     {
-     "no": 30,
+     "no": 28,
      "seq": 808,
      "section": "2",
      "level": "B",
@@ -10144,7 +10107,7 @@
      ]
     },
     {
-     "no": 31,
+     "no": 29,
      "seq": 809,
      "section": "2",
      "level": "B",
@@ -10155,7 +10118,7 @@
      "selfCheck": true
     },
     {
-     "no": 32,
+     "no": 30,
      "seq": 810,
      "section": "2",
      "level": "B",
@@ -10167,7 +10130,7 @@
      "accept": []
     },
     {
-     "no": 33,
+     "no": 31,
      "seq": 811,
      "section": "3",
      "level": "S",
@@ -10179,7 +10142,7 @@
      "accept": []
     },
     {
-     "no": 34,
+     "no": 32,
      "seq": 812,
      "section": "3",
      "level": "S",
@@ -10190,7 +10153,7 @@
      "selfCheck": true
     },
     {
-     "no": 35,
+     "no": 33,
      "seq": 813,
      "section": "3",
      "level": "S",
@@ -10201,7 +10164,7 @@
      "selfCheck": true
     },
     {
-     "no": 36,
+     "no": 34,
      "seq": 814,
      "section": "3",
      "level": "A",
@@ -10213,7 +10176,7 @@
      "accept": []
     },
     {
-     "no": 37,
+     "no": 35,
      "seq": 815,
      "section": "3",
      "level": "A",
@@ -10225,7 +10188,7 @@
      "accept": []
     },
     {
-     "no": 38,
+     "no": 36,
      "seq": 816,
      "section": "3",
      "level": "A",
@@ -10237,7 +10200,7 @@
      "accept": []
     },
     {
-     "no": 39,
+     "no": 37,
      "seq": 817,
      "section": "3",
      "level": "S",
@@ -10248,7 +10211,7 @@
      "selfCheck": true
     },
     {
-     "no": 40,
+     "no": 38,
      "seq": 818,
      "section": "3",
      "level": "A",
@@ -10259,7 +10222,7 @@
      "selfCheck": true
     },
     {
-     "no": 41,
+     "no": 39,
      "seq": 819,
      "section": "3",
      "level": "A",
@@ -10271,7 +10234,7 @@
      "accept": []
     },
     {
-     "no": 42,
+     "no": 40,
      "seq": 820,
      "section": "3",
      "level": "A",
@@ -10283,7 +10246,7 @@
      "accept": []
     },
     {
-     "no": 43,
+     "no": 41,
      "seq": 821,
      "section": "3",
      "level": "A",
@@ -10295,7 +10258,7 @@
      "accept": []
     },
     {
-     "no": 44,
+     "no": 42,
      "seq": 822,
      "section": "3",
      "level": "A",
@@ -10310,7 +10273,7 @@
      ]
     },
     {
-     "no": 45,
+     "no": 43,
      "seq": 823,
      "section": "3",
      "level": "A",
@@ -10321,7 +10284,7 @@
      "selfCheck": true
     },
     {
-     "no": 46,
+     "no": 44,
      "seq": 824,
      "section": "3",
      "level": "B",
@@ -10332,7 +10295,7 @@
      "selfCheck": true
     },
     {
-     "no": 47,
+     "no": 45,
      "seq": 825,
      "section": "3",
      "level": "A",
@@ -10349,7 +10312,7 @@
      ]
     },
     {
-     "no": 48,
+     "no": 46,
      "seq": 826,
      "section": "3",
      "level": "B",
@@ -10360,7 +10323,7 @@
      "selfCheck": true
     },
     {
-     "no": 49,
+     "no": 47,
      "seq": 827,
      "section": "3",
      "level": "B",
@@ -10372,7 +10335,7 @@
      "accept": []
     },
     {
-     "no": 50,
+     "no": 48,
      "seq": 828,
      "section": "3",
      "level": "B",

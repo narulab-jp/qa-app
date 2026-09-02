@@ -48,7 +48,7 @@ NOTICE = (
     "雨温図・統計は架空の地点および架空の国の数値であり、実在の地点・国ではありません。"
     "実在の統計を判断の根拠にしないでください。"
 )
-MARK = ["①", "②", "③", "④"]
+MARK = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨"]
 
 CSS = """
 @page { size: A4 portrait; margin: %(MT)smm %(MR)smm %(MB)smm %(ML)smm; }
@@ -444,4 +444,5 @@ def main():
     print("PDF を %s に出力した" % PDF_DIR)
 
 
-main()
+if __name__ == "__main__":
+    main()

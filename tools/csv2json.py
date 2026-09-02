@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """統合CSV → data/chiri.json を生成する。
 
 使い方（QA_APP フォルダで実行）:
@@ -20,8 +20,8 @@ ROOT = os.path.dirname(HERE)
 HOME = os.path.expanduser("~")
 CSVNAME = "地理一問一答_全講統合.csv"
 # 統合CSVの置き場所（先に見つかった方を使う）
-SRC = os.path.join(HOME, "OneDrive", "デスクトップ", "CHIRI_QA_20260901", "CSV", CSVNAME)
-ALT = os.path.join(HOME, "Downloads", "CHIRI_QA_20260901", "CSV", CSVNAME)
+SRC = os.path.join(HOME, "Downloads", "CHIRI_QA_20260901", "CSV", CSVNAME)
+ALT = os.path.join(HOME, "OneDrive", "デスクトップ", "CHIRI_QA_20260901", "CSV", CSVNAME)
 OUT = os.path.join(ROOT, "data", "chiri.json")
 
 SUBJECT_ID = "chiri"
