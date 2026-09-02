@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1b4f9c">
+<meta name="theme-color" content="#1a4d7a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -12,19 +12,61 @@
 <title>一問一答</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div id="app">
 
-  <!-- ============ 科目の選択 ============ -->
-  <section id="s-subject">
+  <!-- ============ ホーム ============ -->
+  <section id="s-home">
     <h1 id="appTitle">一問一答</h1>
     <p class="lead">声に出して答える練習ができます。</p>
     <div id="loadError" hidden></div>
-    <h2>科目を選ぶ</h2>
-    <div id="subjectList"></div>
+    <div id="offlineBanner" hidden></div>
+
+    <!-- 起動時にまず見せる：ノートの読み込み -->
+    <div class="panel" id="pNote">
+      <h2>間違いノート</h2>
+      <p class="small" id="noteState">読み込んでいません</p>
+      <label class="btn center" for="notePick">前回のノートを読み込む</label>
+      <input id="notePick" type="file" accept=".json,application/json" class="hidden-file">
+      <p class="small" id="noteLoadMsg" hidden></p>
+
+      <div id="noteQuizBox">
+        <p class="sticky-note" id="noteCount">間違いノートは空です</p>
+        <div class="sub-fieldset">
+          <div class="lbl2">並び順</div>
+          <div id="optNoteOrder"></div>
+          <div class="lbl2">出題数</div>
+          <div id="optNoteCount"></div>
+        </div>
+        <button class="btn primary" id="btnNoteQuiz">間違いノートから出題</button>
+        <div class="row">
+          <button class="btn sub" id="btnNoteView">ノートを見る</button>
+          <button class="btn sub" id="btnNoteSave">ノートを保存</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 単元から出題 -->
+    <div class="panel">
+      <h2>単元から出題</h2>
+      <div id="subjectList"></div>
+      <button class="btn primary" id="btnGoUnit">単元を選ぶ</button>
+    </div>
+
+    <div class="panel">
+      <div class="row">
+        <button class="btn sub" id="btnLogSave">学習ログを保存</button>
+        <button class="btn sub" id="btnSettings">設定</button>
+      </div>
+      <label class="btn center sub" for="logPick">学習ログを読み込む</label>
+      <input id="logPick" type="file" accept=".json,application/json" class="hidden-file">
+      <label class="btn center sub" for="resumePick">中断した周回を再開する</label>
+      <input id="resumePick" type="file" accept=".json,application/json" class="hidden-file">
+      <p class="small" id="logState"></p>
+    </div>
   </section>
 
   <!-- ============ 単元の選択 ============ -->
@@ -38,13 +80,18 @@
     <div id="unitList"></div>
     <p class="sticky-note" id="unitPicked"></p>
     <button class="btn primary" id="btnUnitNext">選んだ範囲で進む</button>
-    <button class="btn sub center" id="btnToSubject">科目を選び直す</button>
+    <button class="btn sub center" id="btnToHome1">ホームに戻る</button>
   </section>
 
   <!-- ============ 出題の設定 ============ -->
   <section id="s-setup" hidden>
     <h2 id="setupTitle"></h2>
     <fieldset>
+      <legend>出題のしかた</legend>
+      <button class="opt" data-mode="normal">ふつうに出題する</button>
+      <button class="opt" data-mode="round">周回する（全問正解するまで終わらない）</button>
+    </fieldset>
+    <fieldset id="fsCount">
       <legend>出題数</legend>
       <div id="optCount"></div>
     </fieldset>
@@ -65,6 +112,7 @@
 
   <!-- ============ 出題 ============ -->
   <section id="s-quiz" hidden>
+    <div class="statusbar" id="statusBar"></div>
     <div class="meta">
       <span class="tag" id="mProgress"></span>
       <span class="tag" id="mUnit"></span>
@@ -83,7 +131,8 @@
       <button class="btn primary" id="btnKbdSubmit">この答えで判定する</button>
     </div>
     <button class="btn sub center" id="btnSkip">分からない（スキップ）</button>
-    <button class="btn sub center" id="btnQuit">やめて範囲選択に戻る</button>
+    <button class="btn sub center" id="btnPause" hidden>中断して保存</button>
+    <button class="btn sub center" id="btnQuit">やめてホームに戻る</button>
   </section>
 
   <!-- ============ 判定 ============ -->
@@ -94,6 +143,7 @@
     <div class="box"><div class="lbl">あなたの解答</div><div class="val" id="jUser"></div></div>
     <div class="box"><div class="lbl" id="jAnsLbl">正解</div><div class="val" id="jAns"></div></div>
     <div class="box"><div class="lbl">解説</div><div class="val" id="jExp"></div></div>
+    <p class="small" id="jNoteMsg"></p>
     <div id="selfButtons" hidden class="row">
       <button class="btn primary" id="btnSelfOk">○ 合っていた</button>
       <button class="btn" id="btnSelfNg">× 違っていた</button>
@@ -103,13 +153,74 @@
 
   <!-- ============ 結果 ============ -->
   <section id="s-result" hidden>
-    <h2>結果</h2>
+    <h2 id="resultTitle">結果</h2>
     <div class="score" id="score"></div>
+    <div id="resultStats"></div>
+    <button class="btn primary" id="btnResultSave">ノートを保存する</button>
+    <button class="btn primary" id="btnNextRound" hidden>次の周へ</button>
     <div id="wrongList"></div>
-    <button class="btn primary" id="btnRetryWrong">間違えた問題だけもう一度</button>
+    <button class="btn sub center" id="btnRetryWrong">間違えた問題だけもう一度</button>
     <button class="btn sub center" id="btnAgain">同じ範囲でもう一度</button>
-    <button class="btn sub center" id="btnToUnit">範囲を選び直す</button>
+    <button class="btn sub center" id="btnToHome2">ホームに戻る</button>
   </section>
+
+  <!-- ============ 間違いノート一覧 ============ -->
+  <section id="s-note" hidden>
+    <h2>間違いノート</h2>
+    <p class="small" id="noteViewInfo"></p>
+    <div class="row">
+      <button class="btn sub" id="btnNotePrint">印刷用の表示にする</button>
+      <button class="btn sub" id="btnNoteSave2">ノートを保存</button>
+    </div>
+    <div id="noteList"></div>
+    <button class="btn sub center" id="btnToHome3">ホームに戻る</button>
+  </section>
+
+  <!-- ============ 設定 ============ -->
+  <section id="s-settings" hidden>
+    <h2>設定</h2>
+    <fieldset>
+      <legend>卒業に必要な連続正解数</legend>
+      <div id="optStreak"></div>
+      <p class="small">まぐれ当たりでノートから消えないようにするための回数です。</p>
+    </fieldset>
+    <fieldset>
+      <legend>1回あたりの既定の出題数</legend>
+      <div id="optDefCount"></div>
+    </fieldset>
+    <fieldset>
+      <legend>音声認識の自動開始</legend>
+      <button class="opt" data-automic="off">オフ</button>
+      <button class="opt" data-automic="on">オン（問題が出たら自動で聞き取る）</button>
+    </fieldset>
+    <fieldset>
+      <legend>文字サイズ</legend>
+      <button class="opt" data-fs="normal">標準</button>
+      <button class="opt" data-fs="large">大</button>
+    </fieldset>
+    <p class="small">設定はノートの保存ファイルに一緒に保存されます。</p>
+    <button class="btn sub center" id="btnToHome4">ホームに戻る</button>
+  </section>
+
+  <!-- ============ 印刷用 ============ -->
+  <section id="s-print" hidden>
+    <div class="noprint">
+      <button class="btn primary" id="btnDoPrint">この内容を印刷する（Ctrl+P）</button>
+      <button class="btn sub center" id="btnPrintBack">戻る</button>
+    </div>
+    <div id="printArea"></div>
+  </section>
+
+  <!-- ============ 確認ダイアログ ============ -->
+  <div id="confirmWrap" hidden>
+    <div class="confirm">
+      <p id="confirmMsg"></p>
+      <div class="row">
+        <button class="btn primary" id="confirmYes">はい</button>
+        <button class="btn" id="confirmNo">いいえ</button>
+      </div>
+    </div>
+  </div>
 
 </div>
 <script src="app.js"></script>
