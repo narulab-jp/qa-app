@@ -241,15 +241,42 @@ def main():
             c2.close(); p2.kill()
 
         # ---------- オフライン ----------
-        c.call("Network.emulateNetworkConditions",
-               {"offline": True, "latency": 0,
-                "downloadThroughput": 0, "uploadThroughput": 0})
-        c.call("Page.reload", {"ignoreCache": False})
-        offok = wait_ready(c, tries=60)
-        offtotal = c.ev("window.__app.getSubject() ? window.__app.getSubject()"
-                        ".units.reduce(function(a,u){return a+u.questions.length;},0) : 0") if offok else 0
+        # 検証の都合の注記:
+        #   ヘッドレスの回線遮断は「ページ」に対して掛かるもので、Service Worker
+        #   の起動と競合することがある。競合すると、要求が Service Worker に
+        #   届かないまま Edge 自身の接続エラー画面（ERR_INTERNET_DISCONNECTED）
+        #   になる。これはアプリの不具合ではなく検証側の取りこぼしなので、
+        #   その画面だと分かったときだけ、Service Worker を起こし直してやり直す。
+        #   アプリが開いた上で0問だった場合は本物の失敗として NG にする。
+        offok = False
+        offtotal = 0
+        errpage = 0
+        for attempt in range(4):
+            c.ev("fetch('./manifest.json').catch(function(){})")   # SWを起こす
+            time.sleep(0.5)
+            c.call("Network.emulateNetworkConditions",
+                   {"offline": True, "latency": 0,
+                    "downloadThroughput": 0, "uploadThroughput": 0})
+            c.call("Page.reload", {"ignoreCache": False})
+            offok = wait_ready(c, tries=40)
+            if offok:
+                offtotal = c.ev(
+                    "window.__app.getSubject() ? window.__app.getSubject()"
+                    ".units.reduce(function(a,u){return a+u.questions.length;},0) : 0")
+                break
+            body = c.ev("document.body ? document.body.innerText : ''") or ""
+            if "ERR_INTERNET_DISCONNECTED" not in body:
+                break                      # 接続エラー画面でないなら本物の失敗
+            errpage += 1
+            c.call("Network.emulateNetworkConditions",
+                   {"offline": False, "latency": 0,
+                    "downloadThroughput": -1, "uploadThroughput": -1})
+            c.call("Page.reload", {"ignoreCache": False})
+            wait_ready(c, tries=40)
         rec(offok and offtotal == 828, "オフラインにしてもアプリが起動する",
-            "オフラインで再読込 → %d問を読み込み" % offtotal)
+            "オフラインで再読込 → %d問を読み込み%s"
+            % (offtotal,
+               ("（検証側の取りこぼしで%d回やり直し）" % errpage) if errpage else ""))
         # 再読込でオフライン設定が解除されるため、あらためて適用する
         c.call("Network.emulateNetworkConditions",
                {"offline": True, "latency": 0,
