@@ -1,0 +1,26 @@
+{
+ "name": "一問一答",
+ "short_name": "一問一答",
+ "description": "声に出して答える一問一答アプリ",
+ "lang": "ja",
+ "start_url": "./index.html",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "any",
+ "background_color": "#f7f7f5",
+ "theme_color": "#1b4f9c",
+ "icons": [
+  {
+   "src": "icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "any"
+  },
+  {
+   "src": "icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "maskable"
+  }
+ ]
+}

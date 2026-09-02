@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b4f9c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="一問一答">
+<meta name="description" content="声に出して答える一問一答アプリ">
+<title>一問一答</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ 科目の選択 ============ -->
+  <section id="s-subject">
+    <h1 id="appTitle">一問一答</h1>
+    <p class="lead">声に出して答える練習ができます。</p>
+    <div id="loadError" hidden></div>
+    <h2>科目を選ぶ</h2>
+    <div id="subjectList"></div>
+  </section>
+
+  <!-- ============ 単元の選択 ============ -->
+  <section id="s-unit" hidden>
+    <h2 id="unitTitle"></h2>
+    <p class="lead" id="unitLead"></p>
+    <div class="row">
+      <button class="btn sub" id="btnUnitAll">すべて選ぶ</button>
+      <button class="btn sub" id="btnUnitNone">選択を外す</button>
+    </div>
+    <div id="unitList"></div>
+    <p class="sticky-note" id="unitPicked"></p>
+    <button class="btn primary" id="btnUnitNext">選んだ範囲で進む</button>
+    <button class="btn sub center" id="btnToSubject">科目を選び直す</button>
+  </section>
+
+  <!-- ============ 出題の設定 ============ -->
+  <section id="s-setup" hidden>
+    <h2 id="setupTitle"></h2>
+    <fieldset>
+      <legend>出題数</legend>
+      <div id="optCount"></div>
+    </fieldset>
+    <fieldset>
+      <legend>重要度の絞り込み</legend>
+      <button class="opt" data-level="SA">S＋Aのみ（推奨）</button>
+      <button class="opt" data-level="ALL">すべて（S＋A＋B）</button>
+    </fieldset>
+    <fieldset>
+      <legend>出題順</legend>
+      <button class="opt" data-order="shuffle">シャッフル</button>
+      <button class="opt" data-order="csv">もとの順</button>
+    </fieldset>
+    <p class="small" id="setupCount"></p>
+    <button class="btn primary" id="btnStart">この設定ではじめる</button>
+    <button class="btn sub center" id="btnBackUnit">範囲を選び直す</button>
+  </section>
+
+  <!-- ============ 出題 ============ -->
+  <section id="s-quiz" hidden>
+    <div class="meta">
+      <span class="tag" id="mProgress"></span>
+      <span class="tag" id="mUnit"></span>
+      <span class="tag" id="mLevel"></span>
+      <span class="tag" id="mType"></span>
+    </div>
+    <div class="qtext" id="qText"></div>
+    <p class="small" id="selfNote" hidden>※ この問題は自己採点です。</p>
+    <div id="speechBanner" hidden></div>
+    <div class="heard empty" id="heard">ここに聞き取った内容が表示されます</div>
+    <button class="btn mic" id="btnMic">🎤 音声で答える</button>
+    <button class="btn sub center" id="btnKbd">キーボードで答える</button>
+    <div id="kbdBox" hidden>
+      <input id="kbdInput" type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" placeholder="答えを入力して Enter">
+      <button class="btn primary" id="btnKbdSubmit">この答えで判定する</button>
+    </div>
+    <button class="btn sub center" id="btnSkip">分からない（スキップ）</button>
+    <button class="btn sub center" id="btnQuit">やめて範囲選択に戻る</button>
+  </section>
+
+  <!-- ============ 判定 ============ -->
+  <section id="s-judge" hidden>
+    <div class="verdict" id="verdict" hidden></div>
+    <p class="small" id="judgeSelfNote" hidden>
+      ※ この問題は自己採点です。模範解答と見比べて、ご自身で○×を選んでください。</p>
+    <div class="box"><div class="lbl">あなたの解答</div><div class="val" id="jUser"></div></div>
+    <div class="box"><div class="lbl" id="jAnsLbl">正解</div><div class="val" id="jAns"></div></div>
+    <div class="box"><div class="lbl">解説</div><div class="val" id="jExp"></div></div>
+    <div id="selfButtons" hidden class="row">
+      <button class="btn primary" id="btnSelfOk">○ 合っていた</button>
+      <button class="btn" id="btnSelfNg">× 違っていた</button>
+    </div>
+    <button class="btn primary" id="btnNext">次の問題へ</button>
+  </section>
+
+  <!-- ============ 結果 ============ -->
+  <section id="s-result" hidden>
+    <h2>結果</h2>
+    <div class="score" id="score"></div>
+    <div id="wrongList"></div>
+    <button class="btn primary" id="btnRetryWrong">間違えた問題だけもう一度</button>
+    <button class="btn sub center" id="btnAgain">同じ範囲でもう一度</button>
+    <button class="btn sub center" id="btnToUnit">範囲を選び直す</button>
+  </section>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

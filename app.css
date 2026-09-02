@@ -1,0 +1,133 @@
+/* 一問一答アプリ　スタイル
+   スマートフォンを基準にした1カラム構成。画面幅が広い場合だけ中央に寄せる。 */
+
+:root{
+  --bg:#f7f7f5; --fg:#111; --line:#333; --sub:#555;
+  --ok:#0a7d3c; --ng:#b3261e; --accent:#1b4f9c; --mute:#9a9a9a;
+  --tap:48px;                 /* 指で押せる最小の高さ（44pxを上回る値） */
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:"Yu Gothic UI","Meiryo","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
+  font-size:17px; line-height:1.7;
+  overflow-wrap:break-word; word-break:normal;
+}
+#app{
+  max-width:720px; margin:0 auto;
+  padding:14px 12px calc(48px + env(safe-area-inset-bottom,0px));
+}
+h1{font-size:24px;margin:6px 0 4px;}
+h2{font-size:20px;margin:4px 0 10px;}
+.lead{font-size:14px;color:var(--sub);margin:0 0 14px;}
+.small{font-size:13px;color:var(--sub);}
+.sticky-note{font-size:14px;font-weight:bold;margin:10px 0 4px;}
+
+button,input{font-family:inherit;}
+.btn{
+  display:block; width:100%; min-height:var(--tap);
+  margin:9px 0; padding:11px 14px;
+  border:2px solid var(--line); border-radius:10px;
+  background:#fff; color:var(--fg); font-size:17px; line-height:1.4;
+  text-align:left; cursor:pointer;
+}
+.btn:hover{background:#eef2f8;}
+.btn:disabled{color:var(--mute);border-color:#ccc;background:#f0f0f0;cursor:not-allowed;}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);
+             text-align:center;font-weight:bold;}
+.btn.primary:hover{background:#16407e;}
+.btn.primary:disabled{background:#f0f0f0;color:var(--mute);border-color:#ccc;}
+.btn.mic{background:var(--ok);color:#fff;border-color:var(--ok);
+         text-align:center;font-weight:bold;font-size:19px;}
+.btn.mic.listening{background:var(--ng);border-color:var(--ng);}
+.btn.mic:disabled{background:#f0f0f0;color:var(--mute);border-color:#ccc;}
+.btn.center{text-align:center;}
+.btn.sub{background:#fff;}
+
+.row{display:flex;gap:8px;flex-wrap:wrap;}
+.row .btn{flex:1 1 46%;width:auto;text-align:center;}
+
+.opt{
+  display:block; width:100%; min-height:var(--tap);
+  margin:8px 0; padding:10px 13px;
+  border:2px solid #bbb; border-radius:10px; background:#fff;
+  font-size:17px; text-align:left; cursor:pointer;
+}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:#e8effa;font-weight:bold;}
+
+/* 単元のチェックボックス */
+.unit{
+  display:flex; align-items:center; gap:10px;
+  width:100%; min-height:var(--tap); margin:7px 0; padding:8px 12px;
+  border:2px solid #bbb; border-radius:10px; background:#fff;
+  font-size:16px; text-align:left; cursor:pointer; line-height:1.35;
+}
+.unit[aria-pressed="true"]{border-color:var(--accent);background:#e8effa;}
+.unit .mark{
+  flex:0 0 auto; width:26px; height:26px; border:2px solid #888; border-radius:6px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; font-weight:bold; color:#fff; background:#fff;
+}
+.unit[aria-pressed="true"] .mark{background:var(--accent);border-color:var(--accent);}
+.unit .nm{flex:1 1 auto;}
+.unit .ct{flex:0 0 auto;font-size:13px;color:var(--sub);}
+
+fieldset{border:1px solid #ccc;border-radius:10px;margin:0 0 14px;padding:8px 10px 4px;}
+legend{font-size:15px;font-weight:bold;padding:0 6px;}
+
+.meta{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--sub);margin-bottom:8px;}
+.tag{border:1px solid #bbb;border-radius:999px;padding:2px 10px;background:#fff;}
+
+.qtext{
+  font-size:22px; line-height:1.6; margin:8px 0 14px; padding:14px;
+  border:2px solid var(--line); border-radius:12px; background:#fff;
+}
+.heard{
+  min-height:var(--tap); margin:8px 0 4px; padding:10px 12px;
+  border:2px dashed #999; border-radius:10px; background:#fff; font-size:18px;
+}
+.heard.empty{color:var(--mute);}
+#kbdBox{margin:8px 0;}
+#kbdInput{
+  width:100%; min-height:var(--tap); font-size:18px; padding:10px 12px;
+  border:2px solid var(--line); border-radius:10px;
+}
+
+.verdict{font-size:52px;font-weight:bold;text-align:center;margin:4px 0 8px;}
+.verdict.ok{color:var(--ok);} .verdict.ng{color:var(--ng);}
+.box{border:2px solid var(--line);border-radius:12px;background:#fff;
+     padding:11px 13px;margin:9px 0;}
+.box .lbl{font-size:13px;color:var(--sub);margin-bottom:2px;}
+.box .val{font-size:19px;}
+
+.banner{border:2px solid var(--ng);background:#fdecea;color:#7a1a14;
+        border-radius:10px;padding:11px 13px;margin:10px 0;font-size:15px;}
+.banner.info{border-color:var(--accent);background:#e8effa;color:#123a75;}
+
+.wrong{border:1px solid #ccc;border-radius:10px;background:#fff;
+       padding:10px 12px;margin:9px 0;}
+.wrong .q{font-size:17px;font-weight:bold;}
+.score{font-size:30px;font-weight:bold;text-align:center;margin:10px 0;}
+
+[hidden]{display:none !important;}
+
+/* 画面が狭いとき（スマートフォンの縦向きなど） */
+@media (max-width:420px){
+  body{font-size:16px;}
+  #app{padding:12px 10px calc(40px + env(safe-area-inset-bottom,0px));}
+  h1{font-size:21px;} h2{font-size:18px;}
+  .qtext{font-size:20px;padding:12px;}
+  .row .btn{flex:1 1 100%;}      /* 横並びをやめて1カラムにする */
+  .unit{font-size:15px;}
+  .verdict{font-size:44px;}
+  .score{font-size:26px;}
+}
+
+/* 横向きで高さが足りないとき */
+@media (max-height:480px) and (orientation:landscape){
+  .qtext{font-size:19px;padding:10px;}
+  .btn{margin:6px 0;}
+  .verdict{font-size:38px;}
+}

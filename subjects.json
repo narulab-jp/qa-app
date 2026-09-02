@@ -1,0 +1,10 @@
+{
+ "subjects": [
+  {
+   "id": "chiri",
+   "name": "共通テスト地理",
+   "file": "data/chiri.json",
+   "enabled": true
+  }
+ ]
+}
