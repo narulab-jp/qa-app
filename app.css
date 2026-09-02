@@ -128,13 +128,34 @@ input[type="text"]:focus{border-color:var(--accent);outline:none;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px;}
 
 /* ---------------- 利用者バー（控えめ） ---------------- */
+#topBars{ margin:0 calc(var(--pad-x) * -1) 20px; }
 #userBar{
   position:sticky; top:0; z-index:20;
   display:flex; align-items:center; gap:8px;
-  margin:0 calc(var(--pad-x) * -1) 20px;
   padding:0 var(--pad-x);
   background:var(--bg); border-bottom:1px solid var(--line);
 }
+/* 科目の切り替え。利用者名のすぐ下、画面のいちばん上に置く */
+#subjBar{
+  display:flex; align-items:center; gap:10px;
+  padding:0 var(--pad-x);
+  border-bottom:1px solid var(--line);
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+}
+#subjBar .sb-label{
+  flex:0 0 auto; font-size:var(--fs-label); color:var(--dim);
+}
+#subjBar .sb-tabs{display:flex; gap:4px;}
+#subjBar .sb-tab{
+  flex:0 0 auto; min-height:44px; padding:0 12px; margin:0;
+  border:0; border-bottom:2px solid transparent; border-radius:0;
+  background:transparent; color:var(--dim);
+  font-family:inherit; font-size:var(--fs-label); white-space:nowrap;
+  cursor:pointer;
+}
+#subjBar .sb-tab.now{color:var(--accent); font-weight:600;
+  border-bottom-color:var(--accent);}
+#subjBar .sb-tab[disabled]{opacity:.45; cursor:default;}
 #userBar .ub-name{
   flex:1 1 auto; font-size:var(--fs-label); color:var(--dim);
   padding:12px 0;
@@ -438,7 +459,8 @@ details.sect > *:last-child{margin-bottom:24px;}
   /* ボタン・ナビゲーション・画面外の要素は印刷しない */
   button, label.btn, .noprint, .row, fieldset, .statusbar, .meta, details,
   #s-home, #s-unit, #s-setup, #s-quiz, #s-judge, #s-result, #s-note,
-  #s-settings, #s-user, #userBar, #confirmWrap, #zoomWrap { display:none !important; }
+  #s-settings, #s-user, #userBar, #subjBar, #topBars, #confirmWrap,
+  #zoomWrap { display:none !important; }
   #s-print{ display:block !important; }
   .printhead{border-bottom:1.5pt solid #000;}
   .pq{

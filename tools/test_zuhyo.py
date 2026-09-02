@@ -184,8 +184,50 @@ def main():
                      "return [u.id,u.name,u.questions.length];}))")
         total = c.ev("window.__app.getSubject().units.reduce(function(a,u){"
                      "return a+u.questions.length;},0)")
-        rec("Phase1", "冊ごとの問数（Phase 2 で A=40／B=50／C=20セットにする）",
-            "%s／合計 %d問" % (units, total))
+        nsets = c.ev("(function(){var s=window.__app.getSubject(),h={};"
+                     "s.units.forEach(function(u){if(u.id!=='C')return;"
+                     "u.questions.forEach(function(q){h[q.setId]=1;});});"
+                     "return Object.keys(h).length;})()")
+        cnt = json.loads(units)
+        rec(cnt[0][2] == 40 and cnt[1][2] == 50 and nsets == 20,
+            "アプリでも A=40問・B=50問・C=20セットになっている",
+            "%s／C=%dセット／合計 %d問" % (units, nsets, total))
+
+        # ---------- 科目の切り替えが画面最上部にあるか ----------
+        c.ev("document.getElementById('btnGoUnit') && 0;"
+             "window.__app.openSubjectById('chiri')")
+        time.sleep(1.2)
+        home_vis = c.ev("!document.getElementById('subjBar').hidden")
+        top = c.ev("(function(){var s=document.getElementById('subjBar'),"
+                   "u=document.getElementById('userBar');"
+                   "return [Math.round(s.getBoundingClientRect().top),"
+                   "Math.round(u.getBoundingClientRect().bottom)];})()")
+        tabs = c.ev("(function(){var a=[];"
+                    "document.querySelectorAll('#subjectList .sb-tab').forEach("
+                    "function(b){a.push([b.textContent,b.className,"
+                    "Math.round(b.getBoundingClientRect().height)]);});"
+                    "return JSON.stringify(a);})()")
+        c.ev("document.getElementById('btnGoUnit').click()")
+        time.sleep(0.3)
+        unit_vis = c.ev("!document.getElementById('subjBar').hidden")
+        c.ev("document.getElementById('btnToHome1').click()")
+        time.sleep(0.3)
+        rec(home_vis is True and unit_vis is True and top[0] <= top[1] + 1
+            and "now" in tabs and min(x[2] for x in json.loads(tabs)) >= 44,
+            "科目の切り替えが画面最上部（利用者名のすぐ下）にある",
+            "ホーム=表示／単元選び=表示／利用者バーの直下（%dpx）／タブ=%s"
+            % (top[0], tabs))
+        c.ev("window.__z.start(['01'],5)")
+        time.sleep(0.5)
+        quiz_vis = c.ev("!document.getElementById('subjBar').hidden")
+        c.ev("window.confirm=function(){return true;};"
+             "document.getElementById('btnQuit').click()")
+        time.sleep(0.3)
+        rec(quiz_vis is False,
+            "出題中は科目バーを出さない（途中で切り替わらないようにする）",
+            "出題画面では非表示")
+        c.ev("window.__app.openSubjectById('chiri-zuhyo')")
+        time.sleep(1.2)
 
         # ---------- 全問4択・記述なし ----------
         bad = c.ev("(function(){var a=[],s=window.__app.getSubject();"
@@ -396,7 +438,7 @@ def main():
         # ---------- Service Worker のキャッシュ対象 ----------
         sw = io.open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read()
         ver = sw.split('VERSION = "')[1].split('"')[0]
-        rec(ver == "v6" and "q.figures" in sw,
+        rec(ver == "v7" and "q.figures" in sw,
             "Service Worker がSVGとJSONをキャッシュし、バージョンを上げてある",
             "バージョン=%s／科目JSONと figures を取り込む処理あり" % ver)
     finally:

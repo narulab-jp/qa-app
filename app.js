@@ -324,6 +324,10 @@ function renderUserBar(screen){
   }
   bar.hidden = false;
   $("userBarName").textContent = activeUser + " として学習中";
+  /* 科目の切り替えは、出題中に押せてしまうと困るので、
+     ホームと単元選びのときだけ画面のいちばん上に出す。 */
+  $("subjBar").hidden = !(SUBJECTS.length > 1 &&
+                          (screen === "s-home" || screen === "s-unit"));
 }
 function renderUsers(){
   var box = $("userList");
@@ -555,17 +559,18 @@ function ensureNote(go){
 /* ================= ホーム ================= */
 function renderSubjects(){
   $("subjectNow").textContent = SUBJECT
-    ? ("いまの科目：" + SUBJECT.subjectName)
+    ? ("いまの科目：" + SUBJECT.subjectName + "。科目は画面のいちばん上で切り替えられます。")
     : "科目を選んでください。";
   var box = $("subjectList");
   box.innerHTML = "";
   SUBJECTS.forEach(function(s){
     var b = document.createElement("button");
-    b.className = "btn";
+    var now = !!(SUBJECT && SUBJECT.subjectId === s.id);
+    b.className = "sb-tab" + (now ? " now" : "");
     b.id = "subj-" + s.id;
     b.disabled = !s.enabled;
-    b.textContent = s.name + (s.enabled ? "" : "　― 準備中")
-                  + (SUBJECT && SUBJECT.subjectId === s.id ? "　（選択中）" : "");
+    b.setAttribute("aria-pressed", String(now));
+    b.textContent = s.name + (s.enabled ? "" : "　― 準備中");
     if(s.enabled) b.addEventListener("click", function(){ openSubject(s); });
     box.appendChild(b);
   });

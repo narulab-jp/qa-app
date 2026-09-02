@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" width="720" height="620" role="img" aria-label="三角州と氾濫原の模式地形図"><defs>
+ <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
+  <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
+ <pattern id="pDotFine" width="5" height="5" patternUnits="userSpaceOnUse">
+  <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
+ <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+ <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
+  <rect width="10" height="8" fill="#fff"/>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+</defs><rect width="720" height="620" fill="#fff"/>
+<g clip-path="url(#frame)">
+<polyline points="209.07,30 209.06,34 209.04,38 209.01,42 208.97,46 208.92,50 208.86,54 208.79,58 208.71,62 208.63,66 208.53,70 208.42,74 208.31,78 208.19,82 208.05,86 208,87.5 207.95,90 207.88,94 207.82,98 207.75,102 207.68,106 207.6,110 207.53,114 207.46,118 207.38,122 207.3,126 207.23,130 207.15,134 207.07,138 206.99,142 206.91,146 206.83,150 206.75,154 206.65,158 206.54,162 206.43,166 206.32,170 206.22,174 206.11,178 206.01,182 205.91,186 205.82,190 205.72,194 205.63,198 205.54,202 205.46,206 205.37,210 205.29,214 205.22,218 205.14,222 205.03,226 204.92,230 204.82,234 204.72,238 204.63,242 204.54,246 204.46,250 204.39,254 204.32,258 204.26,262 204.2,266 204.14,270 204.09,274 204.04,278 204,281.58 204,282 203.97,286 203.95,290 203.92,294 203.9,298 203.87,302 203.84,306 203.81,310 203.78,314 203.76,318 203.73,322 203.7,326 203.68,330 203.65,334 203.63,338 203.6,342 203.58,346 203.56,350 203.54,354 203.52,358 203.5,362 203.48,366 203.46,370 203.45,374 203.43,378 203.41,382 203.4,386 203.39,390 203.37,394 203.36,398 203.35,402 203.33,406 203.32,410 203.31,414 203.3,418 203.29,422 203.28,426 203.28,430 203.27,434 203.26,438 203.26,442 203.25,446 203.25,450" fill="none" stroke="#000" stroke-width="0.7"/>
+<polyline points="197.6,30 197.59,34 197.57,38 197.55,42 197.53,46 197.5,50 197.48,54 197.46,58 197.43,62 197.41,66 197.38,70 197.35,74 197.33,78 197.3,82 197.28,86 197.25,90 197.22,94 197.2,98 197.18,102 197.15,106 197.13,110 197.11,114 197.09,118 197.07,122 197.05,126 197.02,130 197,134 196.98,138 196.96,142 196.94,146 196.92,150 196.9,154 196.88,158 196.86,162 196.83,166 196.81,170 196.78,174 196.76,178 196.74,182 196.72,186 196.7,190 196.68,194 196.66,198 196.64,202 196.62,206 196.6,210 196.59,214 196.57,218 196.56,222 196.54,226 196.52,230 196.5,234 196.48,238 196.46,242 196.44,246 196.42,250 196.41,254 196.39,258 196.38,262 196.36,266 196.35,270 196.34,274 196.33,278 196.32,282 196.31,286 196.29,290 196.28,294 196.27,298 196.26,302 196.25,306 196.24,310 196.23,314 196.21,318 196.2,322 196.19,326 196.17,330 196.16,334 196.15,338 196.14,342 196.13,346 196.12,350 196.11,354 196.1,358 196.09,362 196.08,366 196.07,370 196.07,374 196.06,378 196.05,382 196.04,386 196.04,390 196.03,394 196.03,398 196.02,402 196.02,406 196.01,410 196.01,414 196,418 196,419.24 196,422 196,426 195.99,430 195.99,434 195.99,438 195.99,442 195.98,446 195.98,450" fill="none" stroke="#000" stroke-width="0.7"/>
+<polyline points="192.32,30 192.31,34 192.29,38 192.28,42 192.27,46 192.25,50 192.24,54 192.22,58 192.21,62 192.19,66 192.18,70 192.16,74 192.15,78 192.13,82 192.12,86 192.1,90 192.09,94 192.07,98 192.06,102 192.05,106 192.04,110 192.03,114 192.02,118 192,122 192,123.6 191.99,126 191.98,130 191.98,134 191.97,138 191.96,142 191.95,146 191.94,150 191.93,154 191.92,158 191.91,162 191.9,166 191.89,170 191.88,174 191.87,178 191.86,182 191.85,186 191.85,190 191.84,194 191.83,198 191.82,202 191.81,206 191.81,210 191.8,214 191.79,218 191.79,222 191.78,226 191.77,230 191.76,234 191.76,238 191.75,242 191.74,246 191.73,250 191.73,254 191.72,258 191.71,262 191.71,266 191.7,270 191.7,274 191.69,278 191.68,282 191.68,286 191.68,290 191.67,294 191.67,298 191.66,302 191.65,306 191.65,310 191.64,314 191.64,318 191.63,322 191.62,326 191.62,330 191.61,334 191.61,338 191.6,342 191.6,346 191.59,350 191.59,354 191.58,358 191.58,362 191.57,366 191.57,370 191.57,374 191.56,378 191.56,382 191.56,386 191.55,390 191.55,394 191.55,398 191.55,402 191.54,406 191.54,410 191.54,414 191.54,418 191.53,422 191.53,426 191.53,430 191.53,434 191.53,438 191.53,442 191.53,446 191.53,450" fill="none" stroke="#000" stroke-width="0.7"/>
+<polyline points="187.96,30 187.95,34 187.94,38 187.93,42 187.92,46 187.91,50 187.9,54 187.89,58 187.88,62 187.87,66 187.86,70 187.85,74 187.84,78 187.83,82 187.82,86 187.81,90 187.8,94 187.8,98 187.79,102 187.78,106 187.77,110 187.77,114 187.76,118 187.75,122 187.75,126 187.74,130 187.73,134 187.73,138 187.72,142 187.72,146 187.71,150 187.7,154 187.7,158 187.69,162 187.68,166 187.68,170 187.67,174 187.66,178 187.66,182 187.65,186 187.65,190 187.64,194 187.64,198 187.63,202 187.63,206 187.62,210 187.62,214 187.61,218 187.61,222 187.61,226 187.6,230 187.59,234 187.59,238 187.58,242 187.58,246 187.57,250 187.57,254 187.56,258 187.56,262 187.56,266 187.55,270 187.55,274 187.54,278 187.54,282 187.54,286 187.53,290 187.53,294 187.53,298 187.52,302 187.52,306 187.51,310 187.51,314 187.51,318 187.5,322 187.5,326 187.49,330 187.49,334 187.48,338 187.48,342 187.48,346 187.47,350 187.47,354 187.46,358 187.46,362 187.46,366 187.46,370 187.45,374 187.45,378 187.45,382 187.45,386 187.44,390 187.44,394 187.44,398 187.44,402 187.44,406 187.43,410 187.43,414 187.43,418 187.43,422 187.43,426 187.43,430 187.43,434 187.43,438 187.43,442 187.42,446 187.42,450" fill="none" stroke="#000" stroke-width="0.7"/>
+<polyline points="182.96,30 182.95,34 182.94,38 182.94,42 182.93,46 182.92,50 182.91,54 182.91,58 182.9,62 182.89,66 182.88,70 182.88,74 182.87,78 182.86,82 182.86,86 182.85,90 182.84,94 182.84,98 182.83,102 182.83,106 182.82,110 182.82,114 182.81,118 182.81,122 182.8,126 182.8,130 182.8,134 182.79,138 182.79,142 182.78,146 182.78,150 182.78,154 182.77,158 182.77,162 182.77,166 182.76,170 182.76,174 182.75,178 182.75,182 182.74,186 182.74,190 182.74,194 182.73,198 182.73,202 182.73,206 182.73,210 182.72,214 182.72,218 182.72,222 182.71,226 182.71,230 182.71,234 182.7,238 182.7,242 182.7,246 182.69,250 182.69,254 182.69,258 182.68,262 182.68,266 182.68,270 182.67,274 182.67,278 182.67,282 182.67,286 182.66,290 182.66,294 182.66,298 182.66,302 182.65,306 182.65,310 182.65,314 182.64,318 182.64,322 182.64,326 182.63,330 182.63,334 182.63,338 182.63,342 182.62,346 182.62,350 182.62,354 182.61,358 182.61,362 182.61,366 182.61,370 182.61,374 182.6,378 182.6,382 182.6,386 182.6,390 182.6,394 182.6,398 182.6,402 182.59,406 182.59,410 182.59,414 182.59,418 182.59,422 182.59,426 182.59,430 182.59,434 182.59,438 182.59,442 182.59,446 182.59,450" fill="none" stroke="#000" stroke-width="1.6"/>
+<polyline points="174.08,30 174.08,34 174.08,38 174.07,42 174.07,46 174.06,50 174.06,54 174.05,58 174.05,62 174.04,66 174.04,70 174.03,74 174.03,78 174.03,82 174.02,86 174.02,90 174.02,94 174.01,98 174.01,102 174.01,106 174,110 174,114 174,118 174,122 174,126 173.99,130 173.99,134 173.99,138 173.99,142 173.98,146 173.98,150 173.98,154 173.98,158 173.98,162 173.97,166 173.97,170 173.97,174 173.97,178 173.97,182 173.96,186 173.96,190 173.96,194 173.96,198 173.96,202 173.95,206 173.95,210 173.95,214 173.95,218 173.95,222 173.95,226 173.94,230 173.94,234 173.94,238 173.94,242 173.94,246 173.93,250 173.93,254 173.93,258 173.93,262 173.93,266 173.92,270 173.92,274 173.92,278 173.92,282 173.92,286 173.91,290 173.91,294 173.91,298 173.91,302 173.91,306 173.91,310 173.9,314 173.9,318 173.9,322 173.9,326 173.9,330 173.89,334 173.89,338 173.89,342 173.89,346 173.89,350 173.88,354 173.88,358 173.88,362 173.88,366 173.88,370 173.88,374 173.88,378 173.88,382 173.87,386 173.87,390 173.87,394 173.87,398 173.87,402 173.87,406 173.87,410 173.87,414 173.87,418 173.87,422 173.87,426 173.87,430 173.87,434 173.87,438 173.87,442 173.87,446 173.87,450" fill="none" stroke="#000" stroke-width="0.7"/>
+<polyline points="210,27.8 222,87.8 232,147.8 246,207.8 268,259.8 300,297.8 350,325.8 410,341.8 470,349.8 540,353.8 620,355.8" fill="none" stroke="#000" stroke-width="1.2"/>
+<polyline points="210,32.2 222,92.2 232,152.2 246,212.2 268,264.2 300,302.2 350,330.2 410,346.2 470,354.2 540,358.2 620,360.2" fill="none" stroke="#000" stroke-width="1.2"/>
+<polyline points="300,297.8 330,247.8 352,197.8 368,147.8 376,87.8 380,27.8" fill="none" stroke="#000" stroke-width="1.2"/>
+<polyline points="300,302.2 330,252.2 352,202.2 368,152.2 376,92.2 380,32.2" fill="none" stroke="#000" stroke-width="1.2"/>
+<path d="M397.5 156.5 v7 M402.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M425.5 156.5 v7 M430.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M453.5 156.5 v7 M458.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M481.5 156.5 v7 M486.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M509.5 156.5 v7 M514.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 156.5 v7 M542.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M565.5 156.5 v7 M570.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M593.5 156.5 v7 M598.5 156.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M397.5 184.5 v7 M402.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M425.5 184.5 v7 M430.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M453.5 184.5 v7 M458.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M481.5 184.5 v7 M486.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M509.5 184.5 v7 M514.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 184.5 v7 M542.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M565.5 184.5 v7 M570.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M593.5 184.5 v7 M598.5 184.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M397.5 212.5 v7 M402.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M425.5 212.5 v7 M430.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M453.5 212.5 v7 M458.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M481.5 212.5 v7 M486.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M509.5 212.5 v7 M514.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 212.5 v7 M542.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M565.5 212.5 v7 M570.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M593.5 212.5 v7 M598.5 212.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M397.5 240.5 v7 M402.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M425.5 240.5 v7 M430.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M453.5 240.5 v7 M458.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M481.5 240.5 v7 M486.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M509.5 240.5 v7 M514.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 240.5 v7 M542.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M565.5 240.5 v7 M570.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M593.5 240.5 v7 M598.5 240.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M397.5 268.5 v7 M402.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M425.5 268.5 v7 M430.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M453.5 268.5 v7 M458.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M481.5 268.5 v7 M486.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M509.5 268.5 v7 M514.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 268.5 v7 M542.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M565.5 268.5 v7 M570.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M593.5 268.5 v7 M598.5 268.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M397.5 296.5 v7 M402.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M425.5 296.5 v7 M430.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M453.5 296.5 v7 M458.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M481.5 296.5 v7 M486.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M509.5 296.5 v7 M514.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 296.5 v7 M542.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M565.5 296.5 v7 M570.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M593.5 296.5 v7 M598.5 296.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M297.5 376.5 v7 M302.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M327.5 376.5 v7 M332.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M357.5 376.5 v7 M362.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M387.5 376.5 v7 M392.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M417.5 376.5 v7 M422.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M447.5 376.5 v7 M452.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M477.5 376.5 v7 M482.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M507.5 376.5 v7 M512.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 376.5 v7 M542.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M567.5 376.5 v7 M572.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M597.5 376.5 v7 M602.5 376.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M297.5 406.5 v7 M302.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M327.5 406.5 v7 M332.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M357.5 406.5 v7 M362.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M387.5 406.5 v7 M392.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M417.5 406.5 v7 M422.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M447.5 406.5 v7 M452.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M477.5 406.5 v7 M482.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M507.5 406.5 v7 M512.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M537.5 406.5 v7 M542.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M567.5 406.5 v7 M572.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M597.5 406.5 v7 M602.5 406.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M237 87 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M263 87 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M289 87 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M315 87 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M237 111 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M263 111 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M289 111 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M315 111 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M237 135 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M263 135 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M289 135 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<path d="M315 135 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<circle cx="70" cy="86" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="90.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="90.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="86" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="90.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="90.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="86" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="90.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="90.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="70" cy="126" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="130.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="130.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="126" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="130.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="130.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="126" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="130.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="130.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="70" cy="166" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="170.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="170.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="166" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="170.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="170.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="166" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="170.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="170.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="70" cy="206" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="210.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="210.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="206" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="210.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="210.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="206" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="210.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="210.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="70" cy="246" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="250.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="250.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="246" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="250.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="250.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="246" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="250.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="250.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="70" cy="286" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="290.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="290.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="286" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="290.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="290.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="286" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="290.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="290.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="70" cy="326" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="330.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="330.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="326" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="330.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="330.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="326" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="330.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="330.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="70" cy="366" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="370.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="370.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="104" cy="366" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="101.4" cy="370.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="106.6" cy="370.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="138" cy="366" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="135.4" cy="370.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="140.6" cy="370.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<circle cx="430" cy="130" r="7" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="430" y="133.6" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">文</text>
+<path d="M262.5 212 h11 M263.5 215 h9 M264.5 212 v8 M271.5 212 v8" stroke="#000" stroke-width="1.3" fill="none"/>
+<circle cx="470" cy="396" r="7" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="470" y="399.42" font-size="9.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">〒</text>
+<circle cx="520" cy="130" r="6" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="520" y="133.24" font-size="9" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">X</text>
+<circle cx="560" cy="300" r="7" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="560" y="303.42" font-size="9.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">田</text>
+<circle cx="240" cy="400" r="7" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="240" y="403.6" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">✿</text>
+<circle cx="280" cy="170" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="285" y="174" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">5.3</text>
+<circle cx="430" cy="336" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="435" y="340" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">6.6</text>
+<circle cx="540" cy="348" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="545" y="352" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">6.3</text>
+<circle cx="330" cy="400" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="335" y="404" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">4.2</text>
+<circle cx="470" cy="280" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="475" y="284" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3.7</text>
+<circle cx="250" cy="320" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="255" y="324" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">5.1</text>
+<circle cx="150" cy="240" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="155" y="244" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">64.6</text>
+<circle cx="580" cy="420" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/><text x="585" y="424" font-size="10.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3.4</text>
+<rect x="169.78" y="144" width="26" height="14" fill="#fff" stroke="#000" stroke-width="0"/><text x="182.78" y="154" font-size="11" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">50</text>
+
+</g>
+<rect x="40" y="30" width="580" height="420" fill="none" stroke="#000" stroke-width="1.6"/>
+<circle cx="400" cy="342" r="8.5" fill="#fff" stroke="#000" stroke-width="1.8"/><text x="400" y="346.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">P</text>
+<circle cx="470" cy="240" r="8.5" fill="#fff" stroke="#000" stroke-width="1.8"/><text x="470" y="244.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">Q</text>
+<circle cx="150" cy="300" r="8.5" fill="#fff" stroke="#000" stroke-width="1.8"/><text x="150" y="304.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">R</text>
+<circle cx="330" cy="410" r="8.5" fill="#fff" stroke="#000" stroke-width="1.8"/><text x="330" y="414.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">S</text>
+<g><path d="M655 60 L648 100 L655 92 L662 100 Z" fill="#000"/><path d="M655 60 v40" stroke="#000" stroke-width="1"/><text x="655" y="52" font-size="14" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">N</text></g>
+<rect x="430" y="478" width="145" height="9" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<rect x="430" y="478" width="72.5" height="9" fill="#000" stroke="#000" stroke-width="0"/>
+<text x="430" y="502" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
+<text x="502.5" y="502" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">500</text>
+<text x="575" y="502" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1000m</text>
+<text x="430" y="471" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2万5千分の1</text>
+<rect x="46" y="468" width="336" height="110" fill="none" stroke="#000" stroke-width="1"/>
+<text x="56" y="485" font-size="12" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">凡例</text>
+<path d="M58 503 L82 503" stroke="#000" stroke-width="0.7" fill="none"/>
+<text x="88" y="506" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">主曲線（10mごと）</text>
+<path d="M226 503 L250 503" stroke="#000" stroke-width="1.6" fill="none"/>
+<text x="256" y="506" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">計曲線（50mごと）</text>
+<path d="M58 522 L82 522" stroke="#000" stroke-width="1.2" fill="none"/>
+<path d="M58 526 L82 526" stroke="#000" stroke-width="1.2" fill="none"/>
+<text x="88" y="527" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">河川</text>
+<circle cx="238" cy="524" r="1.5" fill="#000" stroke="#000" stroke-width="0.5"/>
+<text x="256" y="527" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">標高点（m）</text>
+<path d="M67.5 542.5 v7 M72.5 542.5 v7" stroke="#000" stroke-width="1.1" fill="none"/>
+<text x="88" y="548" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">田</text>
+<path d="M235 543 l3 6 l3 -6" stroke="#000" stroke-width="1.1" fill="none"/>
+<text x="256" y="548" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">畑</text>
+<circle cx="70" cy="563" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="67.4" cy="567.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/><circle cx="72.6" cy="567.6" r="1.1" fill="#000" stroke="#000" stroke-width="0.6"/>
+<text x="88" y="569" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">茶畑</text>
+<circle cx="238" cy="567" r="7" fill="#fff" stroke="#000" stroke-width="1.2"/><text x="238" y="570.6" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">✿</text>
+<text x="256" y="569" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">工場</text>
+<text x="40" y="606" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した模式地形図であり、実在の地域ではない。</text>
+<defs><clipPath id="frame"><rect x="40" y="30" width="580" height="420"/></clipPath></defs>
+</svg>

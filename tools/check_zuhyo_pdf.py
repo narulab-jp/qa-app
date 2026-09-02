@@ -29,7 +29,33 @@ def rec(ok, title, detail=""):
     print("[%s] %s %s" % (st, title, detail))
 
 
+def check_howto():
+    name = "地理図表_00_解き方の手順.pdf"
+    path = os.path.join(PDF_DIR, name)
+    if not os.path.isfile(path):
+        rec(False, "%s が出力されている" % name, "ファイルがない")
+        return
+    d = fitz.open(path)
+    sizes = set((round(p.rect.width * PT_MM), round(p.rect.height * PT_MM)) for p in d)
+    texts = [p.get_text() for p in d]
+    rec(sizes == {(210, 297)} and d.page_count >= 8,
+        "%s がA4縦で8ページ以上ある" % name,
+        "全%dページ %s mm" % (d.page_count, sorted(sizes)))
+    want = ["地形図を見たときの手順", "雨温図の判定手順", "人口ピラミッドの判定手順",
+            "三角グラフの読み方", "相関", "複数資料問題の処理順序",
+            "選択肢の切り方", "時間配分"]
+    miss = [w for w in want if not any(w in t for t in texts)]
+    rec(not miss, "%s に8つの手順がすべて載っている" % name,
+        "1〜8のすべてを確認" if not miss else str(miss))
+    miss = [i + 1 for i, t in enumerate(texts)
+            if "冊00" not in t or ("%d/%d" % (i + 1, d.page_count)) not in t]
+    rec(not miss, "%s の全ページにページ番号がある" % name,
+        "「冊00 n/%d」が全%dページに入っている" % (d.page_count, d.page_count))
+    d.close()
+
+
 def main():
+    check_howto()
     for u in bank.UNITS:
         name = "地理図表_%s_%s.pdf" % (u["id"], u["name"])
         path = os.path.join(PDF_DIR, name)

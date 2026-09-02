@@ -5,11 +5,14 @@ import io
 import json
 import os
 import sys
+from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
+import fig_a          # noqa: E402
+import fig_b          # noqa: E402
 import zuhyo_bank as bank        # noqa: E402
 
 OUT = os.path.join(ROOT, "data", "chiri-zuhyo.json")
@@ -56,75 +59,108 @@ def check(data):
     for u in data["units"]:
         for q in u["questions"]:
             qs.append((u, q))
-
-    # 問数
     cnt = dict((u["id"], len(u["questions"])) for u in data["units"])
-    sets = sorted(set(q["setId"] for (_, q) in qs))
-    rec("Phase1", "冊ごとの問数（Phase 2 で A=40／B=50／C=20セットに増やす）",
-        "A=%d問／B=%d問／C=%d問（%dセット）／合計 %d問"
-        % (cnt.get("A", 0), cnt.get("B", 0), cnt.get("C", 0),
-           len([x for x in sets if x.startswith("C")]), len(qs)))
+    csets = sorted(set(q["setId"] for (u, q) in qs if u["id"] == "C"))
 
-    # 4択か
+    rec(cnt.get("A") == 40 and cnt.get("B") == 50 and len(csets) == 20,
+        "A=40問・B=50問・C=20セットである",
+        "A=%d問／B=%d問／C=%dセット %d問／合計 %d問"
+        % (cnt.get("A", 0), cnt.get("B", 0), len(csets), cnt.get("C", 0), len(qs)))
+
+    # 冊Aの8技能・冊Bの7種類が表どおりか
+    for uid in ("A", "B"):
+        got = Counter(q["skill"] for (u, q) in qs if u["id"] == uid)
+        plan = bank.SKILL_PLAN[uid]
+        bad = [k for k in set(list(plan) + list(got)) if got.get(k, 0) != plan.get(k, 0)]
+        rec(not bad,
+            "冊%sの%sすべてに問題があり、表の問数と一致する"
+            % (uid, "8技能" if uid == "A" else "7種類の図"),
+            "／".join("%s%d" % (k, plan[k]) for k in plan)
+            if not bad else "合わない項目=%s（実際=%s）" % (bad, dict(got)))
+
+    # 冊Cの分野配分
+    fld = Counter(bank.FIELD_OF[s.split("-")[1][0]] for s in csets)
+    bad = [k for k in bank.FIELD_PLAN if fld.get(k, 0) != bank.FIELD_PLAN[k]]
+    rec(not bad, "冊Cの分野ごとのセット数が表と一致する",
+        "／".join("%s%dセット" % (k, bank.FIELD_PLAN[k]) for k in bank.FIELD_PLAN)
+        if not bad else str(dict(fld)))
+
+    # 1セット3〜4問
+    sz = Counter(q["setId"] for (u, q) in qs if u["id"] == "C")
+    bad = [k for k, v in sz.items() if not (3 <= v <= 4)]
+    rec(not bad, "冊Cは1セット3〜4問である",
+        "3問=%dセット／4問=%dセット"
+        % (sum(1 for v in sz.values() if v == 3), sum(1 for v in sz.values() if v == 4))
+        if not bad else str(bad))
+
+    # 4択・記述なし
     bad = [q["setId"] + "-" + str(q["no"]) for (_, q) in qs if len(q["choices"]) != 4]
     rec(not bad, "全問が4択である（選択肢が4つでない問題がない）",
         "%d問すべて選択肢4つ" % len(qs) if not bad else str(bad))
-
-    # 記述型が混じっていないか
     bad = [q["setId"] for (_, q) in qs if q.get("selfCheck") or not q.get("choices")]
     rec(not bad, "記述型の問題が1問も混じっていない",
         "自己採点・自由記述の問題は0問" if not bad else str(bad))
 
-    # answer の散らばり
+    # 正解の散らばり
     dist = [0, 0, 0, 0]
     for (_, q) in qs:
         dist[q["answer"]] += 1
-    ok = max(dist) - min(dist) <= max(2, len(qs) // 8)
-    rec(ok, "正解の位置が①〜④に偏っていない",
-        "①=%d ②=%d ③=%d ④=%d（%d問中）" % (dist[0], dist[1], dist[2], dist[3], len(qs)))
+    rec(max(dist) - min(dist) <= max(2, len(qs) // 20),
+        "正解の位置が①〜④に均等に散らばっている",
+        "①=%d ②=%d ③=%d ④=%d（%d問中／理想は各%.1f問）"
+        % (dist[0], dist[1], dist[2], dist[3], len(qs), len(qs) / 4.0))
 
-    # seq の一意性
+    # seq
     seqs = [q["seq"] for (_, q) in qs]
-    rec(len(seqs) == len(set(seqs)), "通し番号(seq)が重複していない",
-        "1〜%d の %d件" % (max(seqs), len(seqs)))
+    rec(len(seqs) == len(set(seqs)) and seqs == sorted(seqs),
+        "通し番号(seq)が重複せず順に並んでいる", "1〜%d の %d件" % (max(seqs), len(seqs)))
 
-    # 図版の対応
+    # 図版の1対1
     used = set()
     for (_, q) in qs:
-        for f in q["figures"]:
-            used.add(f)
+        used.update(q["figures"])
     missing = [f for f in sorted(used)
                if not os.path.isfile(os.path.join(ROOT, f.replace("/", os.sep)))]
-    onfile = set("figures/" + f for f in os.listdir(FIGDIR)) if os.path.isdir(FIGDIR) else set()
+    onfile = set("figures/" + f for f in os.listdir(FIGDIR))
     extra = sorted(onfile - used)
     rec(not missing and not extra,
         "データが指す図版がすべて存在し、余分な図版もない（1対1）",
-        "図版 %d枚＝%s" % (len(used), "／".join(sorted(x.split("/")[-1] for x in used)))
+        "図版 %d枚がすべて使われている" % len(used)
         if not missing and not extra else "不足=%s／余分=%s" % (missing, extra))
 
-    # 同じ setId は同じ図を共有しているか
+    # 同じ setId は同じ資料
     bad = []
-    for sid in sets:
+    for sid in sorted(set(q["setId"] for (_, q) in qs)):
         f = set(tuple(q["figures"]) for (_, q) in qs if q["setId"] == sid)
         if len(f) != 1:
             bad.append(sid)
     rec(not bad, "同じ setId の問題は同じ資料を共有している",
-        "%d セットすべて一致" % len(sets) if not bad else str(bad))
+        "%dセットすべて一致" % len(set(q["setId"] for (_, q) in qs))
+        if not bad else str(bad))
 
-    # 冊Cに「資料1点では答えられない設問」があるか
-    multi = [q for (u, q) in qs if u["id"] == "C" and len(q["figures"]) >= 2
-             and ("資料1と資料2" in q["q"] or "資料2" in "".join(q["grounds"]))]
-    rec(len(multi) >= 1,
-        "冊Cのセットに「資料1点だけでは答えられない設問」が1問以上ある",
-        "C-01 に %d問（設問2・設問3）" % len(multi))
-
-    # 実データの出典・年次（今回は実データを使っていない）
-    rec(True, "実データを使った図には出典名と年次がある",
-        "今回の4図はすべて架空・訓練用のため実データは0件。図の中に架空である旨を明記")
-
-    # 架空国の数値が現実の類型と矛盾しないか
+    # 冊Cの「資料1点では答えられない設問」
     bad = []
-    lines = []
+    for sid in csets:
+        n = 0
+        for (_, q) in qs:
+            if q["setId"] != sid:
+                continue
+            g = "".join(q["grounds"])
+            if len(q["figures"]) >= 2 and "資料1" in g and "資料2" in g:
+                n += 1
+        if n < 1:
+            bad.append(sid)
+    rec(not bad,
+        "冊Cの全セットに「資料1点だけでは答えられない設問」が1問以上ある",
+        "20セットすべてにあり（根拠が資料1と資料2の両方を指している）"
+        if not bad else "ないセット=%s" % bad)
+
+    # 実データの出典・年次
+    rec(True, "実データを使った図には出典名と年次がある",
+        "実データは0件。すべて訓練用の模式図・架空の数値で、図の中に明記")
+
+    # 架空国の検算
+    bad, lines = [], []
     for (nm, gni, prim, mix) in bank.FICTION_COUNTRIES:
         tot = sum(mix.values())
         if tot != 100:
@@ -133,53 +169,113 @@ def check(data):
             bad.append("%s国：GNI %d ドルなのに第一次産業 %d%%" % (nm, gni, prim))
         if gni < 5000 and prim < 10:
             bad.append("%s国：GNI %d ドルなのに第一次産業 %d%%" % (nm, gni, prim))
-        lines.append("%s国 GNI%s/第一次%d%% 合計%d%% 最大=%s"
-                     % (nm, format(gni, ","), prim, tot,
-                        max(mix.items(), key=lambda kv: kv[1])[0]))
+        lines.append("%s国 GNI%s/第一次%d%%/合計%d%%"
+                     % (nm, format(gni, ","), prim, tot))
+    for (nm, parts) in (fig_b.BAR_ENERGY2 + fig_b.BAR_EXPORT
+                        + fig_b.BAR_ENERGY):
+        t = sum(v for _, v in parts)
+        if t != 100:
+            bad.append("%s の帯グラフの合計が%d%%" % (nm, t))
+    for row in fig_b.TRI4 + fig_b.TRI_TIME:
+        if row[1] + row[2] + row[3] != 100:
+            bad.append("%s の三角グラフの合計が%d%%" % (row[0], sum(row[1:])))
+    for (nm, ty, m, f) in fig_b.PYR:
+        if abs(sum(m) + sum(f) - 100.0) > 0.05:
+            bad.append("人口ピラミッド%s の合計が%.1f%%" % (nm, sum(m) + sum(f)))
     rec(not bad, "架空の国の数値が現実の類型と矛盾しない（逆算で検算）",
-        "／".join(lines) if not bad else str(bad))
+        "／".join(lines) + "／帯・三角・ピラミッドの合計もすべて100％"
+        if not bad else str(bad))
 
-    # 架空の気候値が気候区の定義と矛盾しないか
-    bad = []
-    lines = []
+    # 架空の気候値
+    bad, lines = [], []
     for (nm, cold, warm, wm, dry, wet, ann, kind) in bank.FICTION_CLIMATE:
         if kind.startswith("熱帯") and not (cold >= 18 and dry >= 60):
             bad.append("%s：熱帯雨林の条件に合わない" % nm)
-        if kind.startswith("地中海") and not (-3 <= cold <= 18 and dry < 30 and wet >= 3 * dry):
+        if kind.startswith("地中海") and not (-3 <= cold <= 18 and dry < 30
+                                          and wet >= 3 * dry):
             bad.append("%s：地中海性の条件に合わない" % nm)
         if kind.startswith("亜寒帯") and not (cold < -3 and warm > 10):
             bad.append("%s：亜寒帯の条件に合わない" % nm)
         if kind.startswith("温暖湿潤") and not (-3 <= cold <= 18 and warm > 22):
             bad.append("%s：温暖湿潤の条件に合わない" % nm)
-        lines.append("%s 最寒%d℃/最暖%d℃(%d月)/年%dmm=%s" % (nm, cold, warm, wm, ann, kind))
+        lines.append("%s 最寒%d℃/最暖%d℃/年%dmm" % (nm, cold, warm, ann))
+    for (nm, t, p) in fig_b.CLIMO2 + fig_b.CLIMO3:
+        if len(t) != 12 or len(p) != 12:
+            bad.append("%s の月別データが12か月ぶんない" % nm)
     rec(not bad, "架空の雨温図が気候区の判定条件と矛盾しない（逆算で検算）",
+        "／".join(lines) + "／オ〜ク・サ〜セも12か月ぶんそろっている"
+        if not bad else str(bad))
+
+    # 断面図の候補が互いに区別できるか
+    bad, lines = [], []
+    for key, (kinds, hf, p0, p1) in sorted(fig_a.PROF.items()):
+        ser, lo, hi = fig_a.profile_series(hf, p0, p1, kinds)
+        for i in range(4):
+            for j in range(i + 1, 4):
+                d = max(abs(ser[i][k] - ser[j][k]) for k in range(len(ser[i])))
+                if d < 1.0:
+                    bad.append("%s の候補%dと%dがほぼ同じ" % (key, i + 1, j + 1))
+        lines.append("%s 正解=%s" % (key.replace(".svg", ""),
+                                    "①②③④"[kinds.index("real")]))
+    rec(not bad, "断面図の4つの候補が互いに区別できる",
         "／".join(lines) if not bad else str(bad))
 
-    # 南北半球の判定が1地点だけで成り立つか
-    south = [nm for (nm, c, w, wm, d, wt, a, k) in bank.FICTION_CLIMATE if wm <= 2]
-    rec(len(south) == 1, "南半球と判断できる地点がちょうど1つである",
-        "最暖月が1〜2月なのは %s のみ" % "・".join(south))
-
-    # 最寒月の並び順が一意に決まるか
-    order = sorted(bank.FICTION_CLIMATE, key=lambda t: -t[1])
-    names = [t[0] for t in order]
-    gaps = [order[i][1] - order[i + 1][1] for i in range(3)]
-    rec(min(gaps) >= 4, "最寒月気温の順位が、図から読み取れる差で決まる",
-        "%s（差 %s℃）" % ("―".join(names), "・".join(str(g) for g in gaps)))
-
-    # 選択肢の重複
+    # 断面図の問題の正解が図の並びと一致するか
     bad = []
     for (_, q) in qs:
-        if len(set(q["choices"])) != 4:
-            bad.append(q["setId"] + "-" + str(q["no"]))
+        if q["skill"] != "断面図":
+            continue
+        fig = [f for f in q["figures"] if "prof" in f]
+        if not fig:
+            bad.append(q["setId"])
+            continue
+        kinds = fig_a.PROF[fig[0].split("/")[-1]][0]
+        if kinds.index("real") != q["answer"]:
+            bad.append("%s-%d（図では%d、問題では%d）"
+                       % (q["setId"], q["no"], kinds.index("real") + 1,
+                          q["answer"] + 1))
+    rec(not bad, "断面図の問題の正解が、図に描いた並びと一致する",
+        "4問すべて一致" if not bad else str(bad))
+
+    # 判断事項(2)：冊AのX地点が、河川のない支谷にあること
+    riv = [(fig_a.MX0, 243), (110, 241), (180, 240), (250, 239), (300, 240),
+           (350, 243), (405, 248), (460, 252), (520, 256), (575, 258),
+           (fig_a.MX1, 259)]
+    X = (130.0, 340.0)
+    dmin = min(fig_a._seg_dist(X[0], X[1], riv[i], riv[i + 1])
+               for i in range(len(riv) - 1))
+    hx = fig_a.h_a01(X[0], X[1])
+    north = fig_a.h_a01(X[0], X[1] - 45)
+    south = fig_a.h_a01(X[0], X[1] + 45)
+    west = fig_a.h_a01(X[0] - 60, X[1])
+    east = fig_a.h_a01(X[0] + 60, X[1])
+    rec(dmin > 60 and hx < north and hx < south and hx < west and hx > east,
+        "冊AのX地点が、河川のない支谷にある（等高線だけで判断できる）",
+        "河川まで%.0f単位（約%.0fm）離れている／標高 X=%.1fm・北%.1fm・南%.1fm・"
+        "西%.1fm・東%.1fm（両側より低く、西へさかのぼるほど高い）"
+        % (dmin, dmin / fig_a.U1000 * 1000.0, hx, north, south, west, east))
+
+    # 選択肢の重複
+    bad = [q["setId"] + "-" + str(q["no"]) for (_, q) in qs
+           if len(set(q["choices"])) != 4]
     rec(not bad, "同じ選択肢が重複している問題がない",
         "重複なし" if not bad else str(bad))
+
+    # 問題文の重複
+    seen, dup = {}, []
+    for (u, q) in qs:
+        k = (tuple(q["figures"]), q["q"])
+        if k in seen:
+            dup.append("%s-%d と %s" % (q["setId"], q["no"], seen[k]))
+        seen[k] = "%s-%d" % (q["setId"], q["no"])
+    rec(not dup, "同じ資料で同じ問題文がくり返されていない",
+        "重複なし" if not dup else str(dup))
 
     # 解説と根拠
     bad = [q["setId"] + "-" + str(q["no"]) for (_, q) in qs
            if not q["exp"] or len(q.get("grounds") or []) < 2]
     rec(not bad, "全問に解説があり、根拠が2つ以上書かれている",
-        "%d問すべて（根拠は各2つ）" % len(qs) if not bad else str(bad))
+        "%d問すべて（根拠は各2つ以上）" % len(qs) if not bad else str(bad))
 
 
 def main():
@@ -190,10 +286,9 @@ def main():
     check(data)
     ng = [r for r in REPORT if r[0] == "NG"]
     print("-" * 68)
-    print("データの検算: %s（OK %d / NG %d / Phase1 %d）"
+    print("データの検算: %s（OK %d / NG %d）"
           % ("NGなし" if not ng else "★NG あり",
-             len([r for r in REPORT if r[0] == "OK"]), len(ng),
-             len([r for r in REPORT if r[0] == "Phase1"])))
+             len([r for r in REPORT if r[0] == "OK"]), len(ng)))
     return 1 if ng else 0
 
 

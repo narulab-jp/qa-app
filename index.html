@@ -19,9 +19,16 @@
 <div id="app">
 
   <!-- ============ 現在の利用者（常に表示・控えめ） ============ -->
-  <div id="userBar" hidden>
-    <span class="ub-name" id="userBarName"></span>
-    <button class="ub-btn" id="btnSwitchUser">切替</button>
+  <div id="topBars">
+    <div id="userBar" hidden>
+      <span class="ub-name" id="userBarName"></span>
+      <button class="ub-btn" id="btnSwitchUser">切替</button>
+    </div>
+    <!-- 科目の切り替え（画面最上部） -->
+    <div id="subjBar" hidden>
+      <span class="sb-label">科目</span>
+      <div class="sb-tabs" id="subjectList"></div>
+    </div>
   </div>
 
   <!-- ============ 利用者の選択・登録 ============ -->
@@ -69,7 +76,6 @@
     <details class="sect">
       <summary>単元から出題する</summary>
       <p class="lead" id="subjectNow"></p>
-      <div id="subjectList"></div>
       <button class="btn" id="btnGoUnit">単元を選ぶ</button>
     </details>
 
