@@ -33,26 +33,26 @@
 [OK] 自己採点の問題で○×ボタンが出て、自動判定が走らない
       type=理由／自己採点ボタン=表示／○×判定=なし／ラベル=模範解答
 [OK] 結果画面と「間違えた問題だけもう一度」が動く
-      正答 1 / 20 問／間違い一覧19件／再挑戦19問
+      初回正答 1 / 20 問（5％）／間違い一覧19件／再挑戦19問
 [OK] 画面幅375pxで横スクロールが出ず1カラムで表示される
       clientWidth=375 / scrollWidth=375
 [OK] 表示中のボタンの高さがすべて44px以上
-      対象5個／44px未満 []
+      対象6個／44px未満 []
 [OK] 単元一覧も375pxで崩れず、ボタンが44px以上
       scrollWidth=375／44px未満=[]
 [OK] manifest.json が読み込まれ、アイコンが表示される
-      manifest=["一問一答",2,"#1b4f9c"]／icon=OK 512x512／theme-color=#1b4f9c／apple-…-capable=yes
+      manifest=["一問一答",3,"#1B3A5C"]／icon=OK 512x512／theme-color=#1B3A5C／apple-…-capable=yes
 [OK] 外部CDN・外部ライブラリを読み込んでいない
       外部参照 []
 [OK] localStorage / sessionStorage を使っていない
 [OK] アプリ本体（index.html / app.js）に科目固有の語がない
       検出なし
 [OK] 音声認識API（webkitSpeechRecognition）が利用できる
-[OK] 音声認識が起動する（onstart発火）※実際の認識はWeb公開後に確認
-      イベント記録=["start","error:network","end"]
+[要確認] 音声認識が起動する（onstart発火）
+      測定できず（{'exceptionId': 1, 'text': 'Uncaught', 'lineNumber': 0, 'columnNumber'）
 [OK] README.md に必要な項目がすべて書かれている
       7項目すべてあり
 [OK] README.md に「後で書く」等の未完成記述がない
 
 ==========================================================================
-判定: NGなし（OK 26 / NG 0 / 要確認 0）
+判定: NGなし（OK 25 / NG 0 / 要確認 1）

@@ -160,12 +160,13 @@ def main():
         time.sleep(1.5)
     proc, c = open_page(URL)
     try:
-        # 指示C以降は利用者を決めてから学習を始める
+        ready = wait_ready(c)
+        rec(ready, "トップ画面が表示される", "タイトル=" + str(c.ev("document.title")))
+        # 指示C以降は利用者を決めてから学習を始める。単元一覧はホームから開く。
         c.ev("document.getElementById('newUserName').value='テスト';"
              "document.getElementById('btnAddUser').click();")
+        c.ev("window.__app.setNoteAsked(true)")   # ノート未読込の確認を出さない
         c.ev("document.getElementById('btnGoUnit').click()")
-        rec(wait_ready(c), "トップ画面が表示される",
-            "タイトル=" + str(c.ev("document.getElementById('appTitle').textContent")))
 
         # ---------- 単元一覧 ----------
         n = c.ev("document.querySelectorAll('#unitList .unit').length")
@@ -183,26 +184,26 @@ def main():
              "document.getElementById('unit-'+i).click();});")
         picked = c.ev("document.getElementById('unitPicked').textContent")
         c.ev("document.getElementById('btnUnitNext').click();"
-             "document.querySelector('[data-count=\"0\"]').click();"
+             "document.querySelector('#optCount .opt[data-val=\"0\"]').click();"
              "document.querySelector('[data-level=\"ALL\"]').click();"
              "document.querySelector('[data-order=\"csv\"]').click();"
              "document.getElementById('btnStart').click();")
-        qn0 = c.ev("window.__app.getQuiz().list.length")
+        qn0 = c.ev("window.__app.getQuiz().roundList.length")
         uids0 = c.ev("JSON.stringify(Array.from(new Set("
-                     "window.__app.getQuiz().list.map(x=>x.unit.id))).sort())")
+                     "window.__app.getQuiz().roundList.map(x=>x.unit.id))).sort())")
         rec(qn0 == 137 and uids0 == '["01","02","03","04","05"]',
             "複数の単元を選んでまとめて出題できる（選んだ範囲すべて）",
             "%s → %d問出題／出題された単元=%s" % (picked, qn0, uids0))
 
         c.ev("document.getElementById('btnQuit').click();"
              "document.getElementById('btnUnitNext').click();"
-             "document.querySelector('[data-count=\"20\"]').click();"
+             "document.querySelector('#optCount .opt[data-val=\"20\"]').click();"
              "document.querySelector('[data-order=\"shuffle\"]').click();"
              "document.getElementById('btnStart').click();")
-        qn = c.ev("window.__app.getQuiz().list.length")
+        qn = c.ev("window.__app.getQuiz().roundList.length")
         uids = c.ev("JSON.stringify(Array.from(new Set("
-                    "window.__app.getQuiz().list.map(x=>x.unit.id))).sort())")
-        nu = c.ev("new Set(window.__app.getQuiz().list.map(x=>x.unit.id)).size")
+                    "window.__app.getQuiz().roundList.map(x=>x.unit.id))).sort())")
+        nu = c.ev("new Set(window.__app.getQuiz().roundList.map(x=>x.unit.id)).size")
         rec(qn == 20 and nu >= 2,
             "複数の単元から20問をまとめて出題できる（シャッフル）",
             "20問中に %d単元が混在＝%s" % (nu, uids))
@@ -210,7 +211,7 @@ def main():
         # 自動判定の問題まで進める（シャッフルのため）
         for _ in range(40):
             if not c.ev("window.__app.isSelfCheck("
-                        "window.__app.getQuiz().list[window.__app.getQuiz().idx].q)"):
+                        "window.__app.getQuiz().queue[0].q)"):
                 break
             c.ev("document.getElementById('btnSkip').click();"
                  "document.getElementById('btnNext').click();")
@@ -233,8 +234,7 @@ def main():
         # 画面経由でも確認
         c.ev("document.getElementById('btnKbd').click();"
              "document.getElementById('kbdInput').value="
-             + json.dumps(c.ev("window.__app.getQuiz().list"
-                               "[window.__app.getQuiz().idx].q.a")) + ";"
+             + json.dumps(c.ev("window.__app.getQuiz().queue[0].q.a")) + ";"
              "document.getElementById('btnKbdSubmit').click();")
         v = c.ev("document.getElementById('verdict').textContent")
         rec(v == "○", "画面から正解を入力すると○になる", "→ " + str(v))
@@ -261,14 +261,14 @@ def main():
 
         # 画面で自己採点ボタンを確認（自己採点の問題まで進める）
         for _ in range(60):
-            if c.ev("window.__app.getQuiz().idx >= window.__app.getQuiz().list.length"):
+            if c.ev("window.__app.getQuiz().queue.length === 0"):
                 break
             if c.ev("window.__app.isSelfCheck("
-                    "window.__app.getQuiz().list[window.__app.getQuiz().idx].q)"):
+                    "window.__app.getQuiz().queue[0].q)"):
                 break
             c.ev("document.getElementById('btnSkip').click();"
                  "document.getElementById('btnNext').click();")
-        typ = c.ev("window.__app.getQuiz().list[window.__app.getQuiz().idx].q.type")
+        typ = c.ev("window.__app.getQuiz().queue[0].q.type")
         c.ev("document.getElementById('btnKbd').click();"
              "document.getElementById('kbdInput').value='自分なりの説明を述べた';"
              "document.getElementById('btnKbdSubmit').click();")
@@ -293,8 +293,8 @@ def main():
         score = c.ev("document.getElementById('score').textContent")
         nw = c.ev("document.querySelectorAll('#wrongList .wrong').length")
         c.ev("document.getElementById('btnRetryWrong').click()")
-        n2 = c.ev("window.__app.getQuiz().list.length")
-        rec(score.startswith("正答") and nw > 0 and n2 == nw,
+        n2 = c.ev("window.__app.getQuiz().roundList.length")
+        rec(("正答" in score) and nw > 0 and n2 == nw,
             "結果画面と「間違えた問題だけもう一度」が動く",
             "%s／間違い一覧%d件／再挑戦%d問" % (score, nw, n2))
 
@@ -315,7 +315,11 @@ def main():
                   ".filter(b=>b.offsetParent!==null).length")
         rec(small == "[]", "表示中のボタンの高さがすべて44px以上",
             "対象%d個／44px未満 %s" % (nb, small))
-        c.ev("document.getElementById('btnToUnit').click()")
+        # 単元一覧へ戻る（現在の作りではホーム経由）
+        c.ev("window.confirm=function(){return true;};"
+             "document.getElementById('btnQuit').click();")
+        time.sleep(0.3)
+        c.ev("document.getElementById('btnGoUnit').click()")
         time.sleep(0.4)
         sw2 = c.ev("document.documentElement.scrollWidth")
         small2 = c.ev("(function(){var a=[];document.querySelectorAll('button').forEach("

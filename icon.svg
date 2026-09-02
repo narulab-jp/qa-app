@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="一問一答">
-  <rect width="512" height="512" rx="96" fill="#1b4f9c"/>
+  <rect width="512" height="512" rx="96" fill="#1B3A5C"/>
   <text x="256" y="222" text-anchor="middle" font-size="176" font-weight="bold"
         font-family="Yu Gothic UI, Meiryo, Hiragino Sans, Noto Sans JP, sans-serif"
         fill="#ffffff">一問</text>

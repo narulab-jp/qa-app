@@ -48,7 +48,7 @@ def main():
     ok = 0
     for name, sz, radius, ratio in JOBS:
         inner = int(sz * ratio)
-        html = PAGE.format(sz=sz, bg="#1a4d7a", radius=radius,
+        html = PAGE.format(sz=sz, bg="#1B3A5C", radius=radius,
                            inner=inner, fs=int(inner * 0.40))
         hp = os.path.join(tmp, name + ".html")
         with open(hp, "w", encoding="utf-8") as f:
