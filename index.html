@@ -175,7 +175,7 @@
     </div>
     <button class="btn faint" id="btnSkip">スキップ</button>
     <button class="btn faint" id="btnPause" hidden>中断して保存</button>
-    <button class="btn faint" id="btnQuit">やめてホームに戻る</button>
+    <button class="btn faint" id="btnQuit">やめる（ここまでの結果を見る）</button>
   </section>
 
   <!-- ============ 判定 ============ -->
@@ -209,6 +209,9 @@
       <button class="btn" id="btnSelfNg">× 違っていた</button>
     </div>
     <button class="btn primary" id="btnNext">次へ</button>
+    <!-- 答え合わせの画面からも抜けられるようにする。
+         自己採点の問題では「次へ」が隠れるので、こちらは常に出しておく。 -->
+    <button class="btn faint" id="btnQuitJudge">やめる（ここまでの結果を見る）</button>
   </section>
 
   <!-- ============ 結果 ============ -->

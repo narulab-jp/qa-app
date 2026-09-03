@@ -40,7 +40,7 @@
 [OK] 画面幅375pxで横スクロールが出ず1カラムで表示される
       clientWidth=375 / scrollWidth=375
 [OK] 表示中のボタンの高さがすべて44px以上
-      対象6個／44px未満 []
+      対象8個／44px未満 []
 [OK] 単元一覧も375pxで崩れず、ボタンが44px以上
       scrollWidth=375／44px未満=[]
 [OK] manifest.json が読み込まれ、アイコンが表示される

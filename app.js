@@ -1080,19 +1080,53 @@ function settle(ok){
   quiz.results.push({item:currentItem, user:currentUser, ok:ok});
 }
 
+/* ================= 途中でやめる ================= */
+/* 出題の画面からも答え合わせの画面からも抜けられるようにする。
+   間違いノートは1問ごとに書きこんでいるので、途中でやめても消えない。
+   周回モードの「中断して保存」（続きから再開する用）とは別の道である。 */
+function quitToResult(){
+  if(listening && rec){ try{ rec.stop(); }catch(e){} }
+  var nAns = (quiz && quiz.results) ? quiz.results.length : 0;
+  if(!nAns){
+    askConfirm("まだ1問も答えていません。やめてホームに戻りますか。", function(yes){
+      if(!yes) return;
+      stopTimer();
+      session = null;              /* 空の記録はログに残さない */
+      renderHome();
+      show("s-home");
+    });
+    return;
+  }
+  askConfirm("ここまでの結果を見て終わりますか。", function(yes){
+    if(!yes) return;
+    stopTimer();
+    showResult(false, true);
+  });
+}
+
 /* ================= 結果 ================= */
 function pct(a, b){ return b ? Math.round(a / b * 1000) / 10 : 0; }
-function showResult(completed){
+/* completed … 周回モードで全問正解までたどり着いたか
+   quitted   … 途中でやめて呼ばれたか（見出しと注意書きだけを変える） */
+function showResult(completed, quitted){
   stopTimer();
   finishSession(completed);
   var res = quiz.results || [];
   var firstOk = session.firstTryCorrect, firstAll = session.totalAsked;
-  $("resultTitle").textContent = quiz.mode === "round"
-    ? (quiz.round + "周目 完了") : "結果";
+  $("resultTitle").textContent = quitted
+    ? (quiz.mode === "round" ? (quiz.round + "周目の途中まで") : "途中までの結果")
+    : (quiz.mode === "round" ? (quiz.round + "周目 完了") : "結果");
   $("scoreNum").textContent =
     (firstAll ? Math.round(firstOk / firstAll * 100) : 0) + "%";
   $("scoreSub").textContent = firstAll + "問中 " + firstOk + "問正解";
   var h = "";
+  if(quitted){
+    var left = (quiz.queue ? quiz.queue.length : 0) +
+               (quiz.wrongPass ? quiz.wrongPass.length : 0);
+    h += '<div class="banner info">途中でやめました。ここまでに答えた' +
+         res.length + '回分は、間違いノートと学習ログに記録してあります。' +
+         '残りは' + left + '問です。</div>';
+  }
   h += '<div class="stat"><h3>このセッション</h3><table>' +
        "<tr><th>所要時間</th><td>" + mmss(session.elapsedSec) + "</td></tr>" +
        "<tr><th>解答した回数</th><td>" + res.length + "回</td></tr>" +
@@ -1356,9 +1390,8 @@ function bind(){
   area.addEventListener("pointerleave", drop);
   function dist(a, b){ return Math.hypot(a.x - b.x, a.y - b.y); }
   $("btnPause").addEventListener("click", pauseAndSave);
-  $("btnQuit").addEventListener("click", function(){
-    stopTimer(); renderHome(); show("s-home");
-  });
+  $("btnQuit").addEventListener("click", quitToResult);
+  $("btnQuitJudge").addEventListener("click", quitToResult);
   $("btnSelfOk").addEventListener("click", function(){
     setVerdict(true); settle(true);
     $("selfButtons").hidden = true; nextQuestion();
