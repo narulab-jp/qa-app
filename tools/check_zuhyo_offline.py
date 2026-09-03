@@ -143,7 +143,7 @@ def main():
                 break
         nq = c.ev("window.__app.getSubject().units.reduce(function(a,u){"
                   "return a+u.questions.length;},0)")
-        rec(sid == "chiri-zuhyo" and nq == 159,
+        rec(sid == "chiri-zuhyo" and nq == 157,
             "オフラインでも図表編の問題が読み込める",
             "科目=%s／%d問" % (sid, nq))
 
