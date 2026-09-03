@@ -13,6 +13,7 @@ sys.path.insert(0, HERE)
 
 import fig_a          # noqa: E402
 import fig_b          # noqa: E402
+import omoi_level                # noqa: E402
 import zuhyo_bank as bank        # noqa: E402
 
 OUT = os.path.join(ROOT, "data", "chiri-zuhyo.json")
@@ -38,6 +39,7 @@ def build():
     }
     if not os.path.isdir(os.path.dirname(OUT)):
         os.makedirs(os.path.dirname(OUT))
+    omoi_level.apply(data)      # 思考レベル R1〜R4 を level2 として付ける
     io.open(OUT, "w", encoding="utf-8", newline="\n").write(
         json.dumps(data, ensure_ascii=False, indent=1) + "\n")
 
@@ -118,6 +120,24 @@ def check(data):
     rec(len(seqs) == len(set(seqs)) and seqs == sorted(seqs),
         "通し番号(seq)が重複せず順に並んでいる", "1〜%d の %d件" % (max(seqs), len(seqs)))
 
+    # ---- 思考レベル R1〜R4 の内訳（指示G 第7章） ----
+    #   図表編は基礎技能の冊子なので R1・R2 中心でよい。
+    lv = Counter(q["level2"] for (_, q) in qs)
+    tot = sum(lv.values())
+    rec(lv["R1"] + lv["R2"] >= tot * 0.5,
+        "図表編の思考レベルは R1・R2 が中心である",
+        "R1 %d／R2 %d／R3 %d／R4 %d問　R1+R2=%d問（%.0f%%）"
+        % (lv["R1"], lv["R2"], lv["R3"], lv["R4"],
+           lv["R1"] + lv["R2"], 100.0 * (lv["R1"] + lv["R2"]) / tot))
+    for uid in ("A", "B", "C"):
+        arr = [q for (u, q) in qs if u["id"] == uid]
+        if not arr:
+            continue
+        c2 = Counter(q["level2"] for q in arr)
+        rec(True, "　冊%sの内訳（参考）" % uid,
+            "R1 %d／R2 %d／R3 %d／R4 %d　R3+R4=%.0f%%"
+            % (c2["R1"], c2["R2"], c2["R3"], c2["R4"],
+               100.0 * (c2["R3"] + c2["R4"]) / len(arr)))
     # 図版の1対1
     used = set()
     for (_, q) in qs:

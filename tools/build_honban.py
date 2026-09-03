@@ -14,6 +14,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
 import honban_d          # noqa: E402
+import omoi_level        # noqa: E402
 import honban_e          # noqa: E402
 import honban_f          # noqa: E402
 
@@ -46,6 +47,7 @@ def build():
              "questions": honban_f.QUESTIONS},
         ],
     }
+    omoi_level.apply(data)      # 思考レベル R1〜R4 を level2 として付ける
     io.open(OUT, "w", encoding="utf-8", newline="\n").write(
         json.dumps(data, ensure_ascii=False, indent=1) + "\n")
     s = json.loads(io.open(SUBJ, encoding="utf-8-sig").read())
@@ -236,6 +238,22 @@ def check(data):
         "10枚すべて、数値・記号・位置だけを示している"
         if not bad else str(bad[:5]))
 
+    # ---- 思考レベル R1〜R4 の内訳（指示G 第7章） ----
+    #   目標は R3・R4 が6割以上。届かないときは、届かないと出す。
+    lv = Counter(q["level2"] for (_, q) in qs)
+    hi = lv["R3"] + lv["R4"]
+    rec("OK" if hi >= len(qs) * 0.6 else "要確認",
+        "本番形式編の思考レベル（R3・R4が6割以上か）",
+        "R1 %d／R2 %d／R3 %d／R4 %d問　R3+R4=%d問（%.0f%%）"
+        % (lv["R1"], lv["R2"], lv["R3"], lv["R4"], hi,
+           100.0 * hi / len(qs)))
+    for (nm, arr) in (("冊D", d), ("冊E", e), ("冊F", fq)):
+        c2 = Counter(q["level2"] for q in arr)
+        h2 = c2["R3"] + c2["R4"]
+        rec(True, "　%sの内訳（参考）" % nm,
+            "R1 %d／R2 %d／R3 %d／R4 %d　R3+R4=%.0f%%"
+            % (c2["R1"], c2["R2"], c2["R3"], c2["R4"],
+               100.0 * h2 / len(arr)))
     # 通し番号
     seqs = [q["seq"] for (_, q) in qs]
     rec(len(seqs) == len(set(seqs)), "通し番号が重複していない",
