@@ -25,7 +25,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 PORT = 8791
 DBG = 9247
-URL = "http://127.0.0.1:%d/index.html" % PORT
+# 引数にURLを渡すと、そのアドレス（公開サイトなど）を確かめる。
+# 何も渡さなければ、手元のファイルを簡易サーバで出して確かめる。
+LIVE = sys.argv[1] if len(sys.argv) > 1 else ""
+URL = LIVE or ("http://127.0.0.1:%d/index.html" % PORT)
 res = []
 
 
@@ -72,8 +75,10 @@ def free(port):
 
 
 def open_page(url):
+    import shutil
     edge = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
     ud = os.path.join(os.environ["TEMP"], "edge_quit_test")
+    shutil.rmtree(ud, ignore_errors=True)      # 古いキャッシュを持ちこまない
     p = subprocess.Popen([edge, "--headless=new", "--disable-gpu",
                           "--remote-debugging-port=%d" % DBG,
                           "--user-data-dir=" + ud, "--no-first-run", url],
@@ -143,7 +148,7 @@ def answer_one(c, correct):
 
 def main():
     srv = None
-    if free(PORT):
+    if not LIVE and free(PORT):
         srv = subprocess.Popen([sys.executable, "-m", "http.server", str(PORT),
                                 "--bind", "127.0.0.1"], cwd=ROOT,
                                stdout=subprocess.DEVNULL,
