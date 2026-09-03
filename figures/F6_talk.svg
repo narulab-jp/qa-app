@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 432" width="720" height="432" role="img" aria-label="商業の変化についての会話文"><defs>
+ <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
+  <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
+ <pattern id="pDotFine" width="5" height="5" patternUnits="userSpaceOnUse">
+  <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
+ <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+ <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
+  <rect width="10" height="8" fill="#fff"/>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+</defs><rect width="720" height="432" fill="#fff"/>
+<text x="20" y="30" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料6　商業の変化についての会話</text>
+<rect x="20" y="46" width="680" height="336" fill="none" stroke="#000" stroke-width="1"/>
+<text x="40" y="78" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ハル</text>
+<text x="118" y="78" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">この市の中心の商店街、空き店舗が増えているって</text>
+<text x="118" y="108" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料に書いてあるね。</text>
+<text x="40" y="138" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ナオ</text>
+<text x="118" y="138" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">同じ時期に、幹線道路ぞいに大きな駐車場のある店が</text>
+<text x="118" y="168" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">いくつもできている。買い物に行く先が変わったのかな。</text>
+<text x="40" y="198" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">先生</text>
+<text x="118" y="198" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">中心商店街は歩いて来る客を前提に、道幅がせまいまま</text>
+<text x="118" y="228" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">残っています。いっぽう幹線道路ぞいは（　タ　）ため、</text>
+<text x="118" y="258" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">広い駐車場を用意できます。</text>
+<text x="40" y="288" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ハル</text>
+<text x="118" y="288" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">でも、自動車を使えない人にとっては（　チ　）という</text>
+<text x="118" y="318" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">問題が起きそうだね。</text>
+<text x="40" y="348" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ナオ</text>
+<text x="118" y="348" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">だから中心部にも小さな店を残す取り組みがあるんだ。</text>
+<text x="20" y="418" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成したものであり、実在の地域・事例ではない。</text>
+</svg>

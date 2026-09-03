@@ -162,7 +162,7 @@ def main():
         total = c.ev("window.__app.getSubject().units.reduce("
                      "function(a,u){return a+u.questions.length;},0)")
         nunits = c.ev("window.__app.getSubject().units.length")
-        rec(total == 849 and nunits == 28, "849問・28単元すべて読み込まれている",
+        rec(total == 851 and nunits == 28, "851問・28単元すべて読み込まれている",
             "%d単元／%d問" % (nunits, total))
         c.ev(HELPER)
         c.ev("window.__t.ensureUser()")      # 利用者を決めてからでないと始められない
@@ -285,7 +285,7 @@ def main():
                     "downloadThroughput": -1, "uploadThroughput": -1})
             c.call("Page.reload", {"ignoreCache": False})
             wait_ready(c, tries=40)
-        rec(offok and offtotal == 849, "オフラインにしてもアプリが起動する",
+        rec(offok and offtotal == 851, "オフラインにしてもアプリが起動する",
             "オフラインで再読込 → %d問を読み込み%s"
             % (offtotal,
                ("（検証側の取りこぼしで%d回やり直し）" % errpage) if errpage else ""))

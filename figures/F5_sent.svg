@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 754" width="720" height="754" role="img" aria-label="下線部の正誤を判定する3つの文章"><defs>
+ <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
+  <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
+ <pattern id="pDotFine" width="5" height="5" patternUnits="userSpaceOnUse">
+  <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
+ <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+ <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
+  <rect width="10" height="8" fill="#fff"/>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+</defs><rect width="720" height="754" fill="#fff"/>
+<text x="20" y="32" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料5　3つの文章（下線部の正誤）</text>
+<text x="20" y="74" font-size="14" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">文章Ａ　扇状地についてまとめたもの</text>
+<rect x="20" y="88" width="680" height="168" fill="none" stroke="#000" stroke-width="1"/>
+<text x="58" y="120" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">この地域は、河川が山地から平地に出るところに土砂を積もらせてできた</text>
+<text x="36" y="150" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">①</text>
+<path d="M58 156 L478 156" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="150" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">扇状地である。扇のかなめにあたる扇端には谷口の集落がみられ、</text>
+<text x="36" y="180" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">②</text>
+<path d="M58 186 L520 186" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="180" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">中ほどの扇央は水はけがよいため、古くから畑や果樹園に使われてきた。</text>
+<text x="36" y="210" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">③</text>
+<path d="M58 216 L464 216" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="210" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">扇のふちでは地下水がわき出すため、それに沿って集落が並ぶ。</text>
+<text x="36" y="240" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">④</text>
+<path d="M58 246 L520 246" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="240" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">扇状地をつくった河川は、扇央では水が地下にしみこんで水無川となる。</text>
+<text x="20" y="302" font-size="14" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">文章Ｂ　湖と漁業についてまとめたもの</text>
+<rect x="20" y="316" width="680" height="138" fill="none" stroke="#000" stroke-width="1"/>
+<text x="36" y="348" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">①</text>
+<path d="M58 354 L506 354" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="348" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">この湖は、砂州が湾の入口をふさいでできた潟湖（ラグーン）であり、</text>
+<text x="36" y="378" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">②</text>
+<path d="M58 384 L520 384" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="378" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">海水と河川の水がまじる汽水の環境になっている。しじみは汽水を好む。</text>
+<text x="36" y="408" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">③</text>
+<path d="M58 414 L534 414" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="408" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">上流にダムができて淡水の流入が減ると、湖の塩分は下がると考えられる。</text>
+<text x="36" y="438" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">④</text>
+<path d="M58 444 L436 444" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="438" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">塩分が変われば、しじみのとれる場所も変わることになる。</text>
+<text x="20" y="500" font-size="14" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">文章Ｃ　都市の人口についてまとめたもの</text>
+<rect x="20" y="514" width="680" height="168" fill="none" stroke="#000" stroke-width="1"/>
+<text x="36" y="546" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">①</text>
+<path d="M58 552 L506 552" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="546" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">この都市では、高度経済成長期に地方から人口が流入し、都心の人口が</text>
+<text x="36" y="576" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">②</text>
+<path d="M58 582 L506 582" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="576" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">急に増えた。その後、地価の高い都心をさけて郊外に住宅地が広がり、</text>
+<text x="58" y="606" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">都心の夜間人口は減った。このように、昼間人口に対して夜間人口が</text>
+<text x="36" y="636" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">③</text>
+<path d="M58 642 L478 642" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="636" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">少なくなる現象をドーナツ化という。近年は都心の再開発が進み、</text>
+<text x="36" y="666" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">④</text>
+<path d="M58 672 L324 672" stroke="#000" stroke-width="1" fill="none"/>
+<text x="58" y="666" font-size="14" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">都心の夜間人口はさらに減り続けている。</text>
+<text x="20" y="720" font-size="13" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">各文章の下線部①〜④のうち、誤りを含むものがそれぞれ1つある。</text>
+<text x="20" y="742" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成したものであり、実在の地域・事例ではない。</text>
+</svg>

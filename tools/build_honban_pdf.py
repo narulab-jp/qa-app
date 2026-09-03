@@ -22,6 +22,7 @@ sys.path.insert(0, HERE)
 import build_zuhyo_pdf as Z          # noqa: E402
 import honban_d                      # noqa: E402
 import honban_e                      # noqa: E402
+import honban_f                      # noqa: E402
 
 EDGE = Z.EDGE
 DBG = 9302
@@ -42,6 +43,13 @@ UNITS = [
      "lead": "全30マーク・100点・制限時間60分。本番と同じ大問構成・配点です。"
              "第1問13点／第2問12点／第3問21点／第4問17点／第5問20点／第6問17点。"
              "時間を計って、途中で止めずに最後まで解いてください。"},
+    {"id": "F", "name": "残りの技能・形式", "questions": honban_f.QUESTIONS,
+     "lead": "全13問。本試験2年分を1マークずつ調べ、"
+             "冊D・冊Eを解いてもなお練習できないまま残った技能・形式だけを"
+             "集めました。主題図3枚の同時比較・土壌の分布図・"
+             "海面水温の平年差・GISの重ね合わせとバッファ・"
+             "下線部の正誤・会話文の空欄の6種類です。"
+             "1問2分を目安に、13問で約26分です。"},
 ]
 
 

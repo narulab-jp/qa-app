@@ -45,6 +45,8 @@ def main():
     if not os.path.isdir(OUT):
         os.makedirs(OUT)
     names = sorted(os.listdir(FIG))
+    if len(sys.argv) > 1:      # 名前の一部を渡すと、その図だけを書き出す
+        names = [x for x in names if any(a in x for a in sys.argv[1:])]
     ud = os.path.join(os.environ["TEMP"], "edge_figs")
     p = subprocess.Popen([EDGE, "--headless=new", "--disable-gpu",
                           "--remote-debugging-port=%d" % DBG,

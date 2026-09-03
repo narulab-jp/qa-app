@@ -293,7 +293,7 @@ def main():
         time.sleep(1.5)
         n1 = c.ev("window.__app.getSubject().units.reduce("
                   "function(a,u){return a+u.questions.length;},0)")
-        rec(n1 == 849, "一問一答が849問（重複3問を外し、知識の穴24問を足した数）になっている",
+        rec(n1 == 851, "一問一答が851問（重複3問を外し、知識の穴26問を足した数）になっている",
             "%d問／欠番は通し533・781・789" % n1)
         cases = [("緯度", "緯度", ["いど"], True),
                  ("まったく関係のない語", "緯度", [], False),

@@ -15,6 +15,7 @@ sys.path.insert(0, HERE)
 
 import honban_d          # noqa: E402
 import honban_e          # noqa: E402
+import honban_f          # noqa: E402
 
 OUT = os.path.join(ROOT, "data", "chiri-honban.json")
 SUBJ = os.path.join(ROOT, "subjects.json")
@@ -41,6 +42,8 @@ def build():
             {"id": "D", "name": "組合せ形式", "questions": honban_d.QUESTIONS},
             {"id": "E", "name": "通し演習 第1回（60分）",
              "questions": honban_e.QUESTIONS},
+            {"id": "F", "name": "残りの技能・形式",
+             "questions": honban_f.QUESTIONS},
         ],
     }
     io.open(OUT, "w", encoding="utf-8", newline="\n").write(
@@ -68,10 +71,12 @@ def check(data):
     qs = [(u, q) for u in data["units"] for q in u["questions"]]
     d = [q for (u, q) in qs if u["id"] == "D"]
     e = [q for (u, q) in qs if u["id"] == "E"]
+    fq = [q for (u, q) in qs if u["id"] == "F"]
 
-    rec(len(d) == 48 and len(e) == 30,
-        "冊D=48問・冊E=30マークである",
-        "冊D %d問／冊E %dマーク／合計 %d問" % (len(d), len(e), len(qs)))
+    rec(len(d) == 48 and len(e) == 30 and len(fq) == 13,
+        "冊D=48問・冊E=30マーク・冊F=13問である",
+        "冊D %d問／冊E %dマーク／冊F %d問／合計 %d問"
+        % (len(d), len(e), len(fq), len(qs)))
 
     # 冊D：3つの型がそろっているか
     t = Counter(q["skill"][:3] for q in d)
@@ -110,7 +115,7 @@ def check(data):
         "対応型・2軸型・正誤の組合せ型のみで48問")
 
     # 択数と正解の位置
-    for (nm, arr) in (("冊D", d), ("冊E", e)):
+    for (nm, arr) in (("冊D", d), ("冊E", e), ("冊F", fq)):
         cnt = Counter(len(q["choices"]) for q in arr)
         rec(min(cnt) >= 4 and max(cnt) <= 9,
             "%sの択数が4〜9におさまっている" % nm,
@@ -161,8 +166,9 @@ def check(data):
     # 通し番号
     seqs = [q["seq"] for (_, q) in qs]
     rec(len(seqs) == len(set(seqs)), "通し番号が重複していない",
-        "冊D 1〜%d／冊E 101〜%d" % (max(q["seq"] for q in d),
-                                 max(q["seq"] for q in e)))
+        "冊D 1〜%d／冊E 101〜%d／冊F 201〜%d"
+        % (max(q["seq"] for q in d), max(q["seq"] for q in e),
+           max(q["seq"] for q in fq)))
 
 
 def main():

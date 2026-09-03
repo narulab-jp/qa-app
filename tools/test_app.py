@@ -27,9 +27,9 @@ PORT = 8781
 DBG = 9231
 URL = "http://127.0.0.1:%d/index.html" % PORT
 
-EXPECT_UNITS = {"01":31,"02":25,"03":30,"04":25,"05":30,"06":32,"07":25,"08":30,
+EXPECT_UNITS = {"01":31,"02":25,"03":30,"04":25,"05":30,"06":32,"07":25,"08":31,
                 "09":49,"10":25,"11":29,"12":30,"13":27,"14":26,"15":26,"16":25,
-                "17":27,"18":26,"19":33,"20":29,"21":30,"22":33,"23":39,"24":25,
+                "17":28,"18":26,"19":33,"20":29,"21":30,"22":33,"23":39,"24":25,
                 "25":41,"26":28,"27":25,"28":48}
 res = []
 
@@ -132,7 +132,7 @@ def main():
 
     doc = json.load(open(outp, encoding="utf-8"))
     total = sum(len(u["questions"]) for u in doc["units"])
-    rec(total == 849, "生成されたJSONの問数が849問（825問＋Phase3で補った24問）",
+    rec(total == 851, "生成されたJSONの問数が851問（825問＋Phase3で補った26問）",
         "実数 %d問／欠番は通し533・781・789" % total)
 
     with open(CSVSRC, encoding="utf-8-sig", newline="") as f:
@@ -151,8 +151,8 @@ def main():
         if (q["section"], q["level"], q["type"]) != (cr[2], cr[5], cr[6]):
             mism.append("seq%s 属性" % q["seq"])
     rec(len(flat) == len(rows) and not mism,
-        "JSONの全849問が統合CSVと完全一致（問題文・解答・解説）",
-        "849問すべて一致" if not mism else str(mism[:5]))
+        "JSONの全851問が統合CSVと完全一致（問題文・解答・解説）",
+        "851問すべて一致" if not mism else str(mism[:5]))
 
     bad = [u["id"] for u in doc["units"] if len(u["questions"]) != EXPECT_UNITS.get(u["id"])]
     rec(len(doc["units"]) == 28 and not bad,
