@@ -16,32 +16,33 @@
   <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
 </defs><rect width="720" height="296" fill="#fff"/>
 <text x="20" y="28" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料2　架空大陸の4地点で観測された地震と火山</text>
-<rect x="20" y="46" width="700" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
+<rect x="20" y="46" width="560" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
 <text x="65" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地点</text>
 <text x="192.5" y="64.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">過去100年の</text>
 <text x="192.5" y="79.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">大地震の回数</text>
 <text x="340" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">活火山の数</text>
-<text x="562.5" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地形のようす</text>
-<rect x="20" y="88" width="700" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<text x="492.5" y="64.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">最も高い山の</text>
+<text x="492.5" y="79.5" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">標高（m）</text>
+<rect x="20" y="88" width="560" height="42" fill="none" stroke="#000" stroke-width="1"/>
 <text x="65" y="114" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ア</text>
 <text x="192.5" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">18</text>
 <text x="340" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">9</text>
-<text x="562.5" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">高く険しい山脈が連なる</text>
-<rect x="20" y="130" width="700" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<text x="492.5" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">6,240</text>
+<rect x="20" y="130" width="560" height="42" fill="none" stroke="#000" stroke-width="1"/>
 <text x="65" y="156" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">イ</text>
 <text x="192.5" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2</text>
 <text x="340" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<text x="562.5" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">なだらかな平原が広がる</text>
-<rect x="20" y="172" width="700" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<text x="492.5" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">480</text>
+<rect x="20" y="172" width="560" height="42" fill="none" stroke="#000" stroke-width="1"/>
 <text x="65" y="198" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">エ</text>
 <text x="192.5" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1</text>
 <text x="340" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<text x="562.5" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">古い岩石からなる低い山地</text>
-<rect x="20" y="214" width="700" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<text x="492.5" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1,150</text>
+<rect x="20" y="214" width="560" height="42" fill="none" stroke="#000" stroke-width="1"/>
 <text x="65" y="240" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">カ</text>
 <text x="192.5" y="240" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">14</text>
 <text x="340" y="240" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">6</text>
-<text x="417" y="240" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">海溝に沿って弧状の列島が並ぶ</text>
+<text x="492.5" y="240" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3,080</text>
 <path d="M110 46 L110 256" stroke="#000" stroke-width="1" fill="none"/>
 <path d="M275 46 L275 256" stroke="#000" stroke-width="1" fill="none"/>
 <path d="M405 46 L405 256" stroke="#000" stroke-width="1" fill="none"/>

@@ -85,12 +85,15 @@ def check(data):
         "／".join("%s%dセット" % (k, bank.FIELD_PLAN[k]) for k in bank.FIELD_PLAN)
         if not bad else str(dict(fld)))
 
-    # 1セット3〜4問
+    # 1セット2〜4問
+    #   指示Gで「同一資料セットは原則2〜3問まで」と方針が変わったため、
+    #   下限を3問から2問にした。結論が重なる問を削った結果、
+    #   2問になったセットがあるのは意図どおりである。
     sz = Counter(q["setId"] for (u, q) in qs if u["id"] == "C")
-    bad = [k for k, v in sz.items() if not (3 <= v <= 4)]
-    rec(not bad, "冊Cは1セット3〜4問である",
-        "3問=%dセット／4問=%dセット"
-        % (sum(1 for v in sz.values() if v == 3), sum(1 for v in sz.values() if v == 4))
+    bad = [k for k, v in sz.items() if not (2 <= v <= 4)]
+    rec(not bad, "冊Cは1セット2〜4問である",
+        "／".join("%d問=%dセット" % (n, sum(1 for v in sz.values() if v == n))
+                 for n in (2, 3, 4) if any(v == n for v in sz.values()))
         if not bad else str(bad))
 
     # 4択・記述なし

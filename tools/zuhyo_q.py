@@ -13,6 +13,16 @@ def reset(start):
     _seq[0] = start - 1
 
 
+def skip(n):
+    """問を削ったところで通し番号を空ける。
+
+       通し番号は利用者の間違いノートが問を指すのに使っている。
+       削った分だけ後ろが繰り上がると、保存済みのノートが
+       別の問を指してしまう。だから欠番のまま残す。"""
+    _seq[0] += n
+    return None
+
+
 def Q(no, set_id, skill, level, figures, q, choices, answer, exp, grounds):
     assert 4 <= len(choices) <= 9, "選択肢は4〜9でなければならない: %s" % q
     assert len(set(choices)) == len(choices), "選択肢が重複している: %s" % q

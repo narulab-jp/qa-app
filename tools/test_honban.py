@@ -312,7 +312,7 @@ def main():
         time.sleep(1.2)
         n2 = c.ev("window.__app.getSubject().units.reduce("
                   "function(a,u){return a+u.questions.length;},0)")
-        rec(n2 == 159, "図表編159問が従来どおり読める", "%d問" % n2)
+        rec(n2 == 157, "図表編157問が従来どおり読める（指示Gで重複2問を削除）", "%d問" % n2)
 
         # ---------- Service Worker ----------
         sw_js = io.open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read()
