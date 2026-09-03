@@ -133,8 +133,14 @@ def main():
              "document.getElementById('btnAddUser').click();}"
              "window.__app.setNoteAsked(true);})()")
         c.ev("window.__app.openSubjectById('chiri-zuhyo')")
-        time.sleep(1.5)
-        sid = c.ev("window.__app.getSubject().subjectId")
+        # 科目の読み込みは非同期なので、切りかわるまで待つ
+        sid = None
+        for _ in range(40):
+            time.sleep(0.5)
+            sid = c.ev("window.__app.getSubject() ? "
+                       "window.__app.getSubject().subjectId : ''")
+            if sid == "chiri-zuhyo":
+                break
         nq = c.ev("window.__app.getSubject().units.reduce(function(a,u){"
                   "return a+u.questions.length;},0)")
         rec(sid == "chiri-zuhyo" and nq == 159,
