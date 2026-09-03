@@ -20,7 +20,8 @@ import math
 
 from figlib import (NOTE_FAKE, NOTE_MAP, circle, line, poly, rect, svg, txt,
                     sym_ta, sym_kuwa, sym_kaju, sym_hatake, sym_arechi,
-                    sym_school, sym_post, sym_roujin, sym_shinyou)
+                    sym_school, sym_post, sym_roujin, sym_shinyou,
+                    sym_torii)
 
 W = 720
 NOTE_TRAIN = "※ 訓練用に作成したものであり、実在の地域・事例ではない。"
@@ -267,10 +268,193 @@ def talk():
     return svg(W, int(H), "\n".join(b), "地域調査の会話文")
 
 
+# ======================================================================
+# セット2「川ぞいの市街地と水害」
+#   3枚の地図はすべて同じ範囲。川と崖線を同じ座標で描いて、
+#   同じ場所どうしを見比べられるようにしてある。
+# ======================================================================
+RIVER2 = [(196, 56), (250, 150), (300, 250), (352, 348), (410, 448)]
+GAKE = [(150, 56), (128, 150), (146, 250), (120, 350), (140, 464)]
+# 自然堤防（川ぞいの細長い高まり）に沿う点
+TEIBO = [(232, 112), (256, 176), (280, 240), (306, 306), (334, 372),
+         (206, 128), (232, 192), (256, 256), (282, 322), (310, 388)]
+# 低地（自然堤防の外側）。明治期は田、現在は住宅地
+TEICHI = [(400, 110), (470, 140), (540, 118), (610, 150),
+          (420, 200), (492, 226), (562, 204), (628, 234),
+          (444, 288), (514, 312), (584, 292), (646, 320),
+          (466, 374), (536, 396), (604, 378),
+          (486, 448), (556, 452)]
+# 台地の上（崖線より西）
+DAICHI = [(70, 110), (78, 200), (66, 292), (82, 382), (70, 442),
+          (108, 156), (100, 248), (112, 336), (98, 424),
+          (60, 154), (92, 118), (86, 336), (60, 386)]
+
+
+def _base2(b):
+    """3枚の地図に共通の骨組み（川・崖線）。
+       崖はケバ付きの実線にして、台地と低地の境をはっきりさせる。"""
+    b.append(poly(RIVER2, 3.0))
+    b.append(txt(222, 96, "川", 12))
+    b.append(poly(GAKE, 1.4))
+    for k in range(11):
+        t = k / 10.0
+        i = min(int(t * (len(GAKE) - 1)), len(GAKE) - 2)
+        u = t * (len(GAKE) - 1) - i
+        x = GAKE[i][0] + (GAKE[i + 1][0] - GAKE[i][0]) * u
+        y = GAKE[i][1] + (GAKE[i + 1][1] - GAKE[i][1]) * u
+        b.append(line(x, y, x + 9, y, 0.9))      # 崖のケバ（低い側を向く）
+    b.append(txt(56, 82, "台地", 12))
+    b.append(txt(160, 92, "崖", 11))
+
+
+def old_map2():
+    b, H = _frame("資料1　明治時代の地形図")
+    _base2(b)
+    for (x, y) in TEIBO:
+        b.append(rect(x - 4, y - 4, 8, 8, "#000", 0.6))
+    for (x, y) in TEICHI:
+        b.append(sym_ta(x, y))
+    for (x, y) in DAICHI:
+        b.append(sym_kuwa(x, y))
+    b.append(sym_torii(268, 148))
+    _legend(b, [(None, "家屋"), (sym_ta, "田"), (sym_kuwa, "桑畑"),
+                (sym_torii, "神社")])
+    b.append(txt(20, H - 12, NOTE_MAP, 11))
+    return svg(W, H, "\n".join(b), "明治時代の模式地形図")
+
+
+def new_map2():
+    b, H = _frame("資料2　現在の地形図（資料1と同じ範囲）")
+    _base2(b)
+    # 自然堤防の上・低地・台地の上、いずれにも住宅が並ぶ
+    for (x, y) in TEIBO:
+        b.append(rect(x - 4, y - 4, 8, 8, "#000", 0.6))
+    for (x, y) in TEICHI:
+        b.append(rect(x - 4, y - 4, 8, 8, "#000", 0.6))
+        b.append(rect(x + 12, y + 10, 8, 8, "#000", 0.6))
+    for (x, y) in DAICHI:
+        b.append(rect(x - 4, y - 4, 8, 8, "#000", 0.6))
+    # 田はわずかに残る
+    for (x, y) in [(650, 404), (664, 448)]:
+        b.append(sym_ta(x, y))
+    b.append(sym_torii(268, 148))
+    b.append(sym_school(560, 160))
+    # 鉄道と駅（東西に横切る）
+    b.append(poly([(40, 268), (200, 262), (380, 258), (560, 254),
+                   (686, 250)], 1.2))
+    for k in range(14):
+        t = k / 13.0
+        x = 40 + (686 - 40) * t
+        y = 268 + (250 - 268) * t
+        b.append(line(x, y - 5, x, y + 5, 0.9))
+    b.append(txt(52, 250, "鉄道", 11))
+    b.append(rect(474, 251, 11, 11, "#fff", 1.5))
+    b.append(txt(490, 244, "駅", 11))
+    _legend(b, [(None, "家屋"), (sym_ta, "田"), (sym_torii, "神社"),
+                (sym_school, "小学校")])
+    b.append(txt(20, H - 12, NOTE_MAP, 11))
+    return svg(W, H, "\n".join(b), "現在の模式地形図")
+
+
+def flood_map():
+    b, H = _frame("資料3　浸水が想定される深さ（資料1・資料2と同じ範囲）")
+    # 低地（川の東側）は深い
+    b.append(poly([(370, 56), (686, 56), (686, 464), (390, 464),
+                   (330, 300), (300, 170)], 1.0, "", "hatch:diag", True))
+    # 自然堤防の帯は浅い
+    b.append(poly([(196, 56), (300, 170), (390, 464), (330, 464),
+                   (250, 200), (150, 60)], 1.0, "", "hatch:dotfine", True))
+    _base2(b)
+    b.append(txt(540, 380, "Ｘ", 20, "middle", "bold"))
+    b.append(circle(540, 374, 15, "none", 1.4))
+    b.append(txt(268, 300, "Ｙ", 20, "middle", "bold"))
+    b.append(circle(268, 294, 15, "none", 1.4))
+    b.append(txt(86, 300, "Ｚ", 20, "middle", "bold"))
+    b.append(circle(86, 294, 15, "none", 1.4))
+    ly = 486.0
+    b.append(rect(30, ly, 660, 40, "none", 1))
+    b.append(txt(44, ly + 25, "凡例", 12, "start", "bold"))
+    b.append(rect(98, ly + 11, 26, 18, "hatch:diag", 1))
+    b.append(txt(132, ly + 25, "2〜3m", 11))
+    b.append(rect(224, ly + 11, 26, 18, "hatch:dotfine", 1))
+    b.append(txt(258, ly + 25, "0.5m未満", 11))
+    b.append(rect(360, ly + 11, 26, 18, "none", 1))
+    b.append(txt(394, ly + 25, "想定なし", 11))
+    b.append(txt(470, ly + 25, "Ｘ・Ｙ・Ｚは地点を表す", 11))
+    b.append(txt(20, H - 12, NOTE_MAP, 11))
+    return svg(W, H, "\n".join(b), "浸水が想定される深さの図")
+
+
+def house_table():
+    rows = [["低地（川の東側）", "12", "1,860", "4,300"],
+            ["川ぞいの高まりの上", "140", "520", "1,200"],
+            ["台地の上", "30", "1,240", "2,900"]]
+    head = ["場所", "明治時代の\n住宅数（戸）", "現在の\n住宅数（戸）",
+            "現在の人口（人）"]
+    widths = [200, 140, 140, 160]
+    rh = 46.0
+    h = int(46 + rh * (len(rows) + 1) + 40)
+    cols = [20.0]
+    for wd in widths:
+        cols.append(cols[-1] + wd)
+    b = [txt(20, 28, "資料4　場所ごとの住宅数と人口", 16, "start", "bold"),
+         rect(cols[0], 46.0, cols[-1] - cols[0], rh, "none", 1.4)]
+    for i, hd in enumerate(head):
+        parts = hd.split("\n")
+        for j, p in enumerate(parts):
+            y = 46.0 + rh / 2 + (j - (len(parts) - 1) / 2.0) * 15 + 5
+            b.append(txt((cols[i] + cols[i + 1]) / 2, y, p, 12, "middle",
+                         "bold"))
+    for k, row in enumerate(rows):
+        ry = 46.0 + rh + k * rh
+        b.append(rect(cols[0], ry, cols[-1] - cols[0], rh, "none", 1))
+        for i, v in enumerate(row):
+            b.append(txt((cols[i] + cols[i + 1]) / 2, ry + rh / 2 + 5, v, 13,
+                         "middle", "bold" if i == 0 else "normal"))
+    for c in cols[1:-1]:
+        b.append(line(c, 46.0, c, 46.0 + rh * (len(rows) + 1), 1))
+    b.append(txt(20, h - 12, NOTE_FAKE, 11))
+    return svg(W, h, "\n".join(b), "場所ごとの住宅数と人口")
+
+
+TALK2 = [
+    ("ハルカ", "この町でいちばん古くからある家は、どのあたりですか。"),
+    ("住民Ａ", "祖父の代までは、家は川ぞいの少し高いところだけでした。"),
+    ("", "東の低いところは、ずっと田んぼでしたよ。"),
+    ("住民Ｂ", "うちは30年前に建てました。まわりの家もだいたい同じころです。"),
+    ("ハルカ", "駅ができたのは、それより前ですか。"),
+    ("住民Ａ", "駅のほうが先です。それから東側が開けていきました。"),
+    ("リク", "仮説Ａ「駅ができたことが、低いところに家が増えた理由だ」。"),
+    ("ハルカ", "仮説Ｂ「土地の値段が安かったことが、その理由だ」も考えられる。"),
+    ("リク", "仮説Ｃ「堤防ができた今は、もう浸水することはない」はどうかな。"),
+    ("先生", "3つの仮説を、いまある資料で分けてみましょう。"),
+]
+
+
+def talk2():
+    H = 92 + len(TALK2) * 30 + 40
+    b = [txt(20, 30, "資料5　住民への聞き取りと、そのあとの話し合い", 16,
+             "start", "bold"),
+         rect(20, 46, W - 40, H - 96, "none", 1)]
+    y = 78
+    for (who, s) in TALK2:
+        if who:
+            b.append(txt(40, y, who, 13, "start", "bold"))
+        b.append(txt(126, y, s, 14))
+        y += 30
+    b.append(txt(20, H - 14, NOTE_TRAIN, 11))
+    return svg(W, int(H), "\n".join(b), "住民への聞き取りの会話")
+
+
 FIGURES = {
     "H1_old.svg": old_map,
     "H1_new.svg": new_map,
     "H1_pop.svg": pop_chart,
     "H1_land.svg": land_table,
     "H1_talk.svg": talk,
+    "H2_old.svg": old_map2,
+    "H2_new.svg": new_map2,
+    "H2_flood.svg": flood_map,
+    "H2_table.svg": house_table,
+    "H2_talk.svg": talk2,
 }

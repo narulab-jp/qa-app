@@ -79,8 +79,8 @@ def check(data):
     fq = [q for (u, q) in qs if u["id"] == "F"]
     gq = [q for (u, q) in qs if u["id"] == "G"]
 
-    rec(len(d) == 48 and len(e) == 30 and len(fq) == 13 and len(gq) == 6,
-        "冊D=48問・冊E=30マーク・冊F=13問・冊G=6問である",
+    rec(len(d) == 48 and len(e) == 30 and len(fq) == 13 and len(gq) == 12,
+        "冊D=48問・冊E=30マーク・冊F=13問・冊G=12問である",
         "冊D %d問／冊E %dマーク／冊F %d問／冊G %d問／合計 %d問"
         % (len(d), len(e), len(fq), len(gq), len(qs)))
 
@@ -239,7 +239,9 @@ def check(data):
             if wnd in txt:
                 bad.append("%s に「%s」" % (name, wnd))
     rec(not bad, "冊E・冊G専用の資料に、答えや理由を文章で書いていない",
-        "15枚すべて、数値・記号・位置だけを示している"
+        "%d枚すべて、数値・記号・位置だけを示している"
+        % len([n for n in os.listdir(FIGDIR)
+               if n.startswith("G") or n.startswith("H")])
         if not bad else str(bad[:5]))
 
     # ---- 思考レベル R1〜R4 の内訳（指示G 第7章） ----
