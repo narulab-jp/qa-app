@@ -46,7 +46,7 @@
       159問
 
 [OK] Service Worker のキャッシュ版数を上げてある
-      バージョン=v10
+      バージョン=v11
 
 撮影した画面:
   H1_kumiawase.png

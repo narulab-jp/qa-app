@@ -317,7 +317,7 @@ def main():
         # ---------- Service Worker ----------
         sw_js = io.open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read()
         ver = sw_js.split('VERSION = "')[1].split('"')[0]
-        rec(ver.startswith("v") and ver[1:].isdigit() and int(ver[1:]) >= 9,
+        rec(ver.startswith("v") and ver[1:].isdigit() and int(ver[1:]) >= 11,
         "Service Worker のキャッシュ版数を上げてある",
             "バージョン=%s" % ver)
     finally:

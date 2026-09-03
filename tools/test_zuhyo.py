@@ -438,7 +438,7 @@ def main():
         # ---------- Service Worker のキャッシュ対象 ----------
         sw = io.open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read()
         ver = sw.split('VERSION = "')[1].split('"')[0]
-        rec(ver.startswith("v") and ver[1:].isdigit() and int(ver[1:]) >= 8
+        rec(ver.startswith("v") and ver[1:].isdigit() and int(ver[1:]) >= 11
             and "q.figures" in sw,
             "Service Worker がSVGとJSONをキャッシュし、バージョンを上げてある",
             "バージョン=%s／科目JSONと figures を取り込む処理あり" % ver)
