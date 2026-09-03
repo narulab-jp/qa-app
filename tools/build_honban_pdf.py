@@ -23,6 +23,7 @@ import build_zuhyo_pdf as Z          # noqa: E402
 import honban_d                      # noqa: E402
 import honban_e                      # noqa: E402
 import honban_f                      # noqa: E402
+import honban_g                      # noqa: E402
 
 EDGE = Z.EDGE
 DBG = 9302
@@ -50,6 +51,11 @@ UNITS = [
              "海面水温の平年差・GISの重ね合わせとバッファ・"
              "下線部の正誤・会話文の空欄の6種類です。"
              "1問2分を目安に、13問で約26分です。"},
+    {"id": "G", "name": "地域調査", "questions": honban_g.QUESTIONS,
+     "lead": "1つの地域を最後まで調べるセットです。"
+             "資料5点で、何が変わったか→どこが変わったか→"
+             "なぜ変わったか→これからどうなるか、の順に問います。"
+             "資料を読む時間を入れて、1セット20分を目安にしてください。"},
 ]
 
 

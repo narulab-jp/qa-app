@@ -17,6 +17,7 @@ import honban_d          # noqa: E402
 import omoi_level        # noqa: E402
 import honban_e          # noqa: E402
 import honban_f          # noqa: E402
+import honban_g          # noqa: E402
 
 OUT = os.path.join(ROOT, "data", "chiri-honban.json")
 SUBJ = os.path.join(ROOT, "subjects.json")
@@ -45,6 +46,8 @@ def build():
              "questions": honban_e.QUESTIONS},
             {"id": "F", "name": "残りの技能・形式",
              "questions": honban_f.QUESTIONS},
+            {"id": "G", "name": "地域調査",
+             "questions": honban_g.QUESTIONS},
         ],
     }
     omoi_level.apply(data)      # 思考レベル R1〜R4 を level2 として付ける
@@ -74,11 +77,12 @@ def check(data):
     d = [q for (u, q) in qs if u["id"] == "D"]
     e = [q for (u, q) in qs if u["id"] == "E"]
     fq = [q for (u, q) in qs if u["id"] == "F"]
+    gq = [q for (u, q) in qs if u["id"] == "G"]
 
-    rec(len(d) == 48 and len(e) == 30 and len(fq) == 13,
-        "冊D=48問・冊E=30マーク・冊F=13問である",
-        "冊D %d問／冊E %dマーク／冊F %d問／合計 %d問"
-        % (len(d), len(e), len(fq), len(qs)))
+    rec(len(d) == 48 and len(e) == 30 and len(fq) == 13 and len(gq) == 6,
+        "冊D=48問・冊E=30マーク・冊F=13問・冊G=6問である",
+        "冊D %d問／冊E %dマーク／冊F %d問／冊G %d問／合計 %d問"
+        % (len(d), len(e), len(fq), len(gq), len(qs)))
 
     # 冊D：3つの型がそろっているか
     t = Counter(q["skill"][:3] for q in d)
@@ -117,7 +121,7 @@ def check(data):
         "対応型・2軸型・正誤の組合せ型のみで48問")
 
     # 択数と正解の位置
-    for (nm, arr) in (("冊D", d), ("冊E", e), ("冊F", fq)):
+    for (nm, arr) in (("冊D", d), ("冊E", e), ("冊F", fq), ("冊G", gq)):
         cnt = Counter(len(q["choices"]) for q in arr)
         rec(min(cnt) >= 4 and max(cnt) <= 9,
             "%sの択数が4〜9におさまっている" % nm,
@@ -227,15 +231,15 @@ def check(data):
                 "に適して", "を意味する"]
     bad = []
     for name in sorted(os.listdir(FIGDIR)):
-        if not name.startswith("G"):
+        if not (name.startswith("G") or name.startswith("H")):
             continue
         body = io.open(os.path.join(FIGDIR, name), encoding="utf-8").read()
         txt = " ".join(re.findall(r">([^<>]+)</text>", body))
         for wnd in NG_WORDS:
             if wnd in txt:
                 bad.append("%s に「%s」" % (name, wnd))
-    rec(not bad, "冊E専用の資料に、答えや理由を文章で書いていない",
-        "10枚すべて、数値・記号・位置だけを示している"
+    rec(not bad, "冊E・冊G専用の資料に、答えや理由を文章で書いていない",
+        "15枚すべて、数値・記号・位置だけを示している"
         if not bad else str(bad[:5]))
 
     # ---- 思考レベル R1〜R4 の内訳（指示G 第7章） ----
@@ -247,7 +251,7 @@ def check(data):
         "R1 %d／R2 %d／R3 %d／R4 %d問　R3+R4=%d問（%.0f%%）"
         % (lv["R1"], lv["R2"], lv["R3"], lv["R4"], hi,
            100.0 * hi / len(qs)))
-    for (nm, arr) in (("冊D", d), ("冊E", e), ("冊F", fq)):
+    for (nm, arr) in (("冊D", d), ("冊E", e), ("冊F", fq), ("冊G", gq)):
         c2 = Counter(q["level2"] for q in arr)
         h2 = c2["R3"] + c2["R4"]
         rec(True, "　%sの内訳（参考）" % nm,

@@ -4,7 +4,7 @@
    file:// では登録されない（app.js 側で判定している）。 */
 "use strict";
 
-var VERSION = "v16";
+var VERSION = "v17";
 var CACHE = "qa-app-" + VERSION;
 
 /* アプリの骨組み */

@@ -39,6 +39,9 @@ CW = PW - M_L - M_R                                   # 本文の幅 169mm
 CH = PH - M_TOP - M_BOT                               # 本文の高さ 267mm
 HEAD_H, FOOT_H = 8.0, 8.0
 BODY_H = CH - HEAD_H - FOOT_H                         # 詰められる高さ
+# 実測した高さと実際の描画には少しずれが出る。ぎりぎりで詰めると
+# 最後の1行が紙面からはみ出して消えるので、安全のぶんを引いておく。
+SAFE_H = BODY_H - 6.0
 
 NOTICE = (
     "本冊子は共通テストと同じマーク式の練習用に、独自に作成した図表・読図問題です。"
@@ -114,22 +117,22 @@ def esc(s):
     return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
-def fig_size(path, single):
+def fig_size(path, single, scale=1.0):
     """SVG の viewBox から、印刷したときの大きさ（mm）を決める。"""
     t = io.open(os.path.join(ROOT, path.replace("/", os.sep)), encoding="utf-8").read()
     vb = t.split('viewBox="')[1].split('"')[0].split()
     w, h = float(vb[2]), float(vb[3])
     maxw = CW
     maxh = 150.0 if single else 78.0
-    mw = min(maxw, maxh * w / h)
+    mw = min(maxw, maxh * w / h) * scale
     return mw, mw * h / w
 
 
-def fig_block(figs):
+def fig_block(figs, scale=1.0):
     single = (len(figs) == 1)
     s = ['<div class="figwrap">']
     for f in figs:
-        mw, mh = fig_size(f, single)
+        mw, mh = fig_size(f, single, scale)
         s.append('<img src="%s" style="width:%.1fmm;height:%.1fmm">'
                  % ("file:///" + os.path.join(ROOT, f.replace("/", os.sep))
                     .replace("\\", "/"), mw, mh))
@@ -204,10 +207,37 @@ def paginate(c, unit):
         kind, sid = tag[i]
         if kind == "fig":
             fig_html, fig_h = blocks[i], hs[i]
+            qidx = [j for j in range(i + 1, len(blocks))
+                    if tag[j][0] == "q" and tag[j][1] == sid]
+            need = max([hs[j] for j in qidx]) if qidx else 0.0
+            if fig_h + need > SAFE_H:
+                # 資料が大きくて、同じページに設問が入らない。
+                #   そのまま詰めると設問が紙面からはみ出して消えるので、
+                #   資料だけのページを1枚立て、設問は次のページから並べる。
+                figs = [q["figures"] for q in unit["questions"]
+                        if q["setId"] == sid][0]
+                sc = min(1.0, (SAFE_H - 6.0) / fig_h)
+                pages.append(fig_block(figs, sc))
+                cur, used = [], 0.0
+                note = ('<p class="figcap" style="margin:0 0 3mm">'
+                        '※ 資料は前のページにあります。</p>')
+                for j in qidx:
+                    if used + hs[j] > SAFE_H and cur:
+                        pages.append("".join(cur))
+                        cur, used = [], 0.0
+                    if not cur:
+                        cur.append(note)
+                        used += 6.0
+                    cur.append(blocks[j])
+                    used += hs[j]
+                if cur:
+                    pages.append("".join(cur))
+                i = (qidx[-1] + 1) if qidx else (i + 1)
+                continue
             j = i + 1
             cur, used = [fig_html], fig_h
             while j < len(blocks) and tag[j][0] == "q" and tag[j][1] == sid:
-                if used + hs[j] > BODY_H and len(cur) > 1:
+                if used + hs[j] > SAFE_H and len(cur) > 1:
                     pages.append("".join(cur))          # 図をもう一度置いて続ける
                     cur, used = [fig_html], fig_h
                 cur.append(blocks[j])
@@ -226,7 +256,7 @@ def answer_pages(c, unit):
     head = '<h2 style="font-size:12pt;margin:0 0 4mm">解答・解説</h2>'
     pages, cur, used = [], [head], 12.0
     for b, h in zip(blocks, hs):
-        if used + h > BODY_H and len(cur) > 1:
+        if used + h > SAFE_H and len(cur) > 1:
             pages.append("".join(cur))
             cur, used = [], 0.0
         cur.append(b)
