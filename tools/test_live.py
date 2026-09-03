@@ -260,10 +260,22 @@ def main():
             c.call("Page.reload", {"ignoreCache": False})
             offok = wait_ready(c, tries=40)
             if offok:
+                # 再読込の直後は __app がまだ入っていないことがある。
+                # 例外で検証全体を落とさないよう、ここで受け止める。
                 offtotal = c.ev(
-                    "window.__app.getSubject() ? window.__app.getSubject()"
+                    "(window.__app && window.__app.getSubject()) ?"
+                    " window.__app.getSubject()"
                     ".units.reduce(function(a,u){return a+u.questions.length;},0) : 0")
-                break
+                if offtotal:
+                    break
+                offok = False
+                errpage += 1
+                c.call("Network.emulateNetworkConditions",
+                       {"offline": False, "latency": 0,
+                        "downloadThroughput": -1, "uploadThroughput": -1})
+                c.call("Page.reload", {"ignoreCache": False})
+                wait_ready(c, tries=40)
+                continue
             body = c.ev("document.body ? document.body.innerText : ''") or ""
             if "ERR_INTERNET_DISCONNECTED" not in body:
                 break                      # 接続エラー画面でないなら本物の失敗
