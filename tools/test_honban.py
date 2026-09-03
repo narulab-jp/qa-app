@@ -293,7 +293,7 @@ def main():
         time.sleep(1.5)
         n1 = c.ev("window.__app.getSubject().units.reduce("
                   "function(a,u){return a+u.questions.length;},0)")
-        rec(n1 == 825, "一問一答が825問（重複3問を外した数）になっている",
+        rec(n1 == 849, "一問一答が849問（重複3問を外し、知識の穴24問を足した数）になっている",
             "%d問／欠番は通し533・781・789" % n1)
         cases = [("緯度", "緯度", ["いど"], True),
                  ("まったく関係のない語", "緯度", [], False),
@@ -317,7 +317,8 @@ def main():
         # ---------- Service Worker ----------
         sw_js = io.open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read()
         ver = sw_js.split('VERSION = "')[1].split('"')[0]
-        rec(ver == "v8", "Service Worker のキャッシュ版数を上げてある",
+        rec(ver.startswith("v") and ver[1:].isdigit() and int(ver[1:]) >= 9,
+        "Service Worker のキャッシュ版数を上げてある",
             "バージョン=%s" % ver)
     finally:
         try:

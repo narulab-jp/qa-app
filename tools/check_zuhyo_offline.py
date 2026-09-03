@@ -13,6 +13,7 @@ from websockets.sync.client import connect
 
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 URL = "https://narulab-jp.github.io/qa-app/"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DBG = 9311
 res = []
 
@@ -94,9 +95,14 @@ def main():
                     ".then(function(k){return k.map(function(r){"
                     "return r.url.split('/qa-app/')[1]||'/';}).join(', ');})")
         figs = [x for x in (keys or "").split(", ") if x.startswith("figures/")]
-        rec(len(figs) == 60 and "data/chiri-zuhyo.json" in (keys or ""),
-            "図（SVG）と図表編のデータがキャッシュに入っている",
-            "図 %d枚／図表編のデータ=あり／骨組みも含めて全%d件" % (len(figs), len((keys or "").split(", "))))
+        nfig = len([x for x in os.listdir(os.path.join(ROOT, "figures"))
+                    if x.endswith(".svg")])
+        dat = [d for d in ("data/chiri-zuhyo.json", "data/chiri-honban.json")
+               if d in (keys or "")]
+        rec(len(figs) == nfig and len(dat) == 2,
+            "図（SVG）と図表編・本番形式編のデータがキャッシュに入っている",
+            "図 %d枚（figures/ の%d枚すべて）／データ %s／骨組みも含めて全%d件"
+            % (len(figs), nfig, "・".join(dat), len((keys or "").split(", "))))
 
         # オフラインにして開き直す（Service Worker を起こしてから遮断する）
         ok = False

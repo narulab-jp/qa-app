@@ -303,14 +303,14 @@ def main():
         # ---------- 6. 周回モード ----------
         c.ev("window.__app.getNote().entries = []")
         n = c.ev("window.__t.start(['01'],0,'ALL','csv','round')")
-        c.ev("window.__t.run([false],40)")            # 27問すべて間違える
+        c.ev("window.__t.run([false],60)")            # 第01講の全問を間違える
         still = c.ev("document.getElementById('s-result').hidden")
         remain = c.ev("window.__app.getQuiz().queue.length + "
                       "window.__app.getQuiz().wrongPass.length")
         bar = c.ev("document.getElementById('statusBar').textContent")
-        rec(n == 27 and still is True and remain == 27,
+        rec(n > 0 and still is True and remain == n,
             "周回モードで、全問正解するまで終わらない",
-            "27問すべて誤答 → 結果画面に進まず残り%d問／表示=「%s」" % (remain, bar))
+            "%d問すべて誤答 → 結果画面に進まず残り%d問／表示=「%s」" % (n, remain, bar))
 
         # ---------- 7. 中断して保存 → 再開 ----------
         c.ev("document.getElementById('btnPause').click()")
@@ -324,20 +324,20 @@ def main():
         rr = c.ev("JSON.stringify(window.__app.importResumeText(%s))" % json.dumps(rtxt))
         rq = c.ev("document.getElementById('s-quiz').hidden")
         bar2 = c.ev("document.getElementById('statusBar').textContent")
-        rec(bool(rpath) and rq is False and json.loads(rr)["remain"] == 27,
+        rec(bool(rpath) and rq is False and json.loads(rr)["remain"] == n,
             "周回モードで「中断して保存」が動き、再開できる",
             "保存=%s／再開結果=%s／再開後の表示=「%s」"
             % (os.path.basename(rpath) if rpath else "なし", rr, bar2))
 
         # ---------- 8/9/10. 全問正解して完了 → 統計 ----------
-        c.ev("window.__t.run([true],40)")
+        c.ev("window.__t.run([true],60)")
         done = c.ev("document.getElementById('s-result').hidden")
         s = json.loads(c.ev("JSON.stringify(window.__app.getSession())"))
         rec(done is False and s["completed"] is True,
             "周回モードで全問正解すると1周が完了する",
-            "%s／解答回数54想定に対し初回対象=%d問" % (c.ev("document.getElementById('resultTitle').textContent"),
+            "%s／初回対象=%d問" % (c.ev("document.getElementById('resultTitle').textContent"),
                                                 s["totalAsked"]))
-        rec(s["totalAsked"] == 27 and s["firstTryCorrect"] == 0 and s["firstTryRate"] == 0.0,
+        rec(s["totalAsked"] == n and s["firstTryCorrect"] == 0 and s["firstTryRate"] == 0.0,
             "初回正答率が、再出題を含まずに計算されている",
             "totalAsked=%d（＝出題した実数）／firstTryCorrect=%d／firstTryRate=%s"
             % (s["totalAsked"], s["firstTryCorrect"], s["firstTryRate"]))

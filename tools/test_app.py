@@ -27,10 +27,10 @@ PORT = 8781
 DBG = 9231
 URL = "http://127.0.0.1:%d/index.html" % PORT
 
-EXPECT_UNITS = {"01":27,"02":25,"03":30,"04":25,"05":30,"06":32,"07":25,"08":29,
-                "09":44,"10":25,"11":29,"12":25,"13":25,"14":26,"15":25,"16":25,
-                "17":26,"18":25,"19":33,"20":29,"21":29,"22":32,"23":39,"24":25,
-                "25":41,"26":26,"27":25,"28":48}
+EXPECT_UNITS = {"01":31,"02":25,"03":30,"04":25,"05":30,"06":32,"07":25,"08":30,
+                "09":49,"10":25,"11":29,"12":30,"13":27,"14":26,"15":26,"16":25,
+                "17":27,"18":26,"19":33,"20":29,"21":30,"22":33,"23":39,"24":25,
+                "25":41,"26":28,"27":25,"28":48}
 res = []
 
 
@@ -132,7 +132,7 @@ def main():
 
     doc = json.load(open(outp, encoding="utf-8"))
     total = sum(len(u["questions"]) for u in doc["units"])
-    rec(total == 825, "生成されたJSONの問数が825問（重複3問を外した数）",
+    rec(total == 849, "生成されたJSONの問数が849問（825問＋Phase3で補った24問）",
         "実数 %d問／欠番は通し533・781・789" % total)
 
     with open(CSVSRC, encoding="utf-8-sig", newline="") as f:
@@ -151,8 +151,8 @@ def main():
         if (q["section"], q["level"], q["type"]) != (cr[2], cr[5], cr[6]):
             mism.append("seq%s 属性" % q["seq"])
     rec(len(flat) == len(rows) and not mism,
-        "JSONの全825問が統合CSVと完全一致（問題文・解答・解説）",
-        "825問すべて一致" if not mism else str(mism[:5]))
+        "JSONの全849問が統合CSVと完全一致（問題文・解答・解説）",
+        "849問すべて一致" if not mism else str(mism[:5]))
 
     bad = [u["id"] for u in doc["units"] if len(u["questions"]) != EXPECT_UNITS.get(u["id"])]
     rec(len(doc["units"]) == 28 and not bad,
@@ -203,7 +203,8 @@ def main():
         qn0 = c.ev("window.__app.getQuiz().roundList.length")
         uids0 = c.ev("JSON.stringify(Array.from(new Set("
                      "window.__app.getQuiz().roundList.map(x=>x.unit.id))).sort())")
-        rec(qn0 == 137 and uids0 == '["01","02","03","04","05"]',
+        want5 = sum(EXPECT_UNITS[i] for i in ("01", "02", "03", "04", "05"))
+        rec(qn0 == want5 and uids0 == '["01","02","03","04","05"]',
             "複数の単元を選んでまとめて出題できる（選んだ範囲すべて）",
             "%s → %d問出題／出題された単元=%s" % (picked, qn0, uids0))
 
