@@ -17,15 +17,15 @@ sys.path.insert(0, HERE)
 import fig_a          # noqa: E402
 import fig_b          # noqa: E402
 import fig_c          # noqa: E402
-import fig_e          # noqa: E402
 import fig_f          # noqa: E402
+import fig_g          # noqa: E402
 
 FIG = os.path.join(ROOT, "figures")
 
 
 def all_figures():
     d = {}
-    for mod in (fig_a, fig_b, fig_c, fig_e, fig_f):
+    for mod in (fig_a, fig_b, fig_c, fig_f, fig_g):
         d.update(mod.FIGURES)
     return d
 

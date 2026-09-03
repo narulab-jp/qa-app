@@ -163,6 +163,79 @@ def check(data):
     rec(not bad, "問題文・選択肢・解説に日本語以外の文字が混じっていない",
         "%d問すべて確認" % len(qs) if not bad else str(bad))
 
+    # ---- 正解の位置が規則的に並んでいないか ----
+    #   ①②③…と順に並ぶと、問題を読まずに当てられてしまう。
+    seq_d = [q["answer"] for q in d]
+    adj = sum(1 for i in range(1, len(seq_d))
+              if abs(seq_d[i] - seq_d[i - 1]) == 1)
+    up, cur = 1, 1
+    for i in range(1, len(seq_d)):
+        if seq_d[i] - seq_d[i - 1] == 1:
+            cur += 1
+            up = max(up, cur)
+        else:
+            cur = 1
+    rate = 100.0 * adj / (len(seq_d) - 1)
+    rec(rate <= 30.0 and up <= 3,
+        "冊Dの正解が、隣の問と続き番号で並んでいない",
+        "隣り合う問で正解が±1になる割合 %d/%d＝%.0f%%／"
+        "1ずつ上がり続ける最長 %d問" % (adj, len(seq_d) - 1, rate, up))
+
+    # ---- 冊Eの図が図表編と共有していないか ----
+    #   通し演習は初見の資料を読む訓練なので、見慣れた図では意味がない。
+    zdoc = json.loads(io.open(os.path.join(ROOT, "data", "chiri-zuhyo.json"),
+                              encoding="utf-8").read())
+    zfig = set()
+    for u in zdoc["units"]:
+        for q in u["questions"]:
+            zfig.update(q["figures"])
+    efig = set()
+    for q in e:
+        efig.update(q["figures"])
+    share = sorted(efig & zfig)
+    dai_share = []
+    for dai in ("第1問 生活文化", "第2問 地域調査", "第6問 地誌"):
+        f = set()
+        for q in e:
+            if q["skill"] == dai:
+                f.update(q["figures"])
+        if f & zfig:
+            dai_share.append(dai)
+    rec(not dai_share,
+        "冊Eの第1問・第2問・第6問は、図表編と図を共有していない",
+        "冊Eの図 %d枚／うち図表編と共有 %d枚（新規 %d枚）"
+        % (len(efig), len(share), len(efig) - len(share))
+        if not dai_share else "共有が残っている大問=" + str(dai_share))
+
+    # ---- 冊Eに既出の問がまじっていないか ----
+    others = [q for u in zdoc["units"] for q in u["questions"]] + d + fq
+    dup = []
+    for q in e:
+        for o in others:
+            if q["q"] == o["q"] and sorted(q["choices"]) == sorted(o["choices"]):
+                dup.append("E%d←%s-%d" % (q["seq"], o["setId"], o["no"]))
+    rec(not dup, "冊Eに、ほかの冊子と同じ問がまじっていない",
+        "30マークすべて新作" if not dup else str(dup))
+
+    # ---- 資料の中に答えを書いていないか ----
+    #   図に「〜だから〜である」と書いてしまうと、読図の問題にならない。
+    #   冊E専用の図（G…）について、判断を述べる言い回しがないかを見る。
+    NG_WORDS = ["ため、", "ためである", "だから", "ので、", "から、",
+                "といえる", "と考えられる", "ことがわかる", "が課題",
+                "に適して", "を意味する"]
+    bad = []
+    for name in sorted(os.listdir(FIGDIR)):
+        if not name.startswith("G"):
+            continue
+        body = io.open(os.path.join(FIGDIR, name), encoding="utf-8").read()
+        txt = " ".join(re.findall(r">([^<>]+)</text>", body))
+        for wnd in NG_WORDS:
+            if wnd in txt:
+                bad.append("%s に「%s」" % (name, wnd))
+    rec(not bad, "冊E専用の資料に、答えや理由を文章で書いていない",
+        "10枚すべて、数値・記号・位置だけを示している"
+        if not bad else str(bad[:5]))
+
     # 通し番号
     seqs = [q["seq"] for (_, q) in qs]
     rec(len(seqs) == len(set(seqs)), "通し番号が重複していない",

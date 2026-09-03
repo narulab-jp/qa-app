@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 286" width="720" height="286" role="img" aria-label="資料3　4つの地域の作物・住居・おもな移動手段（Ｋ〜Ｎ）"><defs>
+ <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
+  <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
+ <pattern id="pDotFine" width="5" height="5" patternUnits="userSpaceOnUse">
+  <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
+ <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+ <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
+  <rect width="10" height="8" fill="#fff"/>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+</defs><rect width="720" height="286" fill="#fff"/>
+<text x="20" y="28" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料3　4つの地域の作物・住居・おもな移動手段（Ｋ〜Ｎ）</text>
+<rect x="20" y="46" width="620" height="40" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="55" y="71" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地域</text>
+<text x="175" y="71" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">おもな作物</text>
+<text x="385" y="71" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">住居のつくり</text>
+<text x="575" y="71" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">移動手段</text>
+<rect x="20" y="86" width="620" height="40" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="111" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">Ｋ</text>
+<text x="175" y="111" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">牧草・ばれいしょ</text>
+<text x="385" y="111" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">石を積んだ厚い壁の家</text>
+<text x="575" y="111" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">鉄道</text>
+<rect x="20" y="126" width="620" height="40" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="151" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">Ｌ</text>
+<text x="175" y="151" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">天然ゴム・油やし</text>
+<text x="385" y="151" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">高床で壁の少ない木の家</text>
+<text x="575" y="151" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">川舟</text>
+<rect x="20" y="166" width="620" height="40" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="191" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">Ｍ</text>
+<text x="175" y="191" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">なつめやし</text>
+<text x="385" y="191" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">日干しれんがの厚い壁の家</text>
+<text x="575" y="191" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">らくだ</text>
+<rect x="20" y="206" width="620" height="40" fill="none" stroke="#000" stroke-width="1"/>
+<text x="55" y="231" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">Ｎ</text>
+<text x="175" y="231" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">小麦・牧草</text>
+<text x="385" y="231" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">土と草でつくった移動式の家</text>
+<text x="575" y="231" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">馬</text>
+<path d="M90 46 L90 246" stroke="#000" stroke-width="1" fill="none"/>
+<path d="M260 46 L260 246" stroke="#000" stroke-width="1" fill="none"/>
+<path d="M510 46 L510 246" stroke="#000" stroke-width="1" fill="none"/>
+<text x="20" y="272" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成したものであり、実在の地域・事例ではない。</text>
+</svg>
