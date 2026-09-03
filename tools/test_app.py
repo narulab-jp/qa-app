@@ -30,7 +30,7 @@ URL = "http://127.0.0.1:%d/index.html" % PORT
 EXPECT_UNITS = {"01":31,"02":25,"03":30,"04":25,"05":30,"06":32,"07":25,"08":31,
                 "09":49,"10":25,"11":29,"12":30,"13":27,"14":26,"15":26,"16":25,
                 "17":28,"18":26,"19":33,"20":29,"21":30,"22":33,"23":39,"24":25,
-                "25":41,"26":28,"27":25,"28":48}
+                "25":41,"26":28,"27":25,"28":48,"29":34}
 res = []
 
 
@@ -132,7 +132,7 @@ def main():
 
     doc = json.load(open(outp, encoding="utf-8"))
     total = sum(len(u["questions"]) for u in doc["units"])
-    rec(total == 851, "生成されたJSONの問数が851問（825問＋Phase3で補った26問）",
+    rec(total == 885, "生成されたJSONの問数が885問（851問＋指示Hで足した第29講34問）",
         "実数 %d問／欠番は通し533・781・789" % total)
 
     with open(CSVSRC, encoding="utf-8-sig", newline="") as f:
@@ -151,13 +151,13 @@ def main():
         if (q["section"], q["level"], q["type"]) != (cr[2], cr[5], cr[6]):
             mism.append("seq%s 属性" % q["seq"])
     rec(len(flat) == len(rows) and not mism,
-        "JSONの全851問が統合CSVと完全一致（問題文・解答・解説）",
-        "851問すべて一致" if not mism else str(mism[:5]))
+        "JSONの全885問が統合CSVと完全一致（問題文・解答・解説）",
+        "885問すべて一致" if not mism else str(mism[:5]))
 
     bad = [u["id"] for u in doc["units"] if len(u["questions"]) != EXPECT_UNITS.get(u["id"])]
-    rec(len(doc["units"]) == 28 and not bad,
-        "単元が28個あり、各単元の問数が表と一致",
-        "28単元すべて一致" if not bad else "★不一致 " + str(bad))
+    rec(len(doc["units"]) == 29 and not bad,
+        "単元が29個あり、各単元の問数が表と一致",
+        "29単元すべて一致" if not bad else "★不一致 " + str(bad))
 
     self_n = sum(1 for q in flat if q["selfCheck"])
     rec(True, "判定方式の内訳（参考）",
@@ -184,9 +184,9 @@ def main():
         n = c.ev("document.querySelectorAll('#unitList .unit').length")
         dis = c.ev("Array.from(document.querySelectorAll('#unitList .unit'))"
                    ".filter(e=>e.disabled).length")
-        nm = c.ev("document.getElementById('unit-28').textContent")
-        rec(n == 28 and dis == 0,
-            "全28単元が選択でき、すべて有効になっている",
+        nm = c.ev("document.getElementById('unit-29').textContent")
+        rec(n == 29 and dis == 0,
+            "全29単元が選択でき、すべて有効になっている",
             "単元ボタン%d個／無効%d個／末尾=%s" % (n, dis, nm))
         rec("地理" not in (c.ev("document.documentElement.outerHTML") or "")[:1] or True,
             "単元名はデータから読み込まれている", nm)

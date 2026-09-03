@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" role="img" aria-label="年次別の統計と1990年を100とした値"><defs>
+ <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
+  <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
+ <pattern id="pDotFine" width="5" height="5" patternUnits="userSpaceOnUse">
+  <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
+ <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+ <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
+  <rect width="10" height="8" fill="#fff"/>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+</defs><rect width="720" height="340" fill="#fff"/>
+<text x="20" y="24" font-size="14" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料1　Ｑ町の人口・商店の数・工場の数と、1990年を100としたときの値</text>
+<rect x="24" y="48" width="350" height="40" fill="none" stroke="#000" stroke-width="1.3"/>
+<text x="57" y="71.6" font-size="10" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">年</text>
+<text x="143" y="71.6" font-size="10" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">人口（人）</text>
+<text x="239" y="71.6" font-size="10" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">商店（店）</text>
+<text x="328" y="71.6" font-size="10" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">工場（か所）</text>
+<rect x="24" y="88" width="350" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="57" y="111.96" font-size="11" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1990</text>
+<text x="143" y="111.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">12,000</text>
+<text x="239" y="111.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">240</text>
+<text x="328" y="111.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">30</text>
+<rect x="24" y="128" width="350" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="57" y="151.96" font-size="11" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2000</text>
+<text x="143" y="151.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">11,400</text>
+<text x="239" y="151.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">180</text>
+<text x="328" y="151.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">27</text>
+<rect x="24" y="168" width="350" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="57" y="191.96" font-size="11" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2010</text>
+<text x="143" y="191.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">10,200</text>
+<text x="239" y="191.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">120</text>
+<text x="328" y="191.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">24</text>
+<rect x="24" y="208" width="350" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="57" y="231.96" font-size="11" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2020</text>
+<text x="143" y="231.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">8,400</text>
+<text x="239" y="231.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">60</text>
+<text x="328" y="231.96" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">18</text>
+<path d="M90 48 L90 248" stroke="#000" stroke-width="0.9" fill="none"/>
+<path d="M196 48 L196 248" stroke="#000" stroke-width="0.9" fill="none"/>
+<path d="M282 48 L282 248" stroke="#000" stroke-width="0.9" fill="none"/>
+<text x="24" y="296" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">左の表の数値を、右の図で1990年＝100に直してある。</text>
+<text x="396" y="52" font-size="11" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1990年を100としたときの値</text>
+<path d="M440 58 L440 244" stroke="#000" stroke-width="1" fill="none"/>
+<path d="M440 244 L676 244" stroke="#000" stroke-width="1" fill="none"/>
+<path d="M436 244 L440 244" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="432" y="247.5" font-size="9.5" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
+<path d="M436 201.73 L440 201.73" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="432" y="205.23" font-size="9.5" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">25</text>
+<path d="M436 159.45 L440 159.45" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="432" y="162.95" font-size="9.5" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">50</text>
+<path d="M436 117.18 L440 117.18" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="432" y="120.68" font-size="9.5" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">75</text>
+<path d="M436 74.91 L440 74.91" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="432" y="78.41" font-size="9.5" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">100</text>
+<path d="M440 244 L440 248" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="440" y="260" font-size="9.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1990</text>
+<path d="M518.67 244 L518.67 248" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="518.67" y="260" font-size="9.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2000</text>
+<path d="M597.33 244 L597.33 248" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="597.33" y="260" font-size="9.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2010</text>
+<path d="M676 244 L676 248" stroke="#000" stroke-width="0.8" fill="none"/>
+<text x="676" y="260" font-size="9.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2020</text>
+<polyline points="440,74.91 518.67,83.36 597.33,100.27 676,125.64" fill="none" stroke="#000" stroke-width="1.5"/>
+<circle cx="440" cy="74.91" r="3" fill="#000" stroke="#000" stroke-width="0.8"/>
+<circle cx="518.67" cy="83.36" r="3" fill="#000" stroke="#000" stroke-width="0.8"/>
+<circle cx="597.33" cy="100.27" r="3" fill="#000" stroke="#000" stroke-width="0.8"/>
+<circle cx="676" cy="125.64" r="3" fill="#000" stroke="#000" stroke-width="0.8"/>
+<polyline points="440,74.91 518.67,117.18 597.33,159.45 676,201.73" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="7 5"/>
+<rect x="437" y="71.91" width="6" height="6" fill="#000" stroke="#000" stroke-width="0.8"/>
+<rect x="515.67" y="114.18" width="6" height="6" fill="#000" stroke="#000" stroke-width="0.8"/>
+<rect x="594.33" y="156.45" width="6" height="6" fill="#000" stroke="#000" stroke-width="0.8"/>
+<rect x="673" y="198.73" width="6" height="6" fill="#000" stroke="#000" stroke-width="0.8"/>
+<polyline points="440,74.91 518.67,91.82 597.33,108.73 676,142.55" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="2 4"/>
+<polygon points="440,71.11 443.8,77.91 436.2,77.91" fill="#000" stroke="#000" stroke-width="0.8"/>
+<polygon points="518.67,88.02 522.47,94.82 514.87,94.82" fill="#000" stroke="#000" stroke-width="0.8"/>
+<polygon points="597.33,104.93 601.13,111.73 593.53,111.73" fill="#000" stroke="#000" stroke-width="0.8"/>
+<polygon points="676,138.75 679.8,145.55 672.2,145.55" fill="#000" stroke="#000" stroke-width="0.8"/>
+<rect x="388" y="268" width="312" height="26" fill="none" stroke="#000" stroke-width="0.9"/>
+<path d="M400 281 L430 281" stroke="#000" stroke-width="1.5" fill="none"/>
+<circle cx="415" cy="281" r="3" fill="#000" stroke="#000" stroke-width="0.8"/>
+<text x="435" y="285" font-size="9.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">人口</text>
+<path d="M468 281 L498 281" stroke="#000" stroke-width="1.5" fill="none" stroke-dasharray="7 5"/>
+<rect x="480" y="278" width="6" height="6" fill="#000" stroke="#000" stroke-width="0.8"/>
+<text x="503" y="285" font-size="9.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">商店の数</text>
+<path d="M556 281 L586 281" stroke="#000" stroke-width="1.5" fill="none" stroke-dasharray="2 4"/>
+<polygon points="571,277.2 574.8,284 567.2,284" fill="#000" stroke="#000" stroke-width="0.8"/>
+<text x="591" y="285" font-size="9.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">工場の数</text>
+<text x="20" y="330" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した架空の数値であり、実在の地点・国ではない。</text>
+</svg>

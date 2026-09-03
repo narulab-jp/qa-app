@@ -41,7 +41,7 @@ HEAD_H, FOOT_H = 8.0, 8.0
 BODY_H = CH - HEAD_H - FOOT_H                         # 詰められる高さ
 # 実測した高さと実際の描画には少しずれが出る。ぎりぎりで詰めると
 # 最後の1行が紙面からはみ出して消えるので、安全のぶんを引いておく。
-SAFE_H = BODY_H - 6.0
+SAFE_H = BODY_H - 10.0   # 実測とのずれで最後の行が切れないよう余裕を持たせる
 
 NOTICE = (
     "本冊子は共通テストと同じマーク式の練習用に、独自に作成した図表・読図問題です。"
@@ -456,10 +456,14 @@ def main():
         c.call("Page.enable")
         c.call("Runtime.enable")
         c.call("Emulation.setEmulatedMedia", {"media": "print"})
-        pp, n = build_howto(c)
-        print("  %-40s %2dページ  %7d bytes"
-              % (os.path.basename(pp), n, os.path.getsize(pp)))
-        for u in bank.UNITS:
+        # 引数に冊のidを渡すと、その冊だけを作り直す。
+        # すでにある冊子を作り直さずに済ませるため（指示Hで冊Dを足したときに使った）。
+        only = [x.upper() for x in sys.argv[1:]]
+        if not only:
+            pp, n = build_howto(c)
+            print("  %-40s %2dページ  %7d bytes"
+                  % (os.path.basename(pp), n, os.path.getsize(pp)))
+        for u in [x for x in bank.UNITS if not only or x["id"] in only]:
             pp, n = build_book(c, u)
             print("  %-40s %2dページ  %7d bytes"
                   % (os.path.basename(pp), n, os.path.getsize(pp)))

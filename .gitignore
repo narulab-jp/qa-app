@@ -8,3 +8,7 @@ desktop.ini
 *_log.json
 *_resume.json
 学習ログ/
+
+# 作業中に取ったバックアップ（公開しない）
+*.bak_*
+

@@ -9,12 +9,16 @@
 import zuhyo_a
 import zuhyo_b
 import zuhyo_c
+import zuhyo_d
 from zuhyo_q import MARK          # noqa: F401  （PDF側で使う）
 
 UNITS = [
     {"id": "A", "name": "地形図読図", "questions": zuhyo_a.QUESTIONS},
     {"id": "B", "name": "統計判読", "questions": zuhyo_b.QUESTIONS},
     {"id": "C", "name": "複数資料比較", "questions": zuhyo_c.QUESTIONS},
+    # 冊Dは指示Hで足した分。A5（地域調査）の教材が21問しかなく、
+    # 出題実績（1回あたり12.0点で18分野中1位）に対して薄すぎたため。
+    {"id": "D", "name": "地域調査の資料", "questions": zuhyo_d.QUESTIONS},
 ]
 
 # 指示Eの表で決まっている問数。ここと合わなければ検算で止まる。

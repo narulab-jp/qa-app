@@ -16,6 +16,8 @@ import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
+sys.path.insert(0, HERE)
+import fieldtag                       # noqa: E402
 
 HOME = os.path.expanduser("~")
 CSVNAME = "地理一問一答_全講統合.csv"
@@ -27,7 +29,7 @@ OUT = os.path.join(ROOT, "data", "chiri.json")
 SUBJECT_ID = "chiri"
 SUBJECT_NAME = "共通テスト地理"
 UNIT_LABEL = "講"          # 表示上の呼び名。英語なら "Lesson"、古文なら "章" に変える
-SOURCE = "一問一答 全28講828問"
+SOURCE = "一問一答 全29講885問"
 
 SELF_CHECK_LEN = 40        # 識別型でこの字数を超える解答は自己採点にする
 
@@ -54,6 +56,21 @@ YOMI = {
     "文献調査（室内調査）": ["ぶんけんちょうさ", "しつないちょうさ"],
     "野外調査（フィールドワーク）": ["やがいちょうさ", "ふぃーるどわーく"],
     "地理院地図": ["ちりいんちず"],
+    # 第29講 地域調査（指示Hで足した分）
+    "仮説": ["かせつ"],
+    "ルートマップ": ["るーとまっぷ"],
+    "調査計画書": ["ちょうさけいかくしょ"],
+    "オーバーレイ（重ね合わせ）": ["おーばーれい", "かさねあわせ"],
+    "国勢調査": ["こくせいちょうさ"],
+    "e-Stat": ["いーすたっと", "イースタット"],
+    "旧版地形図": ["きゅうはんちけいず"],
+    "土地条件図": ["とちじょうけんず"],
+    "治水地形分類図": ["ちすいちけいぶんるいず"],
+    "バッファ（バッファリング）": ["ばっふぁ", "ばっふぁりんぐ"],
+    "指数": ["しすう"],
+    "昼夜間人口比率": ["ちゅうやかんじんこうひりつ"],
+    "人口集中地区（DID）": ["じんこうしゅうちゅうちく", "でぃーあいでぃー"],
+    "出典の明示": ["しゅってんのめいじ"],
 }
 
 
@@ -133,6 +150,12 @@ def main():
         "updated": datetime.date.today().isoformat(),
         "units": [units[u] for u in order],
     }
+    # 指示H Phase C：分野と優先度を付ける（既存のタグは触らない）
+    miss = fieldtag.apply(doc)
+    if miss:
+        print("★分野が決まらなかった問がある: %s" % miss[:20])
+        return 1
+
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=1)

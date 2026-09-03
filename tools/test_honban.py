@@ -293,7 +293,7 @@ def main():
         time.sleep(1.5)
         n1 = c.ev("window.__app.getSubject().units.reduce("
                   "function(a,u){return a+u.questions.length;},0)")
-        rec(n1 == 851, "一問一答が851問（重複3問を外し、知識の穴26問を足した数）になっている",
+        rec(n1 == 885, "一問一答が885問（851問＋指示Hで足した第29講34問）になっている",
             "%d問／欠番は通し533・781・789" % n1)
         cases = [("緯度", "緯度", ["いど"], True),
                  ("まったく関係のない語", "緯度", [], False),
@@ -312,7 +312,7 @@ def main():
         time.sleep(1.2)
         n2 = c.ev("window.__app.getSubject().units.reduce("
                   "function(a,u){return a+u.questions.length;},0)")
-        rec(n2 == 157, "図表編157問が従来どおり読める（指示Gで重複2問を削除）", "%d問" % n2)
+        rec(n2 == 169, "図表編169問が読める（157問＋指示Hで足した冊D12問）", "%d問" % n2)
 
         # ---------- Service Worker ----------
         sw_js = io.open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read()

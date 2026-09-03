@@ -162,7 +162,7 @@ def main():
         total = c.ev("window.__app.getSubject().units.reduce("
                      "function(a,u){return a+u.questions.length;},0)")
         nunits = c.ev("window.__app.getSubject().units.length")
-        rec(total == 851 and nunits == 28, "851問・28単元すべて読み込まれている",
+        rec(total == 885 and nunits == 29, "885問・29単元すべて読み込まれている",
             "%d単元／%d問" % (nunits, total))
         c.ev(HELPER)
         c.ev("window.__t.ensureUser()")      # 利用者を決めてからでないと始められない
@@ -175,7 +175,7 @@ def main():
         v2 = c.ev("window.__t.answer(false)")
         t3 = c.ev("window.__app.isSelfCheck(window.__t.cur().q)")
         v3 = c.ev("window.__t.answer(false)")
-        rec(nbtn == 28, "全28単元が表示され、選択できる", "単元ボタン%d個" % nbtn)
+        rec(nbtn == 29, "全29単元が表示され、選択できる", "単元ボタン%d個" % nbtn)
         rec(v1 == "○" and v2 == "×", "用語型の自動判定が正しく動く（正解○／誤答×）",
             "1問目=%s／2問目=%s" % (v1, v2))
         rec(t3 is True and v3 == "self", "理由型で自己採点ボタンが出る",
@@ -285,7 +285,7 @@ def main():
                     "downloadThroughput": -1, "uploadThroughput": -1})
             c.call("Page.reload", {"ignoreCache": False})
             wait_ready(c, tries=40)
-        rec(offok and offtotal == 851, "オフラインにしてもアプリが起動する",
+        rec(offok and offtotal == 885, "オフラインにしてもアプリが起動する",
             "オフラインで再読込 → %d問を読み込み%s"
             % (offtotal,
                ("（検証側の取りこぼしで%d回やり直し）" % errpage) if errpage else ""))

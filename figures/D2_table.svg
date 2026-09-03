@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" role="img" aria-label="地区別の人口・面積・65歳以上の人数"><defs>
+ <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
+  <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
+ <pattern id="pDotFine" width="5" height="5" patternUnits="userSpaceOnUse">
+  <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
+ <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+ <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
+  <rect width="10" height="8" fill="#fff"/>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+</defs><rect width="720" height="340" fill="#fff"/>
+<text x="20" y="24" font-size="15" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料1　Ｍ市の5つの地区の人口・面積・65歳以上の人数</text>
+<rect x="24" y="44" width="680" height="40" fill="none" stroke="#000" stroke-width="1.3"/>
+<text x="79" y="68.14" font-size="11.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地区</text>
+<text x="229" y="68.14" font-size="11.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">人口（人）</text>
+<text x="414" y="68.14" font-size="11.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">面積（km²）</text>
+<text x="604" y="68.14" font-size="11.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">65歳以上（人）</text>
+<rect x="24" y="84" width="680" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="79" y="108.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ア</text>
+<text x="229" y="108.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">24,000</text>
+<text x="414" y="108.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3</text>
+<text x="604" y="108.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3,600</text>
+<rect x="24" y="124" width="680" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="79" y="148.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">イ</text>
+<text x="229" y="148.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">9,600</text>
+<text x="414" y="148.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">12</text>
+<text x="604" y="148.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2,880</text>
+<rect x="24" y="164" width="680" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="79" y="188.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ウ</text>
+<text x="229" y="188.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">15,000</text>
+<text x="414" y="188.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">5</text>
+<text x="604" y="188.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3,000</text>
+<rect x="24" y="204" width="680" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="79" y="228.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">エ</text>
+<text x="229" y="228.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">4,200</text>
+<text x="414" y="228.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">21</text>
+<text x="604" y="228.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1,680</text>
+<rect x="24" y="244" width="680" height="40" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="79" y="268.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">オ</text>
+<text x="229" y="268.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">7,200</text>
+<text x="414" y="268.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">9</text>
+<text x="604" y="268.5" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1,440</text>
+<path d="M134 44 L134 284" stroke="#000" stroke-width="0.9" fill="none"/>
+<path d="M324 44 L324 284" stroke="#000" stroke-width="0.9" fill="none"/>
+<path d="M504 44 L504 284" stroke="#000" stroke-width="0.9" fill="none"/>
+<text x="24" y="296" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">いずれも同じ年の値。</text>
+<text x="20" y="330" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した架空の数値であり、実在の地点・国ではない。</text>
+</svg>

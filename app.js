@@ -733,12 +733,23 @@ function shuffle(a){
   for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), t=a[i]; a[i]=a[j]; a[j]=t; }
   return a;
 }
+function byUnitThenNo(a,b){
+  if(a.unit.id !== b.unit.id) return a.unit.id < b.unit.id ? -1 : 1;
+  return a.q.no - b.q.no;
+}
 function orderPool(pool){
   if(cfg.order === "shuffle") return shuffle(pool.slice());
-  return pool.slice().sort(function(a,b){
-    if(a.unit.id !== b.unit.id) return a.unit.id < b.unit.id ? -1 : 1;
-    return a.q.no - b.q.no;
-  });
+  if(cfg.order === "priority"){
+    /* prank はデータ側で付けた並べ替え用の数値（小さいほど先）。
+       付いていないデータでも動くよう、無いものは最後に回す。 */
+    return pool.slice().sort(function(a,b){
+      var pa = (typeof a.q.prank === "number") ? a.q.prank : 9999;
+      var pb = (typeof b.q.prank === "number") ? b.q.prank : 9999;
+      if(pa !== pb) return pa - pb;
+      return byUnitThenNo(a,b);
+    });
+  }
+  return pool.slice().sort(byUnitThenNo);
 }
 
 /* ================= 出題の進行 ================= */

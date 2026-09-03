@@ -13,6 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
+import fieldtag          # noqa: E402
 import honban_d          # noqa: E402
 import omoi_level        # noqa: E402
 import honban_e          # noqa: E402
@@ -51,6 +52,9 @@ def build():
         ],
     }
     omoi_level.apply(data)      # 思考レベル R1〜R4 を level2 として付ける
+    miss = fieldtag.apply(data)  # 指示H Phase C：分野と優先度を付ける
+    if miss:
+        raise SystemExit("★分野が決まらなかった問がある: %s" % miss[:20])
     io.open(OUT, "w", encoding="utf-8", newline="\n").write(
         json.dumps(data, ensure_ascii=False, indent=1) + "\n")
     s = json.loads(io.open(SUBJ, encoding="utf-8-sig").read())

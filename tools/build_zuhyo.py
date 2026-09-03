@@ -11,6 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
+import fieldtag                  # noqa: E402
 import fig_a          # noqa: E402
 import fig_b          # noqa: E402
 import omoi_level                # noqa: E402
@@ -40,6 +41,9 @@ def build():
     if not os.path.isdir(os.path.dirname(OUT)):
         os.makedirs(os.path.dirname(OUT))
     omoi_level.apply(data)      # 思考レベル R1〜R4 を level2 として付ける
+    miss = fieldtag.apply(data)  # 指示H Phase C：分野と優先度を付ける
+    if miss:
+        raise SystemExit("★分野が決まらなかった問がある: %s" % miss[:20])
     io.open(OUT, "w", encoding="utf-8", newline="\n").write(
         json.dumps(data, ensure_ascii=False, indent=1) + "\n")
 
@@ -129,7 +133,7 @@ def check(data):
         "R1 %d／R2 %d／R3 %d／R4 %d問　R1+R2=%d問（%.0f%%）"
         % (lv["R1"], lv["R2"], lv["R3"], lv["R4"],
            lv["R1"] + lv["R2"], 100.0 * (lv["R1"] + lv["R2"]) / tot))
-    for uid in ("A", "B", "C"):
+    for uid in ("A", "B", "C", "D"):
         arr = [q for (u, q) in qs if u["id"] == uid]
         if not arr:
             continue
