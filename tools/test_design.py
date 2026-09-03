@@ -316,7 +316,8 @@ def main():
                   "return [getComputedStyle(e).display,e.textContent];})()")
         jt = c.ev("(function(){var e=document.getElementById('jType');"
                   "return [getComputedStyle(e).display,e.textContent];})()")
-        rec(jvis is True and jl[0] != "none" and jl[1].startswith("重要度 ")
+        # Phase 4 でコア問題のときは「◎コア／重要度 S」と前置きが付く
+        rec(jvis is True and jl[0] != "none" and ("重要度 " in jl[1])
             and jt[0] != "none" and jt[1] != "",
             "答え合わせの画面では重要度と出題タイプを表示する",
             "判定画面=表示中／#jLevel=%s「%s」／#jType=%s「%s」"

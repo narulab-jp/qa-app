@@ -690,6 +690,17 @@ function openSetup(){
 }
 function syncOpts(){
   renderCountOptions();
+  /* コア問題を持たない科目（図表編・本番形式編）では、その選択肢を出さない。
+     選んでも0問になり、行き止まりになるため。 */
+  var coreBtn = document.querySelector('[data-level="CORE"]');
+  if(coreBtn){
+    var hasCore = false;
+    pickedUnits().forEach(function(u){
+      u.questions.forEach(function(q){ if(q.core) hasCore = true; });
+    });
+    coreBtn.hidden = !hasCore;
+    if(!hasCore && cfg.level === "CORE") cfg.level = "SA";
+  }
   ["mode","level","order"].forEach(function(k){
     var els = document.querySelectorAll("[data-" + k + "]");
     for(var i=0;i<els.length;i++)
@@ -703,11 +714,17 @@ function syncOpts(){
     + (cfg.mode === "round" ? "／全問正解するまで繰り返します" : "");
   $("btnStart").disabled = (pool.length === 0);
 }
+function levelLabel(q){
+  /* コア問題は本番で実際に必要とされた知識なので、重要度と並べて示す */
+  return (q.core ? "◎コア／" : "") + "重要度 " + q.level;
+}
 function filterPool(){
   var out = [];
   pickedUnits().forEach(function(u){
     u.questions.forEach(function(q){
-      if(cfg.level === "ALL" || q.level === "S" || q.level === "A") out.push({q:q, unit:u});
+      var ok = (cfg.level === "CORE") ? !!q.core
+             : (cfg.level === "ALL") || q.level === "S" || q.level === "A";
+      if(ok) out.push({q:q, unit:u});
     });
   });
   return out;
@@ -785,7 +802,7 @@ function nextQuestion(){
   $("qFill").style.width = Math.round(progressRatio() * 1000) / 10 + "%";
   $("mUnit").textContent = currentItem.unit.id + " " + currentItem.unit.name +
     (current.section ? (" 節" + current.section) : "");
-  $("mLevel").textContent = "重要度 " + current.level;
+  $("mLevel").textContent = levelLabel(current);
   $("mType").textContent = current.type;
   $("qText").textContent = current.q;
   $("selfNote").hidden = !isSelfCheck(current);
@@ -982,7 +999,7 @@ function submitAnswer(text){
   $("jAns").textContent = current.a;
   $("jExp").textContent = current.exp;
   $("jAnsLbl").textContent = self ? "模範解答" : "正解";
-  $("jLevel").textContent = "重要度 " + current.level;   /* 答え合わせでは出す */
+  $("jLevel").textContent = levelLabel(current);   /* 答え合わせでは出す */
   $("jType").textContent = current.type;
   renderGrounds(current);
   $("judgeSelfNote").hidden = !self;
@@ -1008,7 +1025,7 @@ function submitChoice(i){
   $("jAns").textContent = current.a;
   $("jExp").textContent = current.exp;
   $("jAnsLbl").textContent = "正解";
-  $("jLevel").textContent = "重要度 " + current.level;
+  $("jLevel").textContent = levelLabel(current);
   $("jType").textContent = current.type;
   renderGrounds(current);
   $("judgeSelfNote").hidden = true;

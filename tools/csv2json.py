@@ -101,9 +101,11 @@ def main():
     head, body = rows[0], rows[1:]
     need = ["講番号", "講名", "節番号", "問番号", "通し番号", "重要度",
             "出題タイプ", "問題文", "解答", "解説"]
-    if head != need:
+    # 「コア」列は Phase 4 で足した。古いCSVでも動くよう、無ければ無視する。
+    if head[:10] != need:
         print("★CSVの列が想定と違います: %s" % head)
         return 1
+    has_core = (len(head) > 10 and head[10] == "コア")
 
     units, order = {}, []
     for r in body:
@@ -116,6 +118,8 @@ def main():
         q = {"no": int(r[3]), "seq": int(r[4]), "section": r[2],
              "level": r[5], "type": typ, "q": r[7], "a": ans, "exp": r[9],
              "selfCheck": self_check}
+        if has_core and len(r) > 10 and r[10].strip():
+            q["core"] = True
         acc = build_accept(typ, ans, self_check)
         if acc is not None:
             q["accept"] = acc
@@ -139,6 +143,13 @@ def main():
     print("単元 %d／問題 %d問" % (len(doc["units"]), total))
     ns = sum(1 for u in doc["units"] for q in u["questions"] if q["selfCheck"])
     print("  自己採点 %d問／自動判定 %d問" % (ns, total - ns))
+    nc = sum(1 for u in doc["units"] for q in u["questions"] if q.get("core"))
+    nl = {}
+    for u in doc["units"]:
+        for q in u["questions"]:
+            nl[q["level"]] = nl.get(q["level"], 0) + 1
+    print("  重要度 S %d／A %d／B %d問／コア %d問"
+          % (nl.get("S", 0), nl.get("A", 0), nl.get("B", 0), nc))
     for u in doc["units"]:
         print("  %s %s %d問" % (u["id"], u["name"], len(u["questions"])))
     return 0
