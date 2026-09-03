@@ -235,10 +235,14 @@ def main():
         go_vis = c.ev("document.getElementById('btnNoteQuiz').offsetParent !== null")
         folded = c.ev("JSON.stringify(Array.from(document.querySelectorAll("
                       "'#s-home details.sect')).map(function(d){return d.open;}))")
+        # 折りたたみの数は、機能が増えると変わる。数を決め打ちせず、
+        # 「ぜんぶ閉じていること」だけを見る。
+        fl = json.loads(folded)
         rec(go_vis and go_txt.strip() == "はじめる" and go_h >= 44
-            and folded == "[false,false,false]",
+            and len(fl) >= 3 and not any(fl),
             "トップを開いてすぐ［はじめる］が押せる（他は折りたたみ）",
-            "ボタン=「%s」高さ%.0fpx／折りたたみ状態=%s" % (go_txt.strip(), go_h, folded))
+            "ボタン=「%s」高さ%.0fpx／折りたたみ %d個すべて閉じている"
+            % (go_txt.strip(), go_h, len(fl)))
 
         # ---------- 出題画面 ----------
         c.ev("window.__t.start(['01'],5,'ALL','csv','normal')")

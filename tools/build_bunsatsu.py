@@ -32,6 +32,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import fieldtag                       # noqa: E402
+import yomimono                       # noqa: E402
+
+# 指示I：読み物を、それを使う分冊の冒頭に入れる。
+#   r29  … A5（地域調査）を解くための読み物 → 第1分冊
+#   rfmt … 本番形式編の答え方 → 冊D・冊Fの問が最初に出てくる第2分冊
+READ_AT = {1: "r29", 2: "rfmt"}
 
 HOME = os.path.expanduser("~")
 BASE = os.path.join(HOME, "Downloads", "CHIRI_QA_20260901")
@@ -162,6 +168,14 @@ h2.bs { font-size:11pt; margin:0 0 6mm; font-weight:normal; }
 .qb .mark { font-size:9pt; margin-top:1mm; }
 .qb .mark b { font-weight:normal; border:0.6pt solid #000; padding:0 4mm;
               margin-left:2mm; }
+/* 読み物（分冊の冒頭に入れる解説） */
+.rtx { font-size:10.5pt; line-height:1.8; margin:0 0 3.5mm; text-align:justify; }
+.rsub { font-size:11pt; font-weight:bold; margin:3mm 0 1.5mm; }
+.rli { font-size:10.5pt; line-height:1.75; margin:0 0 3.5mm; padding-left:6mm; }
+.rli li { margin:0 0 1mm; }
+.rbox { border:0.9pt solid #000; padding:3mm 4mm; margin:0 0 4mm;
+        font-size:10pt; line-height:1.7; }
+.rbox ul { margin:1.5mm 0 0; padding-left:5mm; }
 .ab { margin:0 0 3.5mm; font-size:9.5pt; line-height:1.6; }
 .ab .ah { font-weight:bold; }
 .ab .ag { font-size:9pt; }
@@ -285,8 +299,11 @@ def a_block(q):
 
 # ----------------------------------------------------------------------
 def measure(c, blocks):
+    # display:flow-root を付けておかないと、段落の下マージンが
+    # 外側の div の外へ抜けてしまい、高さを実際より小さく測ってしまう。
+    # そのまま詰めると、ページの最後の行が紙面からはみ出して切れる。
     body = ('<div style="width:%.2fmm">' % CW +
-            "".join('<div id="b%d">%s</div>' % (i, b)
+            "".join('<div id="b%d" style="display:flow-root">%s</div>' % (i, b)
                     for i, b in enumerate(blocks)) +
             '</div><div id="cal" style="height:100mm"></div>')
     html = ("<!doctype html><meta charset='utf-8'><style>%s</style><body>%s</body>"
@@ -407,9 +424,61 @@ def front(book):
 
 
 # ----------------------------------------------------------------------
+def reading_blocks(rid):
+    """読み物の本文を、分冊の冒頭に入れるための部品にする。
+       本文そのものは yomimono.py にあり、紙の解説PDFと同じものを使う。"""
+    doc = [d for d in yomimono.READINGS if d["id"] == rid][0]
+    out = ['<div class="door"><div class="dn">この分冊を始める前に読む</div>'
+           '<div class="dt">%s</div><div class="dd">%s</div>'
+           '<div class="lead">%s</div>'
+           '<div class="lead">読むのにかかる時間の目安は約%d分です。'
+           '同じものは PDF＼地理解説_… と、アプリの「読む」にもあります。</div>'
+           '</div>'
+           % (esc(doc["title"]), esc(doc["sub"]), esc(doc["lead"]),
+              doc["minutes"])]
+    for (title, items) in doc["sections"]:
+        out.append('<div class="kindline">%s</div>' % esc(title))
+        for it in items:
+            if it[0] == "p":
+                out.append('<p class="rtx">%s</p>' % rich(it[1]))
+            elif it[0] == "h":
+                out.append('<div class="rsub">%s</div>' % esc(it[1]))
+            elif it[0] == "ul":
+                out.append('<ul class="rli">%s</ul>'
+                           % "".join("<li>%s</li>" % rich(x) for x in it[1]))
+            elif it[0] == "box":
+                out.append('<div class="rbox"><b>%s</b><ul>%s</ul></div>'
+                           % (esc(it[1]),
+                              "".join("<li>%s</li>" % rich(x) for x in it[2])))
+            elif it[0] == "fig":
+                mw, mh = fig_size(it[1], True, 0.62)
+                out.append('<div class="figwrap"><img src="%s" '
+                           'style="width:%.1fmm;height:%.1fmm"></div>'
+                           % ("file:///" + os.path.join(
+                               ROOT, it[1].replace("/", os.sep)).replace("\\", "/"),
+                              mw, mh))
+    return out
+
+
+def rich(s):
+    """**ここ** を太字にする。"""
+    out, bold = [], False
+    for part in esc(s).split("**"):
+        out.append(("<b>%s</b>" % part) if bold and part else part)
+        bold = not bold
+    return "".join(out)
+
+
 def build_book(c, book, qmap):
     body = [front(book)]
     ans = []
+
+    # 指示I：読む材料がある分冊は、問題より先に読み物を置く
+    rid = READ_AT.get(book["no"])
+    if rid:
+        blocks = reading_blocks(rid)
+        hs = measure(c, blocks)
+        body += pack(list(zip(blocks, hs)))
 
     for sec in book["sections"]:
         # どの問を入れるかは bunsatsu_plan.json が持っている。

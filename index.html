@@ -79,6 +79,13 @@
       <button class="btn" id="btnGoUnit">単元を選ぶ</button>
     </details>
 
+    <!-- 読む（解説）。問題ではなく、読むだけのページ -->
+    <details class="sect" id="readSect" hidden>
+      <summary>読む</summary>
+      <p class="note">問題を解く前に読むものです。出題はされません。</p>
+      <div id="readList"></div>
+    </details>
+
     <!-- 記録の保存と読み込み -->
     <details class="sect">
       <summary>記録の保存と読み込み</summary>
@@ -228,6 +235,15 @@
     <button class="btn" id="btnRetryWrong">間違えた問題をもう一度</button>
     <button class="btn quiet" id="btnAgain">同じ範囲でもう一度</button>
     <button class="btn quiet" id="btnToHome2">ホームに戻る</button>
+  </section>
+
+  <!-- ============ 読む（解説） ============ -->
+  <section id="s-read" hidden>
+    <h1 id="readTitle"></h1>
+    <p class="lead" id="readSub"></p>
+    <p class="note" id="readMin"></p>
+    <div id="readBody"></div>
+    <button class="btn quiet" id="btnToHome5">ホームに戻る</button>
   </section>
 
   <!-- ============ 間違いノート一覧 ============ -->

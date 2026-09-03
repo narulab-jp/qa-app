@@ -4,7 +4,7 @@
    file:// では登録されない（app.js 側で判定している）。 */
 "use strict";
 
-var VERSION = "v20";
+var VERSION = "v21";
 var CACHE = "qa-app-" + VERSION;
 
 /* アプリの骨組み */
@@ -23,6 +23,27 @@ var CORE = [
 
 /* subjects.json を読んで、有効な科目のデータと、そのデータが指す図版を
    まとめて取り込む。科目や図が増えても sw.js を書き換えずに済む。 */
+/* 読み物（解説）と、そこで使う図。無ければ何も返さない。 */
+function readingFiles(){
+  return fetch("./data/yomimono.json", {cache: "no-cache"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(j){
+      if(!j || !j.readings) return [];
+      var out = ["./data/yomimono.json"], seen = {};
+      j.readings.forEach(function(d){
+        (d.sections || []).forEach(function(s){
+          (s.body || []).forEach(function(b){
+            if(b.t === "fig" && b.src && !seen[b.src]){
+              seen[b.src] = 1; out.push("./" + b.src);
+            }
+          });
+        });
+      });
+      return out;
+    })
+    .catch(function(){ return []; });
+}
+
 function subjectFiles(){
   return fetch("./subjects.json", {cache: "no-cache"})
     .then(function(r){ return r.ok ? r.json() : null; })
@@ -65,7 +86,9 @@ self.addEventListener("install", function(ev){
           return c.add(u).catch(function(){ /* 個別の失敗は無視 */ });
         }));
       }
-      return addAll(CORE).then(subjectFiles).then(addAll);
+      return addAll(CORE)
+        .then(subjectFiles).then(addAll)
+        .then(readingFiles).then(addAll);
     }).then(function(){ return self.skipWaiting(); })
   );
 });

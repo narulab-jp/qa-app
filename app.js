@@ -37,7 +37,7 @@ window.__micLog = [];   /* 動作確認用の記録（機能には影響しな�
 function $(id){ return document.getElementById(id); }
 function show(id){
   ["s-user","s-home","s-unit","s-setup","s-quiz","s-judge","s-result","s-note",
-   "s-settings","s-print"].forEach(function(s){ $(s).hidden = (s !== id); });
+   "s-settings","s-print","s-read"].forEach(function(s){ $(s).hidden = (s !== id); });
   var z = $("zoomWrap");
   if(z && !z.hidden) z.hidden = true;      /* 画面を移ったら拡大表示は閉じる */
   renderUserBar(id);
@@ -615,9 +615,72 @@ function renderOptRow(boxId, list, cur, onPick){
     box.appendChild(b);
   });
 }
+/* ================= 読む（解説） =================
+   問題ではなく、読むだけのページ。data/yomimono.json から読む。
+   このファイルが無くても、アプリはこれまでどおり動く（入口を出さないだけ）。 */
+var READINGS = [];
+function loadReadings(){
+  return fetch("data/yomimono.json", {cache:"no-cache"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(j){ READINGS = (j && j.readings) || []; })
+    .catch(function(){ READINGS = []; });
+}
+function renderReadingList(){
+  var sect = $("readSect"), box = $("readList");
+  if(!sect || !box) return;
+  sect.hidden = !READINGS.length;
+  box.innerHTML = "";
+  READINGS.forEach(function(d){
+    var b = document.createElement("button");
+    b.className = "btn";
+    b.id = "read-" + d.id;
+    b.textContent = d.title + "（約" + d.minutes + "分）";
+    b.addEventListener("click", function(){ openReading(d.id); });
+    box.appendChild(b);
+  });
+}
+function openReading(id){
+  var d = null;
+  READINGS.forEach(function(x){ if(x.id === id) d = x; });
+  if(!d) return;
+  $("readTitle").textContent = d.title;
+  $("readSub").textContent = d.sub;
+  $("readMin").textContent = "読むのにかかる時間の目安は約" + d.minutes + "分です。";
+  var h = '<p class="lead">' + rt(d.lead) + "</p>";
+  d.sections.forEach(function(s){
+    h += "<h2>" + esc(s.h) + "</h2>";
+    s.body.forEach(function(b){
+      if(b.t === "p"){ h += "<p>" + rt(b.text) + "</p>"; }
+      else if(b.t === "h"){ h += "<h3>" + esc(b.text) + "</h3>"; }
+      else if(b.t === "ul"){
+        h += "<ul>" + b.items.map(function(x){
+          return "<li>" + rt(x) + "</li>"; }).join("") + "</ul>";
+      }else if(b.t === "box"){
+        h += '<div class="readbox"><b>' + esc(b.h) + "</b><ul>"
+           + b.items.map(function(x){ return "<li>" + rt(x) + "</li>"; }).join("")
+           + "</ul></div>";
+      }else if(b.t === "fig"){
+        h += '<div class="readfig"><img src="' + esc(b.src) + '" alt="解説の図"></div>';
+      }
+    });
+  });
+  $("readBody").innerHTML = h;
+  show("s-read");
+}
+/* 本文の **ここ** を太字にする。ほかの記号は使わない。 */
+function rt(s){
+  var parts = esc(s).split("**"), out = "", bold = false;
+  parts.forEach(function(p){
+    out += (bold && p) ? ("<b>" + p + "</b>") : p;
+    bold = !bold;
+  });
+  return out;
+}
+
 function renderHome(){
   if(!SUBJECT || !activeUser || !note) return;
   onNet();                     /* オンライン/オフラインの表示を最新にする */
+  renderReadingList();
   $("noteState").textContent = noteLoaded
     ? ("読み込み済み：" + note.entries.length + "問"
        + (dirty ? "／未保存の変更があります" : "／保存済み"))
@@ -1424,6 +1487,7 @@ function bind(){
     quiz.results = [];
   });
   $("btnToHome2").addEventListener("click", function(){ renderHome(); show("s-home"); });
+  $("btnToHome5").addEventListener("click", function(){ renderHome(); show("s-home"); });
   $("confirmYes").addEventListener("click", function(){ closeConfirm(true); });
   $("confirmNo").addEventListener("click", function(){ closeConfirm(false); });
   $("btnSwitchUser").addEventListener("click", switchUser);
@@ -1483,6 +1547,8 @@ function onNet(){
 /* ================= 起動 ================= */
 bind();
 onNet();
+/* 読み物は、あれば入口を出す。無くても・失敗しても先へ進む。 */
+loadReadings().then(function(){ renderReadingList(); });
 getJSON("subjects.json").then(function(d){
   SUBJECTS = (d && d.subjects) || [];
   renderSubjects();

@@ -157,6 +157,15 @@ def check(data):
         for ou in od["units"]:
             for oq in ou["questions"]:
                 used_all.update(oq.get("figures") or [])
+    # 読み物（解説）で使う図も「使用中」に数える
+    ym = os.path.join(ROOT, "data", "yomimono.json")
+    if os.path.isfile(ym):
+        yd = json.loads(io.open(ym, encoding="utf-8").read())
+        for r in yd.get("readings", []):
+            for s in r.get("sections", []):
+                for bl in s.get("body", []):
+                    if bl.get("t") == "fig":
+                        used_all.add(bl["src"])
     extra = sorted(onfile - used_all)
     rec(not missing and not extra,
         "データが指す図版がすべて存在し、余分な図版もない（1対1）",

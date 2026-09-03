@@ -473,3 +473,17 @@ details.sect > *:last-child{margin-bottom:24px;}
   .badge{border:0.6pt solid #000;color:#000;background:#fff !important;}
   a[href]:after{content:"";}
 }
+
+/* ===== 読む（解説）のページ ===== */
+#s-read h2 { font-size:1.05rem; margin:1.4em 0 .5em; border-left:4px solid #1B3A5C;
+             padding-left:.6em; }
+#s-read h3 { font-size:.98rem; margin:1em 0 .3em; }
+#s-read p  { line-height:1.85; margin:0 0 1em; }
+#s-read ul { line-height:1.8; margin:0 0 1em; padding-left:1.3em; }
+#s-read li { margin:0 0 .35em; }
+.readbox { border:1px solid #ccd3da; border-radius:8px; padding:.9em 1em;
+           margin:0 0 1.2em; background:#f7f9fb; }
+.readbox ul { margin:.4em 0 0; }
+.readfig { margin:.6em 0 1.3em; text-align:center; }
+.readfig img { max-width:100%; height:auto; border:1px solid #ccd3da; border-radius:6px; }
+#readList .btn { margin-bottom:.5em; }

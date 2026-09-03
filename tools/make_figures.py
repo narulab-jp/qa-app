@@ -19,6 +19,7 @@ import fig_b          # noqa: E402
 import fig_c          # noqa: E402
 import fig_d          # noqa: E402
 import fig_f          # noqa: E402
+import fig_r          # noqa: E402  読み物（解説）の図
 import fig_g          # noqa: E402
 import fig_h          # noqa: E402
 
@@ -27,7 +28,7 @@ FIG = os.path.join(ROOT, "figures")
 
 def all_figures():
     d = {}
-    for mod in (fig_a, fig_b, fig_c, fig_d, fig_f, fig_g, fig_h):
+    for mod in (fig_a, fig_b, fig_c, fig_d, fig_f, fig_g, fig_h, fig_r):
         d.update(mod.FIGURES)
     return d
 

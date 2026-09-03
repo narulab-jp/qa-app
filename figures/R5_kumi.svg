@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" role="img" aria-label="組合せ形式の絞り方"><defs>
+ <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+ <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
+  <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
+ <pattern id="pDotFine" width="5" height="5" patternUnits="userSpaceOnUse">
+  <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
+ <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="#fff"/>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+ <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
+  <rect width="10" height="8" fill="#fff"/>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+</defs><rect width="720" height="340" fill="#fff"/>
+<text x="20" y="26" font-size="15" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">図5　組合せ形式は、決まるところから決める</text>
+<text x="20" y="50" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ア〜ウと品目を結ぶ形。3つを同時に考えない。</text>
+<rect x="24" y="74" width="672" height="42" fill="none" stroke="#000" stroke-width="1.3"/>
+<text x="112" y="100" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000"></text>
+<text x="282.5" y="100" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">選択肢①</text>
+<text x="447.5" y="100" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">選択肢②</text>
+<text x="613" y="100" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">選択肢③</text>
+<rect x="24" y="116" width="672" height="42" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="112" y="142" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ア</text>
+<text x="282.5" y="142" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">米</text>
+<text x="447.5" y="142" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">米</text>
+<text x="613" y="142" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">野菜</text>
+<rect x="24" y="158" width="672" height="42" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="112" y="184" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">イ</text>
+<text x="282.5" y="184" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">野菜</text>
+<text x="447.5" y="184" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">果実</text>
+<text x="613" y="184" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">米</text>
+<rect x="24" y="200" width="672" height="42" fill="none" stroke="#000" stroke-width="0.9"/>
+<text x="112" y="226" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ウ</text>
+<text x="282.5" y="226" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">果実</text>
+<text x="447.5" y="226" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">野菜</text>
+<text x="613" y="226" font-size="12.5" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">果実</text>
+<path d="M200 74 L200 242" stroke="#000" stroke-width="0.9" fill="none"/>
+<path d="M365 74 L365 242" stroke="#000" stroke-width="0.9" fill="none"/>
+<path d="M530 74 L530 242" stroke="#000" stroke-width="0.9" fill="none"/>
+<text x="24" y="270" font-size="13" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">「アは米だ」と1つ決まるだけで、③は消える。</text>
+<text x="24" y="294" font-size="12.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">残るのは①と②。あとは「イが野菜か果実か」だけを見ればよい。</text>
+<text x="24" y="316" font-size="12.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">3つ全部を当てにいかない。いちばん自信のある1つから当てる。</text>
+<text x="20" y="330" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ この冊子のために作図した図です。</text>
+</svg>
