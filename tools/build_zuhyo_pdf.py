@@ -164,7 +164,11 @@ def a_block(u, q):
 def measure(c, blocks):
     """各部品の高さ（mm）をブラウザで実測する。"""
     body = ('<div style="width:%.2fmm">' % CW +
-            "".join('<div id="b%d">%s</div>' % (i, b) for i, b in enumerate(blocks)) +
+            # display:flow-root を付けないと、中の段落の下マージンが
+            # この div の外へ抜けてしまい、高さを実際より小さく測る。
+            # そのまま詰めると、ページの最後の行が紙面からはみ出して切れる。
+            "".join('<div id="b%d" style="display:flow-root">%s</div>'
+                    % (i, b) for i, b in enumerate(blocks)) +
             '</div><div id="cal" style="height:100mm"></div>')
     html = ("<!doctype html><meta charset='utf-8'><style>%s</style><body>%s</body>"
             % (CSS % dict(MT=M_TOP, MB=M_BOT, ML=M_L, MR=M_R, CH=CH,

@@ -148,12 +148,18 @@ def main():
             "出題順に「優先度の高い順」が出ている", lab)
 
         # ---- Service Worker ----
+        # 版数は上げていくので決め打ちしない。
+        # 公開されている sw.js の VERSION と、ブラウザに入ったキャッシュ名を突き合わせる。
+        import re as _re
+        pub = requests.get(URL + "sw.js?nc=1", timeout=30).text
+        m = _re.search(r'VERSION\s*=\s*"([^"]+)"', pub)
+        want = m.group(1) if m else ""
         sw = c.ev("navigator.serviceWorker.getRegistration().then("
                   "function(r){ return r ? (r.active ? r.active.scriptURL "
                   ": 'installing') : 'なし'; })")
         ck = c.ev("caches.keys().then(function(k){return JSON.stringify(k);})")
-        rec("v19" in (ck or ""),
-            "ブラウザに入るキャッシュが v19 になっている",
+        rec(bool(want) and want in (ck or ""),
+            "ブラウザに入るキャッシュが、公開中の版と同じ（%s）" % want,
             "%s／SW=%s" % (ck, sw))
     finally:
         try:
