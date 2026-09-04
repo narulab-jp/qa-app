@@ -1400,7 +1400,12 @@ function bind(){
   $("btnNoteSave2").addEventListener("click", saveNote);
   $("btnResultSave").addEventListener("click", saveNote);
   $("btnLogSave").addEventListener("click", saveLog);
-  $("btnSettings").addEventListener("click", renderSettings);
+  $("btnSettings").addEventListener("click", function(){
+    renderSettings();
+    /* 版は、設定を開くたびに確かめ直す。
+       起動した直後は、まだ受け持ちが決まっていないことがあるため。 */
+    showSwVersion();
+  });
   $("btnNotePrint").addEventListener("click", renderPrint);
   $("btnPrintBack").addEventListener("click", renderNoteView);
   $("btnDoPrint").addEventListener("click", function(){ window.print(); });
@@ -1610,8 +1615,20 @@ function checkUpdate(){
 function showSwVersion(){
   var el = $("swVersion");
   if(!el) return;
-  if(!("serviceWorker" in navigator) || !navigator.serviceWorker.controller){
+  if(!("serviceWorker" in navigator)){
     el.textContent = "この開き方では版の管理を使っていません（通信して読み込みます）";
+    return;
+  }
+  var sw = navigator.serviceWorker.controller
+        || (swReg && (swReg.active || swReg.waiting));
+  if(!sw){
+    /* 入れたばかりで、まだこの画面を受け持っていない。少し待って見に行く */
+    el.textContent = "確認中です";
+    navigator.serviceWorker.ready.then(function(){
+      setTimeout(showSwVersion, 300);
+    }).catch(function(){
+      el.textContent = "版を確かめられませんでした";
+    });
     return;
   }
   var ch = new MessageChannel();
@@ -1620,15 +1637,11 @@ function showSwVersion(){
     done = true;
     if(e.data && e.data.version) el.textContent = "いまの版：" + e.data.version;
   };
-  navigator.serviceWorker.controller.postMessage({type:"GET_VERSION"}, [ch.port2]);
-  navigator.serviceWorker.addEventListener("message", function(e){
-    if(!done && e.data && e.data.type === "VERSION")
-      el.textContent = "いまの版：" + e.data.version;
-  });
+  try{ sw.postMessage({type:"GET_VERSION"}, [ch.port2]); }
+  catch(e){ el.textContent = "版を確かめられませんでした"; return; }
   setTimeout(function(){
-    if(!done && el.textContent === "確認中です")
-      el.textContent = "版を確かめられませんでした";
-  }, 1500);
+    if(!done) el.textContent = "版を確かめられませんでした";
+  }, 2000);
 }
 
 if("serviceWorker" in navigator && location.protocol !== "file:"){
