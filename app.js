@@ -1488,6 +1488,20 @@ function bind(){
   });
   $("btnToHome2").addEventListener("click", function(){ renderHome(); show("s-home"); });
   $("btnToHome5").addEventListener("click", function(){ renderHome(); show("s-home"); });
+  $("btnUpdate").addEventListener("click", applyUpdate);
+  $("btnUpdLater").addEventListener("click", function(){
+    $("updBar").hidden = true;          /* 消すだけ。次に開いたらまた出る */
+  });
+  $("btnCheckUpd").addEventListener("click", function(){
+    var m = $("updMsg2");
+    m.textContent = "確かめています…";
+    checkUpdate().then(function(found){
+      m.textContent = found
+        ? "新しい版があります。上の知らせから更新してください。"
+        : "いまが最新です。";
+      showSwVersion();
+    });
+  });
   $("confirmYes").addEventListener("click", function(){ closeConfirm(true); });
   $("confirmNo").addEventListener("click", function(){ closeConfirm(false); });
   $("btnSwitchUser").addEventListener("click", switchUser);
@@ -1560,11 +1574,93 @@ getJSON("subjects.json").then(function(d){
   showLoadError(String(e.message || e));
 });
 
-/* Service Worker（https でのみ有効。失敗しても動作に影響させない） */
+/* ================= 新しい版への入れ替え =================
+   iPad のホーム画面から開くと、アプリを閉じても画面が作り直されず、
+   古いままになることがある。そこで
+     ・sw.js 自体を必ず通信で取りに行く（updateViaCache:"none"）
+     ・開いたとき・前面に戻ったとき・時間がたったときに、更新の有無を見に行く
+     ・新しい版が用意できたら画面に知らせを出し、押されたら入れ替える
+   自動で入れ替えないのは、問題を解いている途中で画面が作り直されると
+   その回の答えが消えてしまうため。 */
+var swReg = null, updShown = false, reloading = false;
+
+function showUpdateBar(msg){
+  if(updShown) return;
+  updShown = true;
+  var b = $("updBar");
+  if(!b) return;
+  $("updMsg").textContent = msg || "新しい版があります";
+  b.hidden = false;
+}
+function applyUpdate(){
+  if(reloading) return;
+  reloading = true;
+  try{
+    if(swReg && swReg.waiting) swReg.waiting.postMessage({type:"SKIP_WAITING"});
+  }catch(e){ /* 失敗しても、下の読み込み直しで新しい版になる */ }
+  setTimeout(function(){ location.reload(); }, 300);
+}
+function checkUpdate(){
+  if(!swReg) return Promise.resolve(false);
+  return swReg.update().then(function(){
+    if(swReg.waiting) showUpdateBar("新しい版の準備ができました");
+    return !!swReg.waiting;
+  }).catch(function(){ return false; });
+}
+function showSwVersion(){
+  var el = $("swVersion");
+  if(!el) return;
+  if(!("serviceWorker" in navigator) || !navigator.serviceWorker.controller){
+    el.textContent = "この開き方では版の管理を使っていません（通信して読み込みます）";
+    return;
+  }
+  var ch = new MessageChannel();
+  var done = false;
+  ch.port1.onmessage = function(e){
+    done = true;
+    if(e.data && e.data.version) el.textContent = "いまの版：" + e.data.version;
+  };
+  navigator.serviceWorker.controller.postMessage({type:"GET_VERSION"}, [ch.port2]);
+  navigator.serviceWorker.addEventListener("message", function(e){
+    if(!done && e.data && e.data.type === "VERSION")
+      el.textContent = "いまの版：" + e.data.version;
+  });
+  setTimeout(function(){
+    if(!done && el.textContent === "確認中です")
+      el.textContent = "版を確かめられませんでした";
+  }, 1500);
+}
+
 if("serviceWorker" in navigator && location.protocol !== "file:"){
   window.addEventListener("load", function(){
     try{
-      navigator.serviceWorker.register("sw.js").catch(function(){ /* 失敗は無視 */ });
+      navigator.serviceWorker.register("sw.js", {updateViaCache:"none"})
+        .then(function(reg){
+          swReg = reg;
+          if(reg.waiting && navigator.serviceWorker.controller)
+            showUpdateBar("新しい版の準備ができました");
+          reg.addEventListener("updatefound", function(){
+            var w = reg.installing;
+            if(!w) return;
+            w.addEventListener("statechange", function(){
+              if(w.state === "installed" && navigator.serviceWorker.controller)
+                showUpdateBar("新しい版の準備ができました");
+            });
+          });
+          checkUpdate();
+          /* 前面に戻ったときに見に行く。iPad ではこれが効く */
+          document.addEventListener("visibilitychange", function(){
+            if(!document.hidden) checkUpdate();
+          });
+          window.addEventListener("focus", function(){ checkUpdate(); });
+          setInterval(checkUpdate, 30 * 60 * 1000);
+          showSwVersion();
+        })
+        .catch(function(){ /* 失敗は無視 */ });
+      navigator.serviceWorker.addEventListener("controllerchange", function(){
+        /* 新しい版が受け持ちになった。解いている途中なら勝手には作り直さない */
+        showUpdateBar("新しい版に入れ替わりました");
+      });
     }catch(e){ /* 失敗は無視 */ }
   });
 }

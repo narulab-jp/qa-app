@@ -20,6 +20,12 @@
 
   <!-- ============ 現在の利用者（常に表示・控えめ） ============ -->
   <div id="topBars">
+    <!-- 新しい版が届いたときの知らせ。どの画面にいても出る -->
+    <div id="updBar" hidden>
+      <span class="upd-msg" id="updMsg">新しい版があります</span>
+      <button class="upd-btn" id="btnUpdate">今すぐ更新</button>
+      <button class="upd-x" id="btnUpdLater" aria-label="あとで">×</button>
+    </div>
     <div id="userBar" hidden>
       <span class="ub-name" id="userBarName"></span>
       <button class="ub-btn" id="btnSwitchUser">切替</button>
@@ -281,6 +287,12 @@
       <button class="opt" data-fs="large">大</button>
     </div>
     <p class="note">設定はノートの保存ファイルに一緒に保存されます。</p>
+    <div class="block">
+      <h2>この端末が読み込んでいる版</h2>
+      <p class="note" id="swVersion">確認中です</p>
+      <button class="btn quiet" id="btnCheckUpd">新しい版があるか確かめる</button>
+      <p class="note" id="updMsg2"></p>
+    </div>
     <button class="btn quiet" id="btnToHome4">ホームに戻る</button>
   </section>
 

@@ -487,3 +487,13 @@ details.sect > *:last-child{margin-bottom:24px;}
 .readfig { margin:.6em 0 1.3em; text-align:center; }
 .readfig img { max-width:100%; height:auto; border:1px solid #ccd3da; border-radius:6px; }
 #readList .btn { margin-bottom:.5em; }
+
+/* ===== 新しい版の知らせ ===== */
+#updBar { display:flex; align-items:center; gap:.6em; background:#1B3A5C;
+          color:#fff; padding:.55em .8em; }
+#updBar .upd-msg { flex:1 1 auto; font-size:.92rem; }
+#updBar .upd-btn { flex:0 0 auto; min-height:44px; padding:0 1em;
+                   border:0; border-radius:8px; background:#fff; color:#1B3A5C;
+                   font-size:.92rem; font-weight:700; }
+#updBar .upd-x { flex:0 0 auto; min-width:44px; min-height:44px; border:0;
+                 background:transparent; color:#fff; font-size:1.1rem; }

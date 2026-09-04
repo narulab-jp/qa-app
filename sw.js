@@ -4,7 +4,7 @@
    file:// では登録されない（app.js 側で判定している）。 */
 "use strict";
 
-var VERSION = "v21";
+var VERSION = "v22";
 var CACHE = "qa-app-" + VERSION;
 
 /* アプリの骨組み */
@@ -103,12 +103,49 @@ self.addEventListener("activate", function(ev){
   );
 });
 
+/* アプリ本体（画面と処理）だけは、通信があるときは新しいほうを取りに行く。
+   ここをキャッシュ優先のままにすると、新しい版を公開しても、
+   端末に残った古い画面がいつまでも表示され続ける。
+   通信がないときは、これまでどおりキャッシュから返すのでオフラインでも動く。 */
+function isShell(url){
+  var p = url.pathname.replace(/\/+$/, "/");
+  return /(^|\/)(index\.html|app\.js|app\.css)$/.test(p) || /\/$/.test(p);
+}
+
+self.addEventListener("message", function(ev){
+  var d = ev.data || {};
+  if(d.type === "SKIP_WAITING") self.skipWaiting();
+  if(d.type === "GET_VERSION"){
+    var msg = {type: "VERSION", version: VERSION};
+    /* 返信の口が渡されていればそちらへ。無ければ送り主へ返す */
+    if(ev.ports && ev.ports[0]) ev.ports[0].postMessage(msg);
+    else if(ev.source) ev.source.postMessage(msg);
+  }
+});
+
 self.addEventListener("fetch", function(ev){
   var req = ev.request;
   if(req.method !== "GET") return;
   var url;
   try{ url = new URL(req.url); }catch(e){ return; }
   if(url.origin !== self.location.origin) return;   // 同一オリジンだけ扱う
+
+  if(isShell(url) || req.mode === "navigate"){
+    ev.respondWith(
+      fetch(req).then(function(res){
+        if(res && res.ok && res.type === "basic"){
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c){ c.put(req, copy); });
+        }
+        return res;
+      }).catch(function(){
+        return caches.match(req, {ignoreSearch: true}).then(function(hit){
+          return hit || caches.match("./index.html");
+        });
+      })
+    );
+    return;
+  }
 
   ev.respondWith(
     caches.match(req, {ignoreSearch: true}).then(function(hit){
