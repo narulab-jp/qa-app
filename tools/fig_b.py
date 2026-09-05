@@ -179,29 +179,40 @@ PYR_TIME = [
 
 
 def pyramid_panel(ox, oy, w, h, name, male, female, show_ages):
+    """人口ピラミッド1つぶん。
+
+      ★2026-09-05 直したこと
+        ・年齢の目盛を、まん中の軸の上に重ねて書いていた。棒がその上に
+          かぶさって読めなかったので、左に専用の欄を作って外へ出した。
+        ・小さく置かれる図なので、年齢は2段おき→4段おきに減らし、
+          そのぶん文字を大きくした（7.5→12）。
+        ・「男（％）」「女（％）」が横軸の数字に重なっていたので、
+          パネルの左下・右下の隅に寄せた。
+    """
     s = [rect(ox, oy, w, h, "none", 1.2),
          txt(ox + w / 2, oy + 20, name, 14, "middle", "bold")]
-    cx = ox + w / 2
-    top, bot = oy + 32.0, oy + h - 26.0
+    lab_w = 46.0 if show_ages else 0.0      # 年齢を書く左の欄
+    cx = ox + lab_w + (w - lab_w) / 2.0
+    top, bot = oy + 32.0, oy + h - 40.0
     bh = (bot - top) / len(AGES)
-    half = w / 2 - 30.0
+    half = (w - lab_w) / 2.0 - 18.0
     mx = 8.0
     for i in range(len(AGES)):
         yy = bot - (i + 1) * bh
         for (v, sgn, fill) in ((male[i], -1, "hatch:diag"), (female[i], 1, "#fff")):
             ww = half * v / mx
             s.append(rect(cx if sgn > 0 else cx - ww, yy + 1, ww, bh - 2, fill, 0.8))
-        if show_ages and i % 2 == 0:
-            s.append(txt(cx, yy + bh - 2, AGES[i], 7.5, "middle"))
+        if show_ages and i % 4 == 0:
+            s.append(txt(ox + 5, yy + bh - 2, AGES[i], 12, "start"))
     s.append(line(cx, top, cx, bot, 1.0))
-    s.append(line(ox + 14, bot, ox + w - 14, bot, 1.0))
+    s.append(line(cx - half - 6, bot, cx + half + 6, bot, 1.0))
     for v in (2, 4, 6, 8):
         for sgn in (-1, 1):
             xx = cx + sgn * half * v / mx
-            s.append(line(xx, bot, xx, bot + 4, 0.8))
-            s.append(txt(xx, bot + 15, str(v), 9, "middle"))
-    s.append(txt(cx - half * 0.6, oy + h - 6, "男（％）", 10, "middle"))
-    s.append(txt(cx + half * 0.6, oy + h - 6, "女（％）", 10, "middle"))
+            s.append(line(xx, bot, xx, bot + 5, 0.8))
+            s.append(txt(xx, bot + 17, str(v), 11, "middle"))
+    s.append(txt(ox + 5, oy + h - 6, "男（％）", 11, "start"))
+    s.append(txt(ox + w - 5, oy + h - 6, "女（％）", 11, "end"))
     return "".join(s)
 
 
