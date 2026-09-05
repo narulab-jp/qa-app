@@ -98,7 +98,18 @@ def esc(s):
     return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
+# 図の中の文字の下限。紙に出たときの大きさ（1.45mm ＝ 約4.1pt）。
+# これを下回ると、目盛の数字や地名が読めない。
+MM_TEXT = 1.45
+
+
+def size_units(size):
+    """紙の上で読める大きさ（単位）にする。小さくはしない。"""
+    return max(size, MM_TEXT / _UNIT_MM[0])
+
+
 def txt(x, y, s, size=13, anchor="start", weight="normal", fill="#000", rot=None):
+    size = size_units(size)
     r = ""
     if rot is not None:
         r = ' transform="rotate(%s %s %s)"' % (n(rot), n(x), n(y))

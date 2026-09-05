@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img" aria-label="資料1　架空大陸のおもな鉱産資源の分布"><defs>
  <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="2.08"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="2.78"/></pattern>
  <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="2.08"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="2.78"/></pattern>
  <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
   <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
@@ -10,24 +10,24 @@
   <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
  <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/>
-  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.34"/></pattern>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.79"/></pattern>
  <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
   <rect width="10" height="8" fill="#fff"/>
-  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.34" fill="none"/></pattern>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.79" fill="none"/></pattern>
 </defs><rect width="720" height="560" fill="#fff"/>
 <text x="20" y="28" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料1　架空大陸のおもな鉱産資源の分布</text>
-<polygon points="120,70 300,50 470,80 560,150 600,260 560,360 450,430 300,460 180,420 110,330 90,200" fill="#fff" stroke="#000" stroke-width="2.68"/>
-<polygon points="220,133 226,145 214,145" fill="#fff" stroke="#000" stroke-width="2.23"/>
-<polygon points="340,113 346,125 334,125" fill="#fff" stroke="#000" stroke-width="2.23"/>
-<polygon points="460,153 466,165 454,165" fill="#fff" stroke="#000" stroke-width="2.23"/>
-<circle cx="250" cy="260" r="6" fill="#000" stroke="#000" stroke-width="1.79"/>
-<circle cx="370" cy="250" r="6" fill="#000" stroke="#000" stroke-width="1.79"/>
-<circle cx="480" cy="260" r="6" fill="#000" stroke="#000" stroke-width="1.79"/>
-<rect x="444.5" y="364.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="2.38"/>
-<rect x="494.5" y="314.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="2.38"/>
-<rect x="514.5" y="354.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="2.38"/>
-<defs><clipPath id="hc506"><polygon points="200,323 207,330 200,337 193,330" fill="#fff" stroke="none"/></clipPath></defs><polygon points="200,323 207,330 200,337 193,330" fill="#fff" stroke="none"/><g clip-path="url(#hc506)"><path d="M179 337 L193 323" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M186.42 337 L200.42 323" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M193.85 337 L207.85 323" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M201.27 337 L215.27 323" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M208.7 337 L222.7 323" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/></g><polygon points="200,323 207,330 200,337 193,330" fill="none" stroke="#000" stroke-width="2.23"/>
-<defs><clipPath id="hc507"><polygon points="245,388 252,395 245,402 238,395" fill="#fff" stroke="none"/></clipPath></defs><polygon points="245,388 252,395 245,402 238,395" fill="#fff" stroke="none"/><g clip-path="url(#hc507)"><path d="M224 402 L238 388" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M231.42 402 L245.42 388" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M238.85 402 L252.85 388" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M246.27 402 L260.27 388" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M253.7 402 L267.7 388" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/></g><polygon points="245,388 252,395 245,402 238,395" fill="none" stroke="#000" stroke-width="2.23"/>
+<polygon points="120,70 300,50 470,80 560,150 600,260 560,360 450,430 300,460 180,420 110,330 90,200" fill="#fff" stroke="#000" stroke-width="3.57"/>
+<polygon points="220,133 226,145 214,145" fill="#fff" stroke="#000" stroke-width="2.98"/>
+<polygon points="340,113 346,125 334,125" fill="#fff" stroke="#000" stroke-width="2.98"/>
+<polygon points="460,153 466,165 454,165" fill="#fff" stroke="#000" stroke-width="2.98"/>
+<circle cx="250" cy="260" r="6" fill="#000" stroke="#000" stroke-width="2.38"/>
+<circle cx="370" cy="250" r="6" fill="#000" stroke="#000" stroke-width="2.38"/>
+<circle cx="480" cy="260" r="6" fill="#000" stroke="#000" stroke-width="2.38"/>
+<rect x="444.5" y="364.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="3.17"/>
+<rect x="494.5" y="314.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="3.17"/>
+<rect x="514.5" y="354.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="3.17"/>
+<defs><clipPath id="hc506"><polygon points="200,323 207,330 200,337 193,330" fill="#fff" stroke="none"/></clipPath></defs><polygon points="200,323 207,330 200,337 193,330" fill="#fff" stroke="none"/><g clip-path="url(#hc506)"><path d="M179 337 L193 323" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M188.9 337 L202.9 323" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M198.8 337 L212.8 323" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M208.7 337 L222.7 323" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/></g><polygon points="200,323 207,330 200,337 193,330" fill="none" stroke="#000" stroke-width="2.98"/>
+<defs><clipPath id="hc507"><polygon points="245,388 252,395 245,402 238,395" fill="#fff" stroke="none"/></clipPath></defs><polygon points="245,388 252,395 245,402 238,395" fill="#fff" stroke="none"/><g clip-path="url(#hc507)"><path d="M224 402 L238 388" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M233.9 402 L247.9 388" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M243.8 402 L257.8 388" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M253.7 402 L267.7 388" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/></g><polygon points="245,388 252,395 245,402 238,395" fill="none" stroke="#000" stroke-width="2.98"/>
 <rect x="170" y="118" width="24" height="20" fill="#fff" stroke="#000" stroke-width="0"/>
 <text x="182" y="134" font-size="14" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ア</text>
 <rect x="320" y="108" width="24" height="20" fill="#fff" stroke="#000" stroke-width="0"/>
@@ -44,15 +44,15 @@
 <text x="212" y="384" font-size="14" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">キ</text>
 <rect x="350" y="378" width="24" height="20" fill="#fff" stroke="#000" stroke-width="0"/>
 <text x="362" y="394" font-size="14" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ク</text>
-<rect x="60" y="470" width="600" height="62" fill="none" stroke="#000" stroke-width="1.49"/>
+<rect x="60" y="470" width="600" height="62" fill="none" stroke="#000" stroke-width="1.99"/>
 <text x="72" y="490" font-size="12" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">凡例</text>
-<polygon points="84,503 90,515 78,515" fill="#fff" stroke="#000" stroke-width="2.23"/>
+<polygon points="84,503 90,515 78,515" fill="#fff" stroke="#000" stroke-width="2.98"/>
 <text x="98" y="514" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">鉄鉱石</text>
-<circle cx="234" cy="510" r="6" fill="#000" stroke="#000" stroke-width="1.79"/>
+<circle cx="234" cy="510" r="6" fill="#000" stroke="#000" stroke-width="2.38"/>
 <text x="248" y="514" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">石炭</text>
-<rect x="378.5" y="504.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="2.38"/>
+<rect x="378.5" y="504.5" width="11" height="11" fill="#fff" stroke="#000" stroke-width="3.17"/>
 <text x="398" y="514" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">原油</text>
-<defs><clipPath id="hc508"><polygon points="534,503 541,510 534,517 527,510" fill="#fff" stroke="none"/></clipPath></defs><polygon points="534,503 541,510 534,517 527,510" fill="#fff" stroke="none"/><g clip-path="url(#hc508)"><path d="M513 517 L527 503" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M520.42 517 L534.42 503" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M527.85 517 L541.85 503" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M535.27 517 L549.27 503" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/><path d="M542.7 517 L556.7 503" stroke="#000" stroke-width="1.17" fill="none" data-h="1"/></g><polygon points="534,503 541,510 534,517 527,510" fill="none" stroke="#000" stroke-width="2.23"/>
+<defs><clipPath id="hc508"><polygon points="534,503 541,510 534,517 527,510" fill="#fff" stroke="none"/></clipPath></defs><polygon points="534,503 541,510 534,517 527,510" fill="#fff" stroke="none"/><g clip-path="url(#hc508)"><path d="M513 517 L527 503" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M522.9 517 L536.9 503" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M532.8 517 L546.8 503" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/><path d="M542.7 517 L556.7 503" stroke="#000" stroke-width="1.56" fill="none" data-h="1"/></g><polygon points="534,503 541,510 534,517 527,510" fill="none" stroke="#000" stroke-width="2.98"/>
 <text x="548" y="514" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">銅</text>
 <text x="20" y="548" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した模式地形図であり、実在の地域ではない。</text>
 </svg>

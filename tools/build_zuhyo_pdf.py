@@ -125,15 +125,15 @@ def fig_size(path, single, scale=1.0):
         720幅の地形図がこの上限だと 90mm 前後にしかならず、
         白黒で印刷したとき線が 0.12mm しかなくて消えていた。
         図の中の文字も 3.9pt まで小さくなっていた。
-        上限を 120mm にすると、2つ並ぶ組は資料だけで1ページを使い
-        （下の分岐が働く）、図は 140mm 前後まで大きくなる。
+        上限は 90mm。これより大きくすると、2つ並ぶ組が資料だけで1ページを使い
+        「図は必ず設問と同じページ」という決まりを破ってしまう（92mmで破れる）。
       ★scale は min の中に入れる。外に掛けると、拡大したときに
         本文の幅（CW）を超えて紙からはみ出す。
     """
     t = io.open(os.path.join(ROOT, path.replace("/", os.sep)), encoding="utf-8").read()
     vb = t.split('viewBox="')[1].split('"')[0].split()
     w, h = float(vb[2]), float(vb[3])
-    maxh = 150.0 if single else 120.0
+    maxh = 150.0 if single else 90.0
     mw = min(CW, maxh * w / h * scale)
     return mw, mw * h / w
 

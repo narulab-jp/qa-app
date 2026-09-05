@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" width="720" height="470" role="img" aria-label="資料2　架空の2か国の人口の移り変わり（2040年は推計）"><defs>
  <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.9"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="2.33"/></pattern>
  <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.9"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="2.33"/></pattern>
  <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
   <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
@@ -10,49 +10,49 @@
   <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
  <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/>
-  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.23"/></pattern>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.5"/></pattern>
  <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
   <rect width="10" height="8" fill="#fff"/>
-  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.23" fill="none"/></pattern>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.5" fill="none"/></pattern>
 </defs><rect width="720" height="470" fill="#fff"/>
 <text x="20" y="26" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料2　架空の2か国の人口の移り変わり（2040年は推計）</text>
-<path d="M90 380 L650 380" stroke="#000" stroke-width="1.07" fill="none" stroke-dasharray="3 3"/>
+<path d="M90 380 L650 380" stroke="#000" stroke-width="1.31" fill="none" stroke-dasharray="3 3"/>
 <text x="82" y="384" font-size="11" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M90 320 L650 320" stroke="#000" stroke-width="1.07" fill="none" stroke-dasharray="3 3"/>
+<path d="M90 320 L650 320" stroke="#000" stroke-width="1.31" fill="none" stroke-dasharray="3 3"/>
 <text x="82" y="324" font-size="11" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">28</text>
-<path d="M90 260 L650 260" stroke="#000" stroke-width="1.07" fill="none" stroke-dasharray="3 3"/>
+<path d="M90 260 L650 260" stroke="#000" stroke-width="1.31" fill="none" stroke-dasharray="3 3"/>
 <text x="82" y="264" font-size="11" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">56</text>
-<path d="M90 200 L650 200" stroke="#000" stroke-width="1.07" fill="none" stroke-dasharray="3 3"/>
+<path d="M90 200 L650 200" stroke="#000" stroke-width="1.31" fill="none" stroke-dasharray="3 3"/>
 <text x="82" y="204" font-size="11" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">84</text>
-<path d="M90 140 L650 140" stroke="#000" stroke-width="1.07" fill="none" stroke-dasharray="3 3"/>
+<path d="M90 140 L650 140" stroke="#000" stroke-width="1.31" fill="none" stroke-dasharray="3 3"/>
 <text x="82" y="144" font-size="11" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">112</text>
-<path d="M90 80 L650 80" stroke="#000" stroke-width="1.07" fill="none" stroke-dasharray="3 3"/>
+<path d="M90 80 L650 80" stroke="#000" stroke-width="1.31" fill="none" stroke-dasharray="3 3"/>
 <text x="82" y="84" font-size="11" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">140</text>
-<path d="M90 80 L90 380" stroke="#000" stroke-width="1.5" fill="none"/>
-<path d="M90 380 L650 380" stroke="#000" stroke-width="1.5" fill="none"/>
-<path d="M90 380 L90 385" stroke="#000" stroke-width="1.23" fill="none"/>
+<path d="M90 80 L90 380" stroke="#000" stroke-width="1.83" fill="none"/>
+<path d="M90 380 L650 380" stroke="#000" stroke-width="1.83" fill="none"/>
+<path d="M90 380 L90 385" stroke="#000" stroke-width="1.5" fill="none"/>
 <text x="90" y="400" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1960</text>
-<path d="M230 380 L230 385" stroke="#000" stroke-width="1.23" fill="none"/>
+<path d="M230 380 L230 385" stroke="#000" stroke-width="1.5" fill="none"/>
 <text x="230" y="400" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1980</text>
-<path d="M370 380 L370 385" stroke="#000" stroke-width="1.23" fill="none"/>
+<path d="M370 380 L370 385" stroke="#000" stroke-width="1.5" fill="none"/>
 <text x="370" y="400" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2000</text>
-<path d="M510 380 L510 385" stroke="#000" stroke-width="1.23" fill="none"/>
+<path d="M510 380 L510 385" stroke="#000" stroke-width="1.5" fill="none"/>
 <text x="510" y="400" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2020</text>
-<path d="M650 380 L650 385" stroke="#000" stroke-width="1.23" fill="none"/>
+<path d="M650 380 L650 385" stroke="#000" stroke-width="1.5" fill="none"/>
 <text x="650" y="400" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2040</text>
-<polyline points="90,332.86 230,298.57 370,247.14 510,174.29 650,97.14" fill="none" stroke="#000" stroke-width="2.72"/>
-<circle cx="90" cy="332.86" r="3.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<circle cx="230" cy="298.57" r="3.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<circle cx="370" cy="247.14" r="3.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<circle cx="510" cy="174.29" r="3.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<circle cx="650" cy="97.14" r="3.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
+<polyline points="90,332.86 230,298.57 370,247.14 510,174.29 650,97.14" fill="none" stroke="#000" stroke-width="3.33"/>
+<circle cx="90" cy="332.86" r="3.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<circle cx="230" cy="298.57" r="3.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<circle cx="370" cy="247.14" r="3.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<circle cx="510" cy="174.29" r="3.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<circle cx="650" cy="97.14" r="3.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
 <text x="658" y="101.14" font-size="12" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">A国</text>
-<polyline points="90,191.43 230,157.14 370,127.14 510,114.29 650,127.14" fill="none" stroke="#000" stroke-width="2.72" stroke-dasharray="8 4"/>
-<rect x="86.8" y="188.23" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<rect x="226.8" y="153.94" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<rect x="366.8" y="123.94" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<rect x="506.8" y="111.09" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
-<rect x="646.8" y="123.94" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="1.9"/>
+<polyline points="90,191.43 230,157.14 370,127.14 510,114.29 650,127.14" fill="none" stroke="#000" stroke-width="3.33" stroke-dasharray="8 4"/>
+<rect x="86.8" y="188.23" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<rect x="226.8" y="153.94" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<rect x="366.8" y="123.94" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<rect x="506.8" y="111.09" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
+<rect x="646.8" y="123.94" width="6.4" height="6.4" fill="#fff" stroke="#000" stroke-width="2.33"/>
 <text x="658" y="131.14" font-size="12" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">C国</text>
 <text x="50" y="68" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">人口（百万人）</text>
 <text x="370" y="424" font-size="11" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">年</text>

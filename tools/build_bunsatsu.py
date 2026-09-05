@@ -255,13 +255,13 @@ def i_arow(q):
 
 def fig_size(path, single, scale=1.0):
     """★2026-09-05 変更。理由は build_zuhyo_pdf.fig_size と同じ。
-       資料が2つある組の高さの上限を 78mm → 120mm。
+       資料が2つある組の高さの上限を 78mm → 90mm。
        scale は min の中に入れる（外に掛けると紙からはみ出す）。"""
     t = io.open(os.path.join(ROOT, path.replace("/", os.sep)),
                 encoding="utf-8").read()
     vb = t.split('viewBox="')[1].split('"')[0].split()
     w, h = float(vb[2]), float(vb[3])
-    mw = min(CW, (150.0 if single else 120.0) * w / h * scale)
+    mw = min(CW, (150.0 if single else 90.0) * w / h * scale)
     return mw, mw * h / w
 
 
