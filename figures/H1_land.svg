@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 354" width="720" height="354" role="img" aria-label="土地利用の移り変わり"><defs>
  <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.96"/></pattern>
  <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.96"/></pattern>
  <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
   <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
@@ -10,52 +10,52 @@
   <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
  <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/>
-  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.26"/></pattern>
  <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
   <rect width="10" height="8" fill="#fff"/>
-  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.26" fill="none"/></pattern>
 </defs><rect width="720" height="354" fill="#fff"/>
 <text x="20" y="28" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料4　この地域の土地利用の移り変わり（ha）</text>
-<rect x="20" y="46" width="640" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
+<rect x="20" y="46" width="640" height="42" fill="none" stroke="#000" stroke-width="1.96"/>
 <text x="80" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地目</text>
 <text x="205" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1970年</text>
 <text x="335" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1990年</text>
 <text x="465" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2010年</text>
 <text x="595" y="72" font-size="12" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">2025年</text>
-<rect x="20" y="88" width="640" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="20" y="88" width="640" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
 <text x="80" y="114" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">田</text>
 <text x="205" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">612</text>
 <text x="335" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">540</text>
 <text x="465" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">388</text>
 <text x="595" y="114" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">246</text>
-<rect x="20" y="130" width="640" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="20" y="130" width="640" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
 <text x="80" y="156" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">桑畑</text>
 <text x="205" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">184</text>
 <text x="335" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">96</text>
 <text x="465" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">12</text>
 <text x="595" y="156" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<rect x="20" y="172" width="640" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="20" y="172" width="640" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
 <text x="80" y="198" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">果樹園</text>
 <text x="205" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">8</text>
 <text x="335" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">62</text>
 <text x="465" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">138</text>
 <text x="595" y="198" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">165</text>
-<rect x="20" y="214" width="640" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="20" y="214" width="640" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
 <text x="80" y="240" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">荒地</text>
 <text x="205" y="240" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">6</text>
 <text x="335" y="240" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">48</text>
 <text x="465" y="240" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">196</text>
 <text x="595" y="240" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">352</text>
-<rect x="20" y="256" width="640" height="42" fill="none" stroke="#000" stroke-width="1"/>
+<rect x="20" y="256" width="640" height="42" fill="none" stroke="#000" stroke-width="1.4"/>
 <text x="80" y="282" font-size="13" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">宅地</text>
 <text x="205" y="282" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">74</text>
 <text x="335" y="282" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">80</text>
 <text x="465" y="282" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">72</text>
 <text x="595" y="282" font-size="13" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">63</text>
-<path d="M140 46 L140 298" stroke="#000" stroke-width="1" fill="none"/>
-<path d="M270 46 L270 298" stroke="#000" stroke-width="1" fill="none"/>
-<path d="M400 46 L400 298" stroke="#000" stroke-width="1" fill="none"/>
-<path d="M530 46 L530 298" stroke="#000" stroke-width="1" fill="none"/>
+<path d="M140 46 L140 298" stroke="#000" stroke-width="1.4" fill="none"/>
+<path d="M270 46 L270 298" stroke="#000" stroke-width="1.4" fill="none"/>
+<path d="M400 46 L400 298" stroke="#000" stroke-width="1.4" fill="none"/>
+<path d="M530 46 L530 298" stroke="#000" stroke-width="1.4" fill="none"/>
 <text x="20" y="324" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">haはヘクタール。1ha＝10,000m²。</text>
 <text x="20" y="342" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した架空の数値であり、実在の地点・国ではない。</text>
 </svg>

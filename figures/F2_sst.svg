@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img" aria-label="架空の海域の海面水温平年差図"><defs>
  <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.9"/></pattern>
  <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.9"/></pattern>
  <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
   <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
@@ -10,28 +10,28 @@
   <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
  <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/>
-  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.23"/></pattern>
  <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
   <rect width="10" height="8" fill="#fff"/>
-  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.23" fill="none"/></pattern>
 </defs><rect width="720" height="560" fill="#fff"/>
 <text x="20" y="32" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料2　架空の海域における海面水温の平年差（℃）</text>
-<rect x="60" y="60" width="600" height="420" fill="none" stroke="#000" stroke-width="1.4"/>
-<polyline points="430,150 470,210 480,300 455,380 415,430" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5,4"/>
+<rect x="60" y="60" width="600" height="420" fill="none" stroke="#000" stroke-width="1.9"/>
+<polyline points="430,150 470,210 480,300 455,380 415,430" fill="none" stroke="#000" stroke-width="1.36" stroke-dasharray="5,4"/>
 <text x="486" y="300" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">+1.0</text>
-<polyline points="370,120 420,200 435,305 405,395 355,450" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5,4"/>
+<polyline points="370,120 420,200 435,305 405,395 355,450" fill="none" stroke="#000" stroke-width="1.36" stroke-dasharray="5,4"/>
 <text x="441" y="305" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">+0.5</text>
-<polyline points="300,105 340,200 350,310 320,400 270,460" fill="none" stroke="#000" stroke-width="1.5"/>
+<polyline points="300,105 340,200 350,310 320,400 270,460" fill="none" stroke="#000" stroke-width="2.04"/>
 <text x="356" y="310" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0.0</text>
-<polyline points="225,115 260,205 268,310 240,400 190,455" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="5,4"/>
+<polyline points="225,115 260,205 268,310 240,400 190,455" fill="none" stroke="#000" stroke-width="1.36" stroke-dasharray="5,4"/>
 <text x="274" y="310" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">-0.5</text>
-<circle cx="170" cy="260" r="8.5" fill="#fff" stroke="#000" stroke-width="1.8"/><text x="170" y="264.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">カ</text>
-<circle cx="390" cy="260" r="8.5" fill="#fff" stroke="#000" stroke-width="1.8"/><text x="390" y="264.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">キ</text>
-<circle cx="560" cy="260" r="8.5" fill="#fff" stroke="#000" stroke-width="1.8"/><text x="560" y="264.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ク</text>
+<circle cx="170" cy="260" r="8.5" fill="#fff" stroke="#000" stroke-width="2.45"/><text x="170" y="264.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">カ</text>
+<circle cx="390" cy="260" r="8.5" fill="#fff" stroke="#000" stroke-width="2.45"/><text x="390" y="264.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">キ</text>
+<circle cx="560" cy="260" r="8.5" fill="#fff" stroke="#000" stroke-width="2.45"/><text x="560" y="264.5" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">ク</text>
 <text x="80" y="90" font-size="14" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">西</text>
 <text x="636" y="90" font-size="14" text-anchor="end" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">東</text>
 <text x="80" y="468" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">赤道</text>
-<path d="M60 450 L660 450" stroke="#000" stroke-width="0.8" fill="none" stroke-dasharray="3,3"/>
+<path d="M60 450 L660 450" stroke="#000" stroke-width="1.09" fill="none" stroke-dasharray="3,3"/>
 <text x="20" y="512" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">実線は平年並み（0.0℃）、破線は0.5℃ごとの等値線。＋は平年より高いことを表す。</text>
 <text x="20" y="548" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した架空の数値であり、実在の地点・国ではない。</text>
 </svg>

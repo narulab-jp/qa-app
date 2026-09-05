@@ -4,8 +4,62 @@
   ・教科書・資料集・過去問の図は一切写していない。すべてここの計算で描く。
   ・白黒印刷で判別できるよう、色ではなく線種・ハッチング・記号で区別する。
   ・架空の数値を使う図には、図の中に「架空」である旨を必ず書く。
+
+  ★線の太さについて（2026-09-05）
+    図は 720 単位の幅で描き、紙の上では 78mm〜169mm と、図によって
+    2倍以上の開きがある大きさで置かれる。太さを単位で決めていたため、
+    小さく置かれる図では 1.1 単位＝0.12mm しかなく、白黒で印刷すると
+    等高線や境界線が消えていた（実測で全体の75%が0.25mm未満）。
+
+    そこで、太さを「単位」ではなく「紙の上の mm」で決める。
+      主要な線（等高線・境界線・海岸線・枠・軸）  0.35mm 以上
+      補助線・目盛・ハッチング                    0.25mm 以上
+    図ごとに「いちばん小さく置かれるときの mm/単位」を set_target() で
+    渡し、svg() を組み立てるときに、その図に必要な単位数へ引き上げる。
+    もともと太い線はそのまま。細い線だけが下限まで上がる。
 """
 import math
+import re
+
+# ---- 紙に出たときの太さ（mm） ----
+MM_MAIN = 0.35        # ふつうの線（太さ1.1で描いてある線）を、この太さにする
+MM_SUB = 0.25         # 何があってもこれより細くしない（補助線・目盛・網かけ）
+BASE_UNITS = 1.1      # この教材でいちばん多く使っている「ふつうの線」の太さ
+MAX_K = 2.4           # 倍率の上限（際限なく太らせない）
+
+# その図が、いちばん小さく置かれるときの 1単位あたりの mm。
+# set_target() で図ごとに入れ替える。既定は安全側（小さめ）の値。
+_UNIT_MM = [0.109]
+
+
+def set_target(unit_mm):
+    """この図の「1単位あたり何mmで刷られるか」を設定する。"""
+    _UNIT_MM[0] = float(unit_mm) if unit_mm else 0.109
+
+
+def unit_mm():
+    return _UNIT_MM[0]
+
+
+def k_scale():
+    """この図の線を何倍にするか。
+
+      ★一律の下限にしないのは、主曲線と計曲線のように
+        「細い線」「太い線」で意味を分けている図があるため。
+        下限だけで持ち上げると、両方が同じ太さになって区別が消える。
+        倍率でそろえて持ち上げ、そのうえで下限を当てる。
+    """
+    return min(MAX_K, MM_MAIN / (BASE_UNITS * _UNIT_MM[0]))
+
+
+def scale_units(old):
+    """紙の上で読める太さ（単位）にする。細くはしない。
+
+      小数2桁で書き出すので、切り上げておく。切り捨てると
+      0.25mm のつもりが 0.2494mm になり、下限を割ってしまう。
+    """
+    v = max(old, old * k_scale(), MM_SUB / _UNIT_MM[0])
+    return math.ceil(v * 100.0 - 1e-9) / 100.0
 
 FONT = ("'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',"
         "'Meiryo',sans-serif")
@@ -58,37 +112,60 @@ HATCH_STEP = {"diag": 7.0, "diag2": 7.0, "diagfine": 3.5, "dot": 8.0,
 _cid = [0]
 
 
+def _hw():
+    """網かけの線の太さ。本文の線より細くしておく（0.25mm）。
+       太くすると塗りつぶしに見えて、階級の区別がつかなくなる。"""
+    return max(1.1, MM_SUB / _UNIT_MM[0])
+
+
+def _hstep(kind):
+    """線を太くしたぶん、間隔も広げる。広げないと塗りつぶしに見えて、
+       斜線・格子・点の区別がつかなくなる。"""
+    return HATCH_STEP[kind] * _hw() / 1.1
+
+
 def _hatch_lines(kind, x0, y0, w, h):
     """網かけを線と点で描く。パターン塗りを使うとPDFで画像に変換されて
-       ファイルが巨大になるため、はじめから線として描いておく。"""
+       ファイルが巨大になるため、はじめから線として描いておく。
+
+       ここで出す線は、太さも間隔もこの関数で決めきる。
+       svg() の引き上げが二重にかからないよう data-h="1" を付ける。"""
     out = []
-    st = HATCH_STEP[kind]
+    st = _hstep(kind)
+    hw = _hw()
+    def hl(x1, y1, x2, y2):
+        return ('<path d="M%s %s L%s %s" stroke="#000" stroke-width="%s" '
+                'fill="none" data-h="1"/>'
+                % (n(x1), n(y1), n(x2), n(y2), n(hw)))
+
     if kind in ("diag", "diag2", "diagfine"):
         i, m = 0, int((w + h) / st) + 2
         while i < m:
             if kind != "diag2":
-                out.append(line(x0 - h + i * st, y0 + h, x0 + i * st, y0, 1.1))
+                out.append(hl(x0 - h + i * st, y0 + h, x0 + i * st, y0))
             else:
-                out.append(line(x0 + i * st - h, y0, x0 + i * st, y0 + h, 1.1))
+                out.append(hl(x0 + i * st - h, y0, x0 + i * st, y0 + h))
             i += 1
     elif kind in ("dot", "dotfine"):
-        r = 1.3 if kind == "dot" else 0.85
+        # 点は太さではなく大きさ。線と同じだけ大きくして、消えないようにする。
+        r = (1.3 if kind == "dot" else 0.85) * hw / 1.1
         yy, k = y0 + st / 2, 0
         while yy < y0 + h + st:
             xx = x0 + (st / 2 if k % 2 else 0)
             while xx < x0 + w + st:
-                out.append(circle(xx, yy, r, "#000", 0))
+                out.append('<circle cx="%s" cy="%s" r="%s" fill="#000" '
+                           'stroke="none" data-h="1"/>' % (n(xx), n(yy), n(r)))
                 xx += st
             yy += st
             k += 1
     elif kind == "grid":
         yy = y0 + st / 2
         while yy < y0 + h + st:
-            out.append(line(x0, yy, x0 + w, yy, 0.8))
+            out.append(hl(x0, yy, x0 + w, yy))
             yy += st
         xx = x0 + st / 2
         while xx < x0 + w + st:
-            out.append(line(xx, y0, xx, y0 + h, 0.8))
+            out.append(hl(xx, y0, xx, y0 + h))
             xx += st
     elif kind == "wave":
         yy = y0 + 5
@@ -99,9 +176,9 @@ def _hatch_lines(kind, x0, y0, w, h):
                 d.append("q%s -3 %s 0" % (n(st / 4), n(st / 2)))
                 d.append("t%s 0" % n(st / 2))
                 xx += st
-            out.append('<path d="%s" stroke="#000" stroke-width="0.8" fill="none"/>'
-                       % " ".join(d))
-            yy += 8
+            out.append('<path d="%s" stroke="#000" stroke-width="%s" '
+                       'fill="none" data-h="1"/>' % (" ".join(d), n(hw)))
+            yy += st * 0.8
     return "".join(out)
 
 
@@ -155,11 +232,37 @@ def circle(x, y, r, fill="none", width=1.0):
             % (n(x), n(y), n(r), fill, n(width)))
 
 
+RE_TAG_SW = re.compile(r'<[^>]*stroke-width="[\d.]+"[^>]*>')
+RE_SW = re.compile(r'stroke-width="([\d.]+)"')
+
+
+def thicken(body):
+    """図の中の線を、紙の上で下限を満たす太さまで引き上げる。
+
+      ・細くはしない。太い線はそのまま
+      ・data-h="1"（ハッチング）は、間隔と合わせて決めてあるので触らない
+      ・stroke-width="0"（塗りだけの図形）は線ではないので触らない
+    """
+    def one(m):
+        tag = m.group(0)
+        if 'data-h="1"' in tag:
+            return tag
+        def rep(s):
+            v = float(s.group(1))
+            if v <= 0:
+                return s.group(0)
+            return 'stroke-width="%s"' % n(scale_units(v))
+        return RE_SW.sub(rep, tag)
+    return RE_TAG_SW.sub(one, body)
+
+
 def svg(w, h, body, label):
+    # 図の幅（単位）と、紙に置かれる幅から決まる mm/単位 は set_target() で
+    # 渡してある。ここで線の太さを紙の上の下限までまとめて引き上げる。
     return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" '
             'height="%d" role="img" aria-label="%s">%s'
             '<rect width="%d" height="%d" fill="#fff"/>\n%s\n</svg>'
-            % (w, h, w, h, esc(label), PATTERNS, w, h, body))
+            % (w, h, w, h, esc(label), thicken(PATTERNS), w, h, thicken(body)))
 
 
 def mark(x, y, lab, r=8.5):

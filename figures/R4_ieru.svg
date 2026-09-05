@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-label="言えることと言えないこと"><defs>
  <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.9"/></pattern>
  <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.9"/></pattern>
  <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
   <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
@@ -10,39 +10,39 @@
   <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
  <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/>
-  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.23"/></pattern>
  <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
   <rect width="10" height="8" fill="#fff"/>
-  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.23" fill="none"/></pattern>
 </defs><rect width="720" height="400" fill="#fff"/>
 <text x="20" y="26" font-size="15" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">図4　資料から言えること・言えないこと</text>
 <text x="20" y="50" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">選択肢を切るときは、この表のどれに当たるかを見る。</text>
-<rect x="24" y="68" width="672" height="46" fill="none" stroke="#000" stroke-width="1.3"/>
+<rect x="24" y="68" width="672" height="46" fill="none" stroke="#000" stroke-width="1.77"/>
 <text x="259" y="96" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">どういう言い方か</text>
 <text x="548" y="96" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">例</text>
 <text x="71" y="96" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">判定</text>
-<rect x="24" y="114" width="672" height="46" fill="none" stroke="#000" stroke-width="0.9"/>
+<rect x="24" y="114" width="672" height="46" fill="none" stroke="#000" stroke-width="1.23"/>
 <text x="71" y="142" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">言える</text>
 <text x="130" y="142" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料に数や記号で示してあることを、そのまま読んだこと</text>
 <text x="412" y="142" font-size="11.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料2で荒地の記号が増えている</text>
-<rect x="24" y="160" width="672" height="46" fill="none" stroke="#000" stroke-width="0.9"/>
+<rect x="24" y="160" width="672" height="46" fill="none" stroke="#000" stroke-width="1.23"/>
 <text x="71" y="188" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">言える</text>
 <text x="130" y="188" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">示された数どうしを計算して出したこと</text>
 <text x="412" y="188" font-size="11.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">人口は8,200人から3,400人へ、約59％減った</text>
-<rect x="24" y="206" width="672" height="46" fill="none" stroke="#000" stroke-width="0.9"/>
+<rect x="24" y="206" width="672" height="46" fill="none" stroke="#000" stroke-width="1.23"/>
 <text x="71" y="234" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">言えない</text>
 <text x="130" y="234" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">資料に出てこない数量を持ち出したこと</text>
 <text x="412" y="234" font-size="11.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">出荷にかかる時間が短くなった（時間の資料がない）</text>
-<rect x="24" y="252" width="672" height="46" fill="none" stroke="#000" stroke-width="0.9"/>
+<rect x="24" y="252" width="672" height="46" fill="none" stroke="#000" stroke-width="1.23"/>
 <text x="71" y="280" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">言えない</text>
 <text x="130" y="280" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">一方がもう一方の原因だと決めたこと</text>
 <text x="412" y="280" font-size="11.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">人口が減ったから田を手放した（順序を示す資料がない）</text>
-<rect x="24" y="298" width="672" height="46" fill="none" stroke="#000" stroke-width="0.9"/>
+<rect x="24" y="298" width="672" height="46" fill="none" stroke="#000" stroke-width="1.23"/>
 <text x="71" y="326" font-size="12.5" text-anchor="middle" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">言えない</text>
 <text x="130" y="326" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">一人の話を地域全体の傾向にしたこと</text>
 <text x="412" y="326" font-size="11.5" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">住民はみな不便だと思っている（聞いたのは3人）</text>
-<path d="M118 68 L118 344" stroke="#000" stroke-width="0.9" fill="none"/>
-<path d="M400 68 L400 344" stroke="#000" stroke-width="0.9" fill="none"/>
+<path d="M118 68 L118 344" stroke="#000" stroke-width="1.23" fill="none"/>
+<path d="M400 68 L400 344" stroke="#000" stroke-width="1.23" fill="none"/>
 <text x="24" y="370" font-size="12" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">「言えない」の3つは、選択肢の誤りとしてそのまま出てくる。</text>
 <text x="20" y="390" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ この冊子のために作図した図です。</text>
 </svg>

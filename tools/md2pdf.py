@@ -29,18 +29,18 @@ ul,ol{margin:0 0 3mm;padding-left:7mm;}
 li{margin:0 0 1mm;}
 code{font-family:"Consolas","Yu Gothic UI",monospace;background:#f0f0f0;
      padding:0 1mm;border-radius:2px;font-size:9.5pt;}
-pre{background:#f5f5f3;border:0.6pt solid #bbb;border-radius:3px;
+pre{background:#f5f5f3;border:0.8pt solid #000;border-radius:3px;
     padding:2.5mm 3mm;margin:0 0 3mm;white-space:pre-wrap;font-size:10pt;
     break-inside:avoid;page-break-inside:avoid;}
 pre code{background:none;padding:0;font-size:10pt;}
-blockquote{margin:0 0 3mm;padding:2mm 3mm;border-left:2.5pt solid #999;
+blockquote{margin:0 0 3mm;padding:2mm 3mm;border-left:2.5pt solid #000;
            background:#fafafa;color:#333;}
 blockquote p{margin:0;}
 table{width:100%;border-collapse:collapse;margin:0 0 4mm;font-size:10pt;
       break-inside:avoid;page-break-inside:avoid;}
-th,td{border:0.6pt solid #888;padding:1.5mm 2mm;text-align:left;vertical-align:top;}
+th,td{border:0.8pt solid #000;padding:1.5mm 2mm;text-align:left;vertical-align:top;}
 th{background:#eef2f8;}
-hr{border:0;border-top:0.6pt solid #bbb;margin:5mm 0;}
+hr{border:0;border-top:0.8pt solid #000;margin:5mm 0;}
 strong{color:#000;}
 """
 

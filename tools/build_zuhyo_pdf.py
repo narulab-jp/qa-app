@@ -67,7 +67,7 @@ body { font-family:"Yu Gothic UI","Meiryo","Hiragino Sans","MS PGothic",sans-ser
          padding-bottom:1mm; }
 .pbody { height:%(BH)smm; overflow:hidden; padding-top:3mm; }
 .pfoot { position:absolute; bottom:0; left:0; right:0; height:%(FH)smm;
-         font-size:8.5pt; text-align:center; border-top:0.5pt solid #000;
+         font-size:8.5pt; text-align:center; border-top:0.8pt solid #000;
          padding-top:1mm; }
 h1.bt { font-size:16pt; margin:24mm 0 6mm; }
 .lead { font-size:10pt; line-height:1.7; margin:0 0 6mm; }
@@ -75,7 +75,7 @@ h1.bt { font-size:16pt; margin:24mm 0 6mm; }
 .howto { font-size:10pt; line-height:1.8; margin-top:8mm; }
 .howto li { margin:0 0 2mm; }
 .figwrap { margin:0 0 3mm; text-align:center; }
-.figwrap img { display:block; margin:0 auto; border:0.5pt solid #000; }
+.figwrap img { display:block; margin:0 auto; border:0.8pt solid #000; }
 .figcap { font-size:8.5pt; margin:1mm 0 0; text-align:left; }
 .qb { margin:0 0 4mm; break-inside:avoid; }
 .qb .qh { font-size:9pt; margin:0 0 1mm; }
@@ -83,7 +83,7 @@ h1.bt { font-size:16pt; margin:24mm 0 6mm; }
 .qb .ch { font-size:10pt; line-height:1.55; margin:0 0 0.6mm; padding-left:6mm;
           text-indent:-6mm; }
 .qb .mark { font-size:9pt; margin-top:1mm; }
-.qb .mark b { font-weight:normal; border:0.6pt solid #000; padding:0 4mm; margin-left:2mm; }
+.qb .mark b { font-weight:normal; border:0.8pt solid #000; padding:0 4mm; margin-left:2mm; }
 .ab { margin:0 0 3.5mm; break-inside:avoid; font-size:9.5pt; line-height:1.6; }
 .ab .ah { font-weight:bold; }
 .ab .ag { font-size:9pt; }
@@ -118,13 +118,23 @@ def esc(s):
 
 
 def fig_size(path, single, scale=1.0):
-    """SVG の viewBox から、印刷したときの大きさ（mm）を決める。"""
+    """SVG の viewBox から、印刷したときの大きさ（mm）を決める。
+
+      ★2026-09-05 変更
+        資料が2つある組では、高さの上限を 78mm にしていた。
+        720幅の地形図がこの上限だと 90mm 前後にしかならず、
+        白黒で印刷したとき線が 0.12mm しかなくて消えていた。
+        図の中の文字も 3.9pt まで小さくなっていた。
+        上限を 120mm にすると、2つ並ぶ組は資料だけで1ページを使い
+        （下の分岐が働く）、図は 140mm 前後まで大きくなる。
+      ★scale は min の中に入れる。外に掛けると、拡大したときに
+        本文の幅（CW）を超えて紙からはみ出す。
+    """
     t = io.open(os.path.join(ROOT, path.replace("/", os.sep)), encoding="utf-8").read()
     vb = t.split('viewBox="')[1].split('"')[0].split()
     w, h = float(vb[2]), float(vb[3])
-    maxw = CW
-    maxh = 150.0 if single else 78.0
-    mw = min(maxw, maxh * w / h) * scale
+    maxh = 150.0 if single else 120.0
+    mw = min(CW, maxh * w / h * scale)
     return mw, mw * h / w
 
 
@@ -220,7 +230,10 @@ def paginate(c, unit):
                 #   資料だけのページを1枚立て、設問は次のページから並べる。
                 figs = [q["figures"] for q in unit["questions"]
                         if q["setId"] == sid][0]
-                sc = min(1.0, (SAFE_H - 6.0) / fig_h)
+                # 資料だけのページなので、紙面いっぱいまで大きくしてよい。
+                # 大きいほど線も文字も読みやすくなる。
+                # 図の下の注記のぶんを残し、上げすぎないよう1.4倍で止める。
+                sc = min(1.4, (SAFE_H - 18.0) / fig_h)
                 pages.append(fig_block(figs, sc))
                 cur, used = [], 0.0
                 note = ('<p class="figcap" style="margin:0 0 3mm">'

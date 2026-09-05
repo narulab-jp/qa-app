@@ -116,7 +116,7 @@ body { font-family:"Yu Gothic UI","Meiryo","Hiragino Sans","MS PGothic",sans-ser
          padding-bottom:1mm; }
 .pbody { height:%(BH)smm; overflow:hidden; padding-top:3mm; }
 .pfoot { position:absolute; bottom:0; left:0; right:0; height:%(FH)smm;
-         font-size:8.5pt; text-align:center; border-top:0.5pt solid #000;
+         font-size:8.5pt; text-align:center; border-top:0.8pt solid #000;
          padding-top:1mm; }
 h1.bt { font-size:17pt; margin:16mm 0 2mm; }
 h2.bs { font-size:11pt; margin:0 0 6mm; font-weight:normal; }
@@ -125,7 +125,7 @@ h2.bs { font-size:11pt; margin:0 0 6mm; font-weight:normal; }
           line-height:1.6; margin-top:5mm; }
 .howto { font-size:9.5pt; line-height:1.75; margin-top:5mm; }
 .sumtbl { width:100%%; border-collapse:collapse; margin:0 0 5mm; }
-.sumtbl th, .sumtbl td { border:0.6pt solid #000; padding:1.6mm 1.6mm;
+.sumtbl th, .sumtbl td { border:0.8pt solid #000; padding:1.6mm 1.6mm;
                          font-size:9.5pt; }
 .sumtbl th { background:#e8e8e8; font-weight:normal; text-align:center; }
 .sumtbl td.c { text-align:center; }
@@ -136,9 +136,9 @@ h2.bs { font-size:11pt; margin:0 0 6mm; font-weight:normal; }
 .door .dd { font-size:10.5pt; line-height:1.8; margin-bottom:6mm; }
 /* 一問一答 */
 .ihead, .irow { display:flex; width:100%%; }
-.ihead > div, .irow > div { border:0.5pt solid #000; border-left:none;
+.ihead > div, .irow > div { border:0.8pt solid #000; border-left:none;
                             padding:1.3mm 1.4mm; }
-.ihead > div:first-child, .irow > div:first-child { border-left:0.5pt solid #000; }
+.ihead > div:first-child, .irow > div:first-child { border-left:0.8pt solid #000; }
 .irow > div { border-top:none; }
 .ihead > div { background:#e8e8e8; font-size:8.5pt; text-align:center; }
 .irow > div { font-size:10pt; line-height:1.5; }
@@ -153,12 +153,12 @@ h2.bs { font-size:11pt; margin:0 0 6mm; font-weight:normal; }
 .aw3 { flex:0 0 62mm; }
 .aw4 { flex:1 1 0; min-width:0; }
 .secline { font-size:9.5pt; font-weight:bold; background:#d4d4d4;
-           border:0.5pt solid #000; border-top:none; padding:1.3mm 2mm; }
+           border:0.8pt solid #000; border-top:none; padding:1.3mm 2mm; }
 .kindline { font-size:10pt; font-weight:bold; margin:0 0 2.5mm;
             border-left:3pt solid #000; padding-left:2.5mm; }
 /* 図表編・本番形式編 */
 .figwrap { margin:0 0 3mm; text-align:center; }
-.figwrap img { display:block; margin:0 auto; border:0.5pt solid #000; }
+.figwrap img { display:block; margin:0 auto; border:0.8pt solid #000; }
 .figcap { font-size:8.5pt; margin:1mm 0 0; text-align:left; }
 .qb { margin:0 0 4mm; }
 .qb .qh { font-size:9pt; margin:0 0 1mm; }
@@ -166,7 +166,7 @@ h2.bs { font-size:11pt; margin:0 0 6mm; font-weight:normal; }
 .qb .ch { font-size:10pt; line-height:1.55; margin:0 0 0.6mm; padding-left:6mm;
           text-indent:-6mm; }
 .qb .mark { font-size:9pt; margin-top:1mm; }
-.qb .mark b { font-weight:normal; border:0.6pt solid #000; padding:0 4mm;
+.qb .mark b { font-weight:normal; border:0.8pt solid #000; padding:0 4mm;
               margin-left:2mm; }
 /* 読み物（分冊の冒頭に入れる解説） */
 .rtx { font-size:10.5pt; line-height:1.8; margin:0 0 3.5mm; text-align:justify; }
@@ -254,11 +254,14 @@ def i_arow(q):
 
 
 def fig_size(path, single, scale=1.0):
+    """★2026-09-05 変更。理由は build_zuhyo_pdf.fig_size と同じ。
+       資料が2つある組の高さの上限を 78mm → 120mm。
+       scale は min の中に入れる（外に掛けると紙からはみ出す）。"""
     t = io.open(os.path.join(ROOT, path.replace("/", os.sep)),
                 encoding="utf-8").read()
     vb = t.split('viewBox="')[1].split('"')[0].split()
     w, h = float(vb[2]), float(vb[3])
-    mw = min(CW, (150.0 if single else 78.0) * w / h) * scale
+    mw = min(CW, (150.0 if single else 120.0) * w / h * scale)
     return mw, mw * h / w
 
 
@@ -451,7 +454,8 @@ def reading_blocks(rid):
                            % (esc(it[1]),
                               "".join("<li>%s</li>" % rich(x) for x in it[2])))
             elif it[0] == "fig":
-                mw, mh = fig_size(it[1], True, 0.62)
+                # ★2026-09-05 0.62 では図の線が細くなりすぎるので 0.80 に
+                mw, mh = fig_size(it[1], True, 0.80)
                 out.append('<div class="figwrap"><img src="%s" '
                            'style="width:%.1fmm;height:%.1fmm"></div>'
                            % ("file:///" + os.path.join(
@@ -539,7 +543,8 @@ def build_book(c, book, qmap):
                 need = max([hs[j] for j in qidx]) if qidx else 0.0
                 if fig_h + need > SAFE_H:
                     figs = [f for (s2, f, _q) in sets if s2 == sid][0]
-                    sc = min(1.0, (SAFE_H - 6.0) / fig_h)
+                    # 資料だけのページなので紙面いっぱいまで大きくする
+                    sc = min(1.4, (SAFE_H - 18.0) / fig_h)
                     pages.append(fig_block(figs, sc))
                     note = ('<p class="figcap" style="margin:0 0 3mm">'
                             '※ 資料は前のページにあります。</p>')

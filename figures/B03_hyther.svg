@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 660" width="720" height="660" role="img" aria-label="架空の4地点サ〜セのハイサーグラフ"><defs>
  <pattern id="pDiag" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 8 L8 0" stroke="#000" stroke-width="1.97"/></pattern>
  <pattern id="pDiag2" width="8" height="8" patternUnits="userSpaceOnUse">
-  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.4"/></pattern>
+  <rect width="8" height="8" fill="#fff"/><path d="M0 0 L8 8" stroke="#000" stroke-width="1.97"/></pattern>
  <pattern id="pDot" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/><circle cx="2" cy="2" r="1.3" fill="#000"/>
   <circle cx="6" cy="6" r="1.3" fill="#000"/></pattern>
@@ -10,158 +10,158 @@
   <rect width="5" height="5" fill="#fff"/><circle cx="1.4" cy="1.4" r="0.9" fill="#000"/></pattern>
  <pattern id="pGrid" width="8" height="8" patternUnits="userSpaceOnUse">
   <rect width="8" height="8" fill="#fff"/>
-  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="0.9"/></pattern>
+  <path d="M0 4 H8 M4 0 V8" stroke="#000" stroke-width="1.27"/></pattern>
  <pattern id="pWave" width="10" height="8" patternUnits="userSpaceOnUse">
   <rect width="10" height="8" fill="#fff"/>
-  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="0.9" fill="none"/></pattern>
+  <path d="M0 5 q2.5 -3 5 0 t5 0" stroke="#000" stroke-width="1.27" fill="none"/></pattern>
 </defs><rect width="720" height="660" fill="#fff"/>
 <text x="20" y="26" font-size="16" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">架空の4地点サ〜セのハイサーグラフ</text>
-<rect x="20" y="44" width="330" height="280" fill="none" stroke="#000" stroke-width="1.2"/>
+<rect x="20" y="44" width="330" height="280" fill="none" stroke="#000" stroke-width="1.69"/>
 <text x="28" y="64" font-size="15" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地点サ</text>
-<path d="M72 78 L72 290" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M72 290 L324 290" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M72 290 L72 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 78 L72 290" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M72 290 L324 290" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M72 290 L72 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="72" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M150.75 290 L150.75 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M150.75 290 L150.75 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="150.75" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">100</text>
-<path d="M229.5 290 L229.5 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M229.5 290 L229.5 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="229.5" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">200</text>
-<path d="M308.25 290 L308.25 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M308.25 290 L308.25 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="308.25" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">300</text>
-<path d="M72 259.71 L324 259.71" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 259.71 L324 259.71" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="263.71" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">-20</text>
-<path d="M72 199.14 L324 199.14" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 199.14 L324 199.14" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="203.14" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M72 138.57 L324 138.57" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 138.57 L324 138.57" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="142.57" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">20</text>
-<path d="M72 78 L324 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 78 L324 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="82" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">40</text>
-<polyline points="79.88,271.83 78.3,265.77 79.88,247.6 81.45,217.31 87.75,190.06 103.5,165.83 115.31,153.71 111.38,162.8 99.56,184 87.75,211.26 83.03,241.54 79.88,262.74 79.88,271.83" fill="none" stroke="#000" stroke-width="1.6"/>
-<circle cx="79.88" cy="271.83" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<polyline points="79.88,271.83 78.3,265.77 79.88,247.6 81.45,217.31 87.75,190.06 103.5,165.83 115.31,153.71 111.38,162.8 99.56,184 87.75,211.26 83.03,241.54 79.88,262.74 79.88,271.83" fill="none" stroke="#000" stroke-width="2.25"/>
+<circle cx="79.88" cy="271.83" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="85.88" y="266.83" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1月</text>
-<circle cx="78.3" cy="265.77" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="79.88" cy="247.6" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="81.45" cy="217.31" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="87.75" cy="190.06" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="103.5" cy="165.83" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="115.31" cy="153.71" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="78.3" cy="265.77" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="79.88" cy="247.6" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="81.45" cy="217.31" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="87.75" cy="190.06" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="103.5" cy="165.83" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="115.31" cy="153.71" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="121.31" y="148.71" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">7月</text>
-<circle cx="111.38" cy="162.8" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="99.56" cy="184" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="87.75" cy="211.26" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="83.03" cy="241.54" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="79.88" cy="262.74" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="111.38" cy="162.8" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="99.56" cy="184" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="87.75" cy="211.26" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="83.03" cy="241.54" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="79.88" cy="262.74" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="198" y="318" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">降水量(mm)</text>
 <text x="28" y="84" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">気温(℃)</text>
-<rect x="370" y="44" width="330" height="280" fill="none" stroke="#000" stroke-width="1.2"/>
+<rect x="370" y="44" width="330" height="280" fill="none" stroke="#000" stroke-width="1.69"/>
 <text x="378" y="64" font-size="15" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地点シ</text>
-<path d="M422 78 L422 290" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M422 290 L674 290" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M422 290 L422 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 78 L422 290" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M422 290 L674 290" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M422 290 L422 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="422" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M500.75 290 L500.75 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M500.75 290 L500.75 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="500.75" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">100</text>
-<path d="M579.5 290 L579.5 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M579.5 290 L579.5 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="579.5" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">200</text>
-<path d="M658.25 290 L658.25 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M658.25 290 L658.25 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="658.25" y="304" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">300</text>
-<path d="M422 259.71 L674 259.71" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 259.71 L674 259.71" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="263.71" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">-20</text>
-<path d="M422 199.14 L674 199.14" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 199.14 L674 199.14" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="203.14" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M422 138.57 L674 138.57" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 138.57 L674 138.57" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="142.57" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">20</text>
-<path d="M422 78 L674 78" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 78 L674 78" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="82" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">40</text>
-<polyline points="453.5,132.51 457.44,132.51 469.25,138.57 488.94,150.69 508.62,162.8 516.5,171.89 508.62,171.89 496.81,165.83 477.12,156.74 465.31,147.66 457.44,141.6 453.5,135.54 453.5,132.51" fill="none" stroke="#000" stroke-width="1.6"/>
-<circle cx="453.5" cy="132.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<polyline points="453.5,132.51 457.44,132.51 469.25,138.57 488.94,150.69 508.62,162.8 516.5,171.89 508.62,171.89 496.81,165.83 477.12,156.74 465.31,147.66 457.44,141.6 453.5,135.54 453.5,132.51" fill="none" stroke="#000" stroke-width="2.25"/>
+<circle cx="453.5" cy="132.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="459.5" y="127.51" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1月</text>
-<circle cx="457.44" cy="132.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="469.25" cy="138.57" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="488.94" cy="150.69" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="508.62" cy="162.8" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="516.5" cy="171.89" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="508.62" cy="171.89" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="457.44" cy="132.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="469.25" cy="138.57" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="488.94" cy="150.69" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="508.62" cy="162.8" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="516.5" cy="171.89" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="508.62" cy="171.89" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="514.62" y="166.89" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">7月</text>
-<circle cx="496.81" cy="165.83" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="477.12" cy="156.74" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="465.31" cy="147.66" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="457.44" cy="141.6" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="453.5" cy="135.54" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="496.81" cy="165.83" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="477.12" cy="156.74" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="465.31" cy="147.66" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="457.44" cy="141.6" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="453.5" cy="135.54" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="548" y="318" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">降水量(mm)</text>
 <text x="378" y="84" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">気温(℃)</text>
-<rect x="20" y="348" width="330" height="280" fill="none" stroke="#000" stroke-width="1.2"/>
+<rect x="20" y="348" width="330" height="280" fill="none" stroke="#000" stroke-width="1.69"/>
 <text x="28" y="368" font-size="15" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地点ス</text>
-<path d="M72 382 L72 594" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M72 594 L324 594" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M72 594 L72 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 382 L72 594" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M72 594 L324 594" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M72 594 L72 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="72" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M150.75 594 L150.75 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M150.75 594 L150.75 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="150.75" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">100</text>
-<path d="M229.5 594 L229.5 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M229.5 594 L229.5 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="229.5" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">200</text>
-<path d="M308.25 594 L308.25 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M308.25 594 L308.25 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="308.25" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">300</text>
-<path d="M72 563.71 L324 563.71" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 563.71 L324 563.71" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="567.71" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">-20</text>
-<path d="M72 503.14 L324 503.14" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 503.14 L324 503.14" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="507.14" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M72 442.57 L324 442.57" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 442.57 L324 442.57" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="446.57" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">20</text>
-<path d="M72 382 L324 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M72 382 L324 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="66" y="386" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">40</text>
-<polyline points="78.3,454.69 81.45,451.66 91.69,445.6 107.44,433.49 174.38,424.4 276.75,418.34 308.25,418.34 284.62,418.34 221.62,421.37 119.25,430.46 81.45,442.57 76.72,451.66 78.3,454.69" fill="none" stroke="#000" stroke-width="1.6"/>
-<circle cx="78.3" cy="454.69" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<polyline points="78.3,454.69 81.45,451.66 91.69,445.6 107.44,433.49 174.38,424.4 276.75,418.34 308.25,418.34 284.62,418.34 221.62,421.37 119.25,430.46 81.45,442.57 76.72,451.66 78.3,454.69" fill="none" stroke="#000" stroke-width="2.25"/>
+<circle cx="78.3" cy="454.69" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="84.3" y="449.69" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1月</text>
-<circle cx="81.45" cy="451.66" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="91.69" cy="445.6" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="107.44" cy="433.49" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="174.38" cy="424.4" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="276.75" cy="418.34" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="308.25" cy="418.34" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="81.45" cy="451.66" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="91.69" cy="445.6" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="107.44" cy="433.49" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="174.38" cy="424.4" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="276.75" cy="418.34" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="308.25" cy="418.34" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="314.25" y="413.34" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">7月</text>
-<circle cx="284.62" cy="418.34" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="221.62" cy="421.37" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="119.25" cy="430.46" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="81.45" cy="442.57" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="76.72" cy="451.66" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="284.62" cy="418.34" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="221.62" cy="421.37" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="119.25" cy="430.46" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="81.45" cy="442.57" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="76.72" cy="451.66" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="198" y="622" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">降水量(mm)</text>
 <text x="28" y="388" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">気温(℃)</text>
-<rect x="370" y="348" width="330" height="280" fill="none" stroke="#000" stroke-width="1.2"/>
+<rect x="370" y="348" width="330" height="280" fill="none" stroke="#000" stroke-width="1.69"/>
 <text x="378" y="368" font-size="15" text-anchor="start" font-weight="bold" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">地点セ</text>
-<path d="M422 382 L422 594" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M422 594 L674 594" stroke="#000" stroke-width="1.1" fill="none"/>
-<path d="M422 594 L422 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 382 L422 594" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M422 594 L674 594" stroke="#000" stroke-width="1.55" fill="none"/>
+<path d="M422 594 L422 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="422" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M500.75 594 L500.75 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M500.75 594 L500.75 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="500.75" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">100</text>
-<path d="M579.5 594 L579.5 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M579.5 594 L579.5 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="579.5" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">200</text>
-<path d="M658.25 594 L658.25 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M658.25 594 L658.25 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="658.25" y="608" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">300</text>
-<path d="M422 563.71 L674 563.71" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 563.71 L674 563.71" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="567.71" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">-20</text>
-<path d="M422 503.14 L674 503.14" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 503.14 L674 503.14" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="507.14" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">0</text>
-<path d="M422 442.57 L674 442.57" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 442.57 L674 442.57" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="446.57" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">20</text>
-<path d="M422 382 L674 382" stroke="#000" stroke-width="0.4" fill="none" stroke-dasharray="3 3"/>
+<path d="M422 382 L674 382" stroke="#000" stroke-width="1.11" fill="none" stroke-dasharray="3 3"/>
 <text x="416" y="386" font-size="10" text-anchor="end" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">40</text>
-<polyline points="457.44,500.11 461.38,497.09 477.12,484.97 492.88,466.8 508.62,448.63 540.12,436.51 548,427.43 532.25,424.4 524.38,436.51 500.75,454.69 477.12,475.89 461.38,494.06 457.44,500.11" fill="none" stroke="#000" stroke-width="1.6"/>
-<circle cx="457.44" cy="500.11" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<polyline points="457.44,500.11 461.38,497.09 477.12,484.97 492.88,466.8 508.62,448.63 540.12,436.51 548,427.43 532.25,424.4 524.38,436.51 500.75,454.69 477.12,475.89 461.38,494.06 457.44,500.11" fill="none" stroke="#000" stroke-width="2.25"/>
+<circle cx="457.44" cy="500.11" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="463.44" y="495.11" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">1月</text>
-<circle cx="461.38" cy="497.09" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="477.12" cy="484.97" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="492.88" cy="466.8" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="508.62" cy="448.63" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="540.12" cy="436.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="548" cy="427.43" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="461.38" cy="497.09" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="477.12" cy="484.97" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="492.88" cy="466.8" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="508.62" cy="448.63" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="540.12" cy="436.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="548" cy="427.43" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="554" y="422.43" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">7月</text>
-<circle cx="532.25" cy="424.4" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="524.38" cy="436.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="500.75" cy="454.69" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="477.12" cy="475.89" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
-<circle cx="461.38" cy="494.06" r="2.4" fill="#fff" stroke="#000" stroke-width="1.2"/>
+<circle cx="532.25" cy="424.4" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="524.38" cy="436.51" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="500.75" cy="454.69" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="477.12" cy="475.89" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
+<circle cx="461.38" cy="494.06" r="2.4" fill="#fff" stroke="#000" stroke-width="1.69"/>
 <text x="548" y="622" font-size="10" text-anchor="middle" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">降水量(mm)</text>
 <text x="378" y="388" font-size="10" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">気温(℃)</text>
 <text x="20" y="648" font-size="11" text-anchor="start" font-weight="normal" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif" fill="#000">※ 訓練用に作成した架空の数値であり、実在の地点・国ではない。</text>

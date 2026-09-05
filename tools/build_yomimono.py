@@ -66,7 +66,7 @@ body { font-family:"Yu Gothic UI","Meiryo","Hiragino Sans","MS PGothic",sans-ser
          padding-bottom:1mm; }
 .pbody { height:%(BH)smm; overflow:hidden; padding-top:3mm; }
 .pfoot { position:absolute; bottom:0; left:0; right:0; height:%(FH)smm;
-         font-size:8.5pt; text-align:center; border-top:0.5pt solid #000;
+         font-size:8.5pt; text-align:center; border-top:0.8pt solid #000;
          padding-top:1mm; }
 h1.bt { font-size:17pt; margin:14mm 0 2mm; }
 h2.bs { font-size:11pt; margin:0 0 6mm; font-weight:normal; }
@@ -81,7 +81,7 @@ ul.li li { margin:0 0 1mm; }
 .box .bh { font-size:10.5pt; font-weight:bold; margin:0 0 1.5mm; }
 .box ul { font-size:10pt; line-height:1.7; margin:0; padding-left:5mm; }
 .figwrap { margin:1mm 0 4mm; text-align:center; }
-.figwrap img { display:block; margin:0 auto; border:0.5pt solid #000; }
+.figwrap img { display:block; margin:0 auto; border:0.8pt solid #000; }
 .notice { border:0.8pt solid #000; padding:3.5mm; font-size:8.5pt;
           line-height:1.6; margin-top:5mm; }
 .toc { font-size:10.5pt; line-height:1.9; margin:0 0 4mm; }
@@ -136,7 +136,8 @@ def fig_size(path):
                 encoding="utf-8").read()
     vb = t.split('viewBox="')[1].split('"')[0].split()
     w, h = float(vb[2]), float(vb[3])
-    mw = min(CW, 96.0 * w / h)
+    # ★2026-09-05 96mm では図の線が細くなりすぎるので 130mm まで許す
+    mw = min(CW, 130.0 * w / h)
     return mw, mw * h / w
 
 
