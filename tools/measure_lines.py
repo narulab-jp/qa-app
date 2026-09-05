@@ -23,8 +23,26 @@ PT2MM = 25.4 / 72.0
 LIMIT = 0.25
 
 
+def lum(c):
+    """色の明るさ（0=黒, 1=白）。"""
+    if not c:
+        return 0.0
+    try:
+        return 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
+    except Exception:
+        return 0.0
+
+
 def widths_of(path):
-    """(太さmm → 本数) と、細い線のあるページ番号を返す。"""
+    """(太さmm → 本数) と、細い線のあるページ番号を返す。
+
+      ★塗りつぶしてある図形（type "fs"）は、中が濃ければ縁の太さに
+        関係なく見える。箇条書きの●がこれにあたる。
+        縁の太さが問題になるのは
+          ・線だけの図形（type "s"）
+          ・塗りが薄い図形（白抜きの丸など）
+        の2つ。ここを分けないと、●を「細い線」と数えてしまう。
+    """
     doc = fitz.open(path)
     hist = collections.Counter()
     thin_pages = collections.Counter()
@@ -35,8 +53,11 @@ def widths_of(path):
         except Exception:
             continue
         for d in drs:
-            if d.get("type") not in ("s", "fs"):
+            t = d.get("type")
+            if t not in ("s", "fs"):
                 continue
+            if t == "fs" and lum(d.get("fill")) < 0.5:
+                continue                      # 中が濃いので縁は関係ない
             w = d.get("width")
             if w is None:
                 continue
