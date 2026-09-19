@@ -26,6 +26,13 @@
    "file": "data/kagaku-anki.json",
    "unitLabel": "分野",
    "enabled": true
+  },
+  {
+   "id": "butsuri-anki",
+   "name": "物理 暗記集（共通テスト＋東大）",
+   "file": "data/butsuri-anki.json",
+   "unitLabel": "分野",
+   "enabled": true
   }
  ]
 }
