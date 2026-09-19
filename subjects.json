@@ -19,6 +19,13 @@
    "file": "data/chiri-honban.json",
    "unitLabel": "冊",
    "enabled": true
+  },
+  {
+   "id": "kagaku-anki",
+   "name": "化学 暗記集（共通テスト＋東大）",
+   "file": "data/kagaku-anki.json",
+   "unitLabel": "分野",
+   "enabled": true
   }
  ]
 }
