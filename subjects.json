@@ -33,6 +33,13 @@
    "file": "data/butsuri-anki.json",
    "unitLabel": "分野",
    "enabled": true
+  },
+  {
+   "id": "sugaku-kakuritsu-dougu",
+   "name": "数学 確率 道具チェック（第5回 場合の数・確率）",
+   "file": "data/sugaku-kakuritsu-dougu.json",
+   "unitLabel": "単元",
+   "enabled": true
   }
  ]
 }

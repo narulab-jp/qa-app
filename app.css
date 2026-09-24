@@ -497,3 +497,9 @@ details.sect > *:last-child{margin-bottom:24px;}
                    font-size:.92rem; font-weight:700; }
 #updBar .upd-x { flex:0 0 auto; min-width:44px; min-height:44px; border:0;
                  background:transparent; color:#fff; font-size:1.1rem; }
+
+/* ---------------- 数式（KaTeX）---------------- */
+/* 数式を含む科目だけに効く。長い式は横にスクロールさせ、画面からはみ出させない */
+.katex{font-size:1.05em;}
+.katex-display{margin:.4em 0;overflow-x:auto;overflow-y:hidden;padding:2px 0;}
+.qtext .katex-display, .ans-correct .katex-display, .ans-exp .katex-display{max-width:100%;}

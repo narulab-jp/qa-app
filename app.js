@@ -46,6 +46,16 @@ function show(id){
 function esc(s){
   return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
+/* 数式などを含む科目は、データに HTML 版（qHtml / aHtml / expHtml）を持たせている。
+   HTML 版があればそれを、無ければこれまでどおり文字として出す（既存の科目は表示が変わらない）。 */
+function setRich(el, q, f){
+  var h = q && q[f + "Html"];
+  if(typeof h === "string") el.innerHTML = h; else el.textContent = q[f];
+}
+function richHtml(q, f){
+  var h = q && q[f + "Html"];
+  return (typeof h === "string") ? h : esc(q[f]);
+}
 function label(){ return (SUBJECT && SUBJECT.unitLabel) || "単元"; }
 function nowIso(){
   var d = new Date(), z = -d.getTimezoneOffset();
@@ -878,7 +888,7 @@ function nextQuestion(){
     (current.section ? (" 節" + current.section) : "");
   $("mLevel").textContent = levelLabel(current);
   $("mType").textContent = current.type;
-  $("qText").textContent = current.q;
+  setRich($("qText"), current, "q");
   $("selfNote").hidden = !isSelfCheck(current);
   renderFigures(current);
   if(isChoice()){
@@ -1070,8 +1080,8 @@ function submitAnswer(text){
   currentUser = text || "";
   var self = isSelfCheck(current);
   $("jUser").textContent = currentUser ? currentUser : "（未回答）";
-  $("jAns").textContent = current.a;
-  $("jExp").textContent = current.exp;
+  setRich($("jAns"), current, "a");
+  setRich($("jExp"), current, "exp");
   $("jAnsLbl").textContent = self ? "模範解答" : "正解";
   $("jLevel").textContent = levelLabel(current);   /* 答え合わせでは出す */
   $("jType").textContent = current.type;
@@ -1096,8 +1106,8 @@ function submitChoice(i){
   if(answered) return;
   currentUser = MARK[i] + " " + current.choices[i];
   $("jUser").textContent = currentUser;
-  $("jAns").textContent = current.a;
-  $("jExp").textContent = current.exp;
+  setRich($("jAns"), current, "a");
+  setRich($("jExp"), current, "exp");
   $("jAnsLbl").textContent = "正解";
   $("jLevel").textContent = levelLabel(current);
   $("jType").textContent = current.type;
@@ -1232,9 +1242,9 @@ function showResult(completed, quitted){
     wrong.forEach(function(r){
       w += '<div class="wrong"><div class="small">' +
            esc(r.item.unit.id + " " + r.item.unit.name) + '</div><div class="q">' +
-           esc(r.item.q.q) + '</div><div class="small">あなたの解答：' +
-           esc(r.user || "（未回答）") + '</div><div>正解：' + esc(r.item.q.a) +
-           '</div><div class="small">解説：' + esc(r.item.q.exp) + "</div></div>";
+           richHtml(r.item.q, "q") + '</div><div class="small">あなたの解答：' +
+           esc(r.user || "（未回答）") + '</div><div>正解：' + richHtml(r.item.q, "a") +
+           '</div><div class="small">解説：' + richHtml(r.item.q, "exp") + "</div></div>";
     });
     box.innerHTML = w;
   }
@@ -1253,9 +1263,9 @@ function renderNoteView(){
          x.entry.wrongCount + '回</span>' +
          esc(x.item.unit.id + " " + x.item.unit.name + "-" + x.item.q.no) +
          "　連続正解 " + x.entry.correctStreak + "</div>" +
-         '<div class="q">' + esc(x.item.q.q) + "</div>" +
-         "<div>正解：" + esc(x.item.q.a) + "</div>" +
-         '<div class="small">解説：' + esc(x.item.q.exp) + "</div></div>";
+         '<div class="q">' + richHtml(x.item.q, "q") + "</div>" +
+         "<div>正解：" + richHtml(x.item.q, "a") + "</div>" +
+         '<div class="small">解説：' + richHtml(x.item.q, "exp") + "</div></div>";
   });
   $("noteList").innerHTML = h;
   show("s-note");
@@ -1272,9 +1282,9 @@ function renderPrint(){
     h += '<div class="pq"><div class="hd"><span class="badge">' + x.entry.wrongCount +
          '回</span>' + esc(x.item.unit.id + " " + x.item.unit.name + "-" + x.item.q.no) +
          "</div>" +
-         '<div class="q">' + esc(x.item.q.q) + "</div>" +
-         '<div class="a">正解：' + esc(x.item.q.a) + "</div>" +
-         '<div class="e">解説：' + esc(x.item.q.exp) + "</div>" +
+         '<div class="q">' + richHtml(x.item.q, "q") + "</div>" +
+         '<div class="a">正解：' + richHtml(x.item.q, "a") + "</div>" +
+         '<div class="e">解説：' + richHtml(x.item.q, "exp") + "</div>" +
          '<div class="chk">□□□</div></div>';
   });
   if(!list.length) h = "<p>間違いノートは空です。</p>";
