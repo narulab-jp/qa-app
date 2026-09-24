@@ -40,6 +40,20 @@
    "file": "data/sugaku-kakuritsu-dougu.json",
    "unitLabel": "単元",
    "enabled": true
+  },
+  {
+   "id": "sugaku-bibun-dougu",
+   "name": "数学 微分 道具チェック（第9回 微分）",
+   "file": "data/sugaku-bibun-dougu.json",
+   "unitLabel": "単元",
+   "enabled": true
+  },
+  {
+   "id": "sugaku-sekibun-dougu",
+   "name": "数学 積分・微積融合 道具チェック（第10回 積分・微積融合）",
+   "file": "data/sugaku-sekibun-dougu.json",
+   "unitLabel": "単元",
+   "enabled": true
   }
  ]
 }
